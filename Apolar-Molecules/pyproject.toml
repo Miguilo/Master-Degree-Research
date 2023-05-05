@@ -20,6 +20,7 @@ scikit-optimize = "^0.9.0"
 jupyter-contrib-nbextensions = "^0.7.0"
 pandas = "^2.0.1"
 ipykernel = "^6.22.0"
+plotly-express = "0.4.0"
 
 
 [tool.poetry.dev-dependencies]
