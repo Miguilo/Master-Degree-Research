@@ -1,0 +1,99 @@
+First five data points
+  Molecule Formula    Ei  Alpha  ...     ayy     azz     AlphaB  pi_bond
+0   Butane   C4H10  10.6    8.1  ...   7.677   7.245   8.076667        0
+1  Pentane   C5H12  10.4   10.0  ...   9.393   8.743   9.953667        0
+2   Hexane   C6H14  10.2   11.8  ...  10.994  10.232  11.850333        0
+3  Heptane   C7H16   9.9   13.7  ...  12.658  11.715  13.761000        0
+4   Octane   C8H18  10.0   15.5  ...  14.255  13.193  15.681000        0
+
+[5 rows x 10 columns]
+
+
+Random five data points
+               Molecule Formula    Ei  ...     azz     AlphaB  pi_bond
+9          Cyclopropane    C3H6   9.9  ...   5.035   5.511667        0
+17  Tetrachloroethylene   C2Cl4   9.3  ...   7.814  12.283000        1
+6              Dodecane  C12H26   9.9  ...     NaN        NaN        0
+2                Hexane   C6H14  10.2  ...  10.232  11.850333        0
+10          Cyclohexane   C6H12   9.9  ...   9.778  10.786000        0
+
+[5 rows x 10 columns]
+
+
+Last five data points
+                      Molecule  Formula    Ei  ...    azz     AlphaB  pi_bond
+15                 TetraDecane   C14H30   9.9  ...    NaN        NaN        0
+16                     Propane     C3H8  11.1  ...  5.726   6.211333        0
+17         Tetrachloroethylene    C2Cl4   9.3  ...  7.814  12.283000        1
+18  1-2-trans-Dichloroethylene  C2H2Cl2   9.6  ...  5.563   8.273000        1
+19             Carbondisulfide      CS2  10.1  ...  5.234   8.123333        2
+
+[5 rows x 10 columns]
+
+
+Shape of  data set: (20, 10)
+
+
+Size of  data set: 200
+
+
+Data Types
+Note: All Non-numerical features are identified as objects in pandas
+         Data Type
+Molecule    object
+Formula     object
+Ei         float64
+Alpha      float64
+Expt         int64
+axx        float64
+ayy        float64
+azz        float64
+AlphaB     float64
+pi_bond      int64
+
+
+Numerical Features in Data set
+['Ei', 'Alpha', 'Expt', 'axx', 'ayy', 'azz', 'AlphaB', 'pi_bond']
+
+
+Categorical Features in Data set
+['Molecule', 'Formula']
+
+
+Statistical Description of Columns
+              Ei      Alpha        Expt  ...        azz     AlphaB    pi_bond
+count  20.000000  20.000000   20.000000  ...  17.000000  17.000000  20.000000
+mean    9.915000  12.932500  109.200000  ...   8.183176  10.476922   0.750000
+std     0.602866   6.935953   94.098269  ...   3.002566   3.907074   1.332785
+min     8.200000   4.200000   10.000000  ...   3.346000   4.180333   0.000000
+25%     9.825000   8.187500   51.500000  ...   5.726000   8.123333   0.000000
+50%     9.900000  11.100000   78.500000  ...   7.814000   9.953667   0.000000
+75%    10.225000  15.775000  146.250000  ...   9.826000  12.283000   1.000000
+max    11.100000  30.300000  310.000000  ...  14.012000  18.079333   5.000000
+
+[8 rows x 8 columns]
+
+
+Description of Categorical Features
+         count unique     top freq
+Molecule    20     20  Butane    1
+Formula     20     19   C5H12    2
+
+
+Unique class Count of Categorical features
+<pandas.io.formats.style.Styler object at 0x14adf3cdf460>
+
+
+Missing Values in Data
+   features  missing_counts  missing_percent
+0  Molecule               0              0.0
+1   Formula               0              0.0
+2        Ei               0              0.0
+3     Alpha               0              0.0
+4      Expt               0              0.0
+5       axx               3             15.0
+6       ayy               3             15.0
+7       azz               3             15.0
+8    AlphaB               3             15.0
+9   pi_bond               0              0.0
+oi
