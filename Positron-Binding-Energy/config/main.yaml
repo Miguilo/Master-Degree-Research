@@ -3,15 +3,28 @@ defaults:
   - model: model1
   - _self_
 
-raw: 
-  path: ${hydra:runtime.cwd}/data/raw/sample.csv
+apolar:
+  raw: ../data/raw/expd_apolar_molecules.CSV
 
-processed:
-  dir: data/processed
-  name: processed.csv
-  path: ${processed.dir}/${processed.name}
+  processed:
+    dir: ../data/processed
+    name: processed_apolar.csv
+    path: ${apolar.processed.dir}/${apolar.processed.name}
 
-final:
-  dir: data/final
-  name: final.csv
-  path: ${final.dir}/${final.name}
+  final:
+    dir: ../data/final
+    name: final_apolar.csv
+    path: ${apolar.final.dir}/${apolar.final.name}
+
+polar:
+  raw: ../data/raw/polar_molecules.CSV
+
+  processed:
+    dir: ../data/processed
+    name: processed_polar.csv
+    path: ${polar.processed.dir}/${polar.processed.name}
+
+  final:
+    dir: ../data/final
+    name: final_polar.csv
+    path: ${polar.final.dir}/${polar.final.name}

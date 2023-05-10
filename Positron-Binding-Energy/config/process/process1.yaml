@@ -1,3 +1,11 @@
-use_columns: 
-  - col1
-  - col2
+to_drop: 
+  apolar:
+    - AlphaB
+    - Molecule Type
+    - N of Carbon
+    - DYS
+    - SG
+    - PauloPred
+  polar:
+    - Molecule Type
+    - AlphaB
