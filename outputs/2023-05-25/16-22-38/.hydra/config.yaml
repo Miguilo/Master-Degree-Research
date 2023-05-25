@@ -1,0 +1,34 @@
+process:
+  to_drop:
+    apolar:
+    - AlphaB
+    - Molecule Type
+    - N of Carbon
+    - DYS
+    - SG
+    - PauloPred
+    polar:
+    - Molecule Type
+    - AlphaB
+model:
+  name: model1
+apolar:
+  raw: Positron-Binding-Energy/data/raw/expd_apolar_molecules.CSV
+  processed:
+    dir: Positron-Binding-Energy/data/processed
+    name: processed_apolar.csv
+    path: ${apolar.processed.dir}/${apolar.processed.name}
+  final:
+    dir: Positron-Binding-Energy/data/final
+    name: final_apolar.csv
+    path: ${apolar.final.dir}/${apolar.final.name}
+polar:
+  raw: Positron-Binding-Energy/data/raw/polar_molecules.CSV
+  processed:
+    dir: Positron-Binding-Energy/data/processed
+    name: processed_polar.csv
+    path: ${polar.processed.dir}/${polar.processed.name}
+  final:
+    dir: Positron-Binding-Energy/data/final
+    name: final_polar.csv
+    path: ${polar.final.dir}/${polar.final.name}
