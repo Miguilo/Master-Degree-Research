@@ -3,28 +3,30 @@ Script to get the final optimized models
 from all apolar molecules and partial apolar molecules.
 """
 
-import os
-
 import hydra
 import pandas as pd
 from modifying_data import get_absolute_path
 from omegaconf import DictConfig
 
 
-@hydra.main(config_path="../config", config_name="main.yaml")
-def get_full_data(cfg: DictConfig):
+def get_full_data(path: str):
     """Function to get all the molecules
     for Apolar Molecules
     """
-    cwd = os.getcwd()
-    print(cwd)
-    abs_path = get_absolute_path(cfg.apolar.processed.path)
-    print(abs_path)
-    df_full = pd.read_csv(abs_path)
-    print(df_full.head())
-
-    return df_full
+    abs_path = get_absolute_path(path)
+    df = pd.read_csv(abs_path)
+    return df
 
 
-df = get_full_data()
-print(df)
+@hydra.main(config_path="../config", config_name="main.yaml")
+def main(cfg: DictConfig):
+    """
+    Main function to be initialized in this script
+    """
+    # df = get_full_data(cfg.apolar.processed.path)
+    test_path = get_absolute_path("../models")
+    print(test_path)
+
+
+if __name__ == "__main__":
+    main()

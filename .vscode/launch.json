@@ -11,8 +11,10 @@
             "type": "python",
             "request": "launch",
             "program": "${file}",
+            "args": ["hydra.job.chdir=False"], 
             "console": "integratedTerminal",
             "justMyCode": true,
+            "cwd": "${workspaceFolder}/Positron-Binding-Energy/src"
         }
     ]
 }

@@ -1,30 +1,5 @@
 defaults:
-  - process: process1
-  - model: model1
+  - optimizing: opt1
+  - process: process
+  - data: data_paths
   - _self_
-
-apolar:
-  raw: ../data/raw/expd_apolar_molecules.CSV
-
-  processed:
-    dir: ../data/processed
-    name: processed_apolar.csv
-    path: ${apolar.processed.dir}/${apolar.processed.name}
-
-  final:
-    dir: ../data/final
-    name: final_apolar.csv
-    path: ${apolar.final.dir}/${apolar.final.name}
-
-polar:
-  raw: ../data/raw/polar_molecules.CSV
-
-  processed:
-    dir: ../data/processed
-    name: processed_polar.csv
-    path: ${polar.processed.dir}/${polar.processed.name}
-
-  final:
-    dir: ../data/final
-    name: final_polar.csv
-    path: ${polar.final.dir}/${polar.final.name}
