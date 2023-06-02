@@ -9,10 +9,8 @@ from modifying_data import get_absolute_path
 from omegaconf import DictConfig
 
 
-def get_full_data(path: str):
-    """Function to get all the molecules
-    for Apolar Molecules
-    """
+def get_data(path: str):
+
     abs_path = get_absolute_path(path)
     df = pd.read_csv(abs_path)
     return df
@@ -20,12 +18,10 @@ def get_full_data(path: str):
 
 @hydra.main(config_path="../config", config_name="main.yaml")
 def main(cfg: DictConfig):
-    """
-    Main function to be initialized in this script
-    """
-    # df = get_full_data(cfg.apolar.processed.path)
-    test_path = get_absolute_path("../models")
-    print(test_path)
+    # df_all_apolar = get_data(cfg.data.apolar.processed.path)
+    df_partial_apolar = get_data(cfg.data.apolar.final.path)
+
+    print(df_partial_apolar.head())
 
 
 if __name__ == "__main__":

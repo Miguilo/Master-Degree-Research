@@ -1,0 +1,8 @@
+apolar:  
+  dir : ../models/apolar
+
+polar:
+  dir: ../models/polar
+
+polar_apolar:
+  dir: ../models/polar_apolar

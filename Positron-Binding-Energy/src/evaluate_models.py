@@ -19,13 +19,11 @@ def display_scores(scores):
 
 
 def get_cross_validation_scores(estimator, X, y, cv):
-    """
-    Algorithm to get the cv scores (train and test)
-    """
+
     scoring = [
         "neg_root_mean_squared_error",
         "neg_mean_absolute_percentage_error",
-    ]  # Métricas de avaliação desejadas
+    ]
     cv_results = cross_validate(
         estimator, X, y, cv=cv, scoring=scoring, return_train_score=True
     )
