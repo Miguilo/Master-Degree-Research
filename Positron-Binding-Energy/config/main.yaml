@@ -1,6 +1,6 @@
 defaults:
-  - optimizing: opt
-  - process: process
+  - optimizing: opt_params
+  - process: process_data
   - data: data_paths
   - models: models_path
   - _self_
