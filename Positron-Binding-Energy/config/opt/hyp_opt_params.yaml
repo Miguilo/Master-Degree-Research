@@ -1,11 +1,18 @@
 defaults:
-  - poly : space
-  - svr : space
-  - xgb : space
-  - nn : space
+  - poly : space_poly
+  - svr : space_svr
+  - xgb : space_xgb
+  - nn : space_nn
   - _self_
 
-scaling:
-  x_name: "regressor_scale"
-  y_name: "transformer"
+
+scaling_regressor:
+  name: "regressor_scale"
   categories: [StandardScaler(),MinMaxScaler(),RobustScaler()]
+  type: 'scalers'
+
+
+scaling_transformer:
+  name: "transformer"
+  categories: [StandardScaler(),MinMaxScaler(),RobustScaler()]
+  type: 'scalers'

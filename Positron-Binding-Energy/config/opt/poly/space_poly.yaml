@@ -6,19 +6,25 @@ alpha:
   low: 0.00001
   high: 100
   prior: 'log-uniform'
+  type: 'real'
 fit_intercept:
   name : "${opt.poly.regressor_caller}fit_intercept"
   categories : [True, False]
+  type: 'categorical'
 copy_X:
   name : "${opt.poly.regressor_caller}copy_X"
   categories : [True, False]
+  type: 'categorical'
 degree:
   name: "${opt.poly.polynomial_caller}degree"
   low: 2
   high: 10
+  type: 'integer'
 interaction_only:
   name: "${opt.poly.polynomial_caller}interaction_only"
   categories : [True, False]
+  type: 'categorical'
 include_bias:
   name: "${opt.poly.polynomial_caller}include_bias"
   categories: [True, False]
+  type: 'categorical'
