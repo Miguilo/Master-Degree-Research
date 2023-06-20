@@ -1,5 +1,5 @@
 defaults:
-  - optimizing: opt_params
+  - opt: hyp_opt_params
   - process: process_data
   - data: data_paths
   - models: models_path

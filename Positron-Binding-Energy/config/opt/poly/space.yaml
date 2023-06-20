@@ -1,0 +1,24 @@
+regressor_caller : "regressor__reg__"
+polynomial_caller : "regressor__poli__"
+
+alpha:
+  name: "${opt.poly.regressor_caller}alpha"
+  low: 0.00001
+  high: 100
+  prior: 'log-uniform'
+fit_intercept:
+  name : "${opt.poly.regressor_caller}fit_intercept"
+  categories : [True, False]
+copy_X:
+  name : "${opt.poly.regressor_caller}copy_X"
+  categories : [True, False]
+degree:
+  name: "${opt.poly.polynomial_caller}degree"
+  low: 2
+  high: 10
+interaction_only:
+  name: "${opt.poly.polynomial_caller}interaction_only"
+  categories : [True, False]
+include_bias:
+  name: "${opt.poly.polynomial_caller}include_bias"
+  categories: [True, False]
