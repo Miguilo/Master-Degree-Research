@@ -1,6 +1,3 @@
-"""
-This file contain functions to evaluate models or metrics to be used.
-"""
 import numpy as np
 from sklearn.model_selection import cross_validate
 

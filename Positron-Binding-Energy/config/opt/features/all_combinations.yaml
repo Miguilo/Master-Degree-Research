@@ -1,0 +1,6 @@
+all:
+  apolar: 
+    feat1 : ['Ei', 'Alpha', 'pi_bond']
+    feat2 : ['Ei', 'Alpha']
+    feat3 : ['Ei', 'pi_bond']
+    feat4 : ['Alpha', 'pi_bond']

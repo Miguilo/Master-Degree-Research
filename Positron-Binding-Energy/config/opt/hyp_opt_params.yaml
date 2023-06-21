@@ -3,11 +3,12 @@ defaults:
   - svr : space_svr
   - xgb : space_xgb
   - nn : space_nn
+  - features: all_combinations
   - _self_
 
 
 scaling_regressor:
-  name: "regressor_scale"
+  name: "regressor__scale"
   categories: [StandardScaler(),MinMaxScaler(),RobustScaler()]
   type: 'scalers'
 
@@ -16,3 +17,5 @@ scaling_transformer:
   name: "transformer"
   categories: [StandardScaler(),MinMaxScaler(),RobustScaler()]
   type: 'scalers'
+
+

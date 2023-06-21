@@ -3,51 +3,26 @@ Script to get the final optimized models
 from all apolar molecules and partial apolar molecules.
 """
 
+import warnings
+
 import hydra
-import numpy as np
 import pandas as pd
-from modifying_data import get_absolute_path
 from omegaconf import DictConfig
-from sklearn.preprocessing import MinMaxScaler, RobustScaler, StandardScaler
-from skopt.space.space import Categorical, Integer, Real
+from sklearn.compose import TransformedTargetRegressor
+from sklearn.linear_model import Ridge
+from sklearn.model_selection import KFold
+from sklearn.neural_network import MLPRegressor
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import (
+    MinMaxScaler,
+    PolynomialFeatures,
+    StandardScaler,
+)
+from sklearn.svm import SVR
+from xgboost import XGBRegressor
 
-
-def get_data(path: str):
-    abs_path = get_absolute_path(path)
-    df = pd.read_csv(abs_path)
-    return df
-
-
-def convert_to_space(caller, parameter):
-    """
-    caller: Should have an form of cfg.opt.estimator
-    parameter: Key of the hyperparameter in the way it's write
-    in .yaml file.
-    """
-    param_info = caller[parameter]
-    name = param_info["name"]
-    type = param_info["type"]
-
-    if "low" in param_info:
-        low = param_info["low"]
-        high = param_info["high"]
-
-        if type == "real":
-            if "prior" in param_info:
-                return Real(low, high, prior=param_info["prior"], name=name)
-            else:
-                return Real(low, high, name=name)
-
-        else:
-            return Integer(low, high, name=name)
-
-    elif type == "scalers":
-        return Categorical(
-            [eval(i) for i in param_info["categories"]], name=name
-        )
-
-    else:
-        return Categorical(param_info["categories"], name=name)
+from utils.data import get_absolute_path
+from utils.optimization import convert_to_space, opt_all
 
 
 @hydra.main(config_path="../config", config_name="main.yaml")
@@ -104,6 +79,80 @@ def main(cfg: DictConfig):
         convert_to_space(call_xgb, "reg_alpha"),
         convert_to_space(call_xgb, "reg_lambda"),
     ]
+
+    pipe_elastic = Pipeline(
+        [
+            ("poli", PolynomialFeatures()),
+            ("scale", MinMaxScaler()),
+            ("reg", Ridge(max_iter=30000)),
+        ]
+    )
+    ridge = TransformedTargetRegressor(
+        regressor=pipe_elastic, transformer=StandardScaler()
+    )
+
+    pipe_svr = Pipeline(
+        [("scale", StandardScaler()), ("reg", SVR(max_iter=10000))]
+    )
+    svr = TransformedTargetRegressor(
+        transformer=StandardScaler(), regressor=pipe_svr
+    )
+
+    xgb = XGBRegressor(random_state=0)
+
+    pipe = Pipeline(
+        [
+            ("scale", MinMaxScaler()),
+            (
+                "reg",
+                MLPRegressor(max_iter=5000, random_state=0, solver="adam"),
+            ),
+        ]
+    )
+    nn = TransformedTargetRegressor(
+        regressor=pipe, transformer=StandardScaler()
+    )
+
+    # For all apolar molecules
+
+    df_apolar_all = pd.read_csv(
+        get_absolute_path(cfg.data.apolar.processed.path)
+    )
+
+    x0_all = df_apolar_all[cfg.opt.features.all.apolar.feat1]
+    x1_all = df_apolar_all[cfg.opt.features.all.apolar.feat2]
+    x2_all = df_apolar_all[cfg.opt.features.all.apolar.feat3]
+    x3_all = df_apolar_all[cfg.opt.features.all.apolar.feat4]
+
+    y_all = df_apolar_all[["Expt"]].values
+
+    list_of_x = [x0_all, x1_all, x2_all, x3_all]
+    list_of_models = [ridge, svr, xgb, nn]
+    list_of_spaces = [space_poly, space_svr, space_xgb, space_nn]
+    list_of_models_names = ["poly", "svr", "xgb", "nn"]
+    list_of_features = ["All", "Ei + Alpha", " Pi + Alpha", "Pi + Ei"]
+    list_of_paths = [
+        get_absolute_path(cfg.models.apolar["all"]),
+        get_absolute_path(cfg.models.apolar["ei_alpha"]),
+        get_absolute_path(cfg.models.apolar["pi_alpha"]),
+        get_absolute_path(cfg.models.apolar["pi_ei"]),
+    ]
+
+    kf = KFold(n_splits=10, shuffle=True, random_state=0)
+
+    warnings.filterwarnings("ignore")
+    for i, j in enumerate(list_of_x):
+        print(f"=== {list_of_features[i]} Features ===")
+        opt_all(
+            list_of_models,
+            list_of_models_names,
+            list_of_spaces,
+            j,
+            y_all,
+            cv=kf,
+            path=f"{list_of_paths[i]}/all_molecules_models.sav",
+            verbose=1,
+        )
 
 
 if __name__ == "__main__":

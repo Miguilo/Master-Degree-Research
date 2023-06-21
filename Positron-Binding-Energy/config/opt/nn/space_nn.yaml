@@ -1,11 +1,11 @@
 regressor_caller : "regressor__reg__"
 
 activation:
-  name : "{$opt.svr.regressor_caller}activation"
+  name : "${opt.svr.regressor_caller}activation"
   categories: ['tanh', 'relu', 'logistic']
   type: 'categorical'
 learning_rate_init:
-  name: "{$opt.svr.regressor_caller}learning_rate_init"
+  name: "${opt.svr.regressor_caller}learning_rate_init"
   low: 1e-6
   high: 1e-3
   prior: 'log-uniform'
@@ -21,17 +21,17 @@ n_neurons_per_layer:
   high : 10
   type: 'integer'
 beta_1:
-  name : "{$opt.svr.regressor_caller}beta_1"
+  name : "${opt.svr.regressor_caller}beta_1"
   low: 0.5
   high: 0.9
   type: 'real'
 beta_2:
-  name: "{$opt.svr.regressor_caller}beta_2"
+  name: "${opt.svr.regressor_caller}beta_2"
   low: 0.5
   high: 0.9
   type: 'real'
 epsilon:
-  name: "{$opt.svr.regressor_caller}epsilon"
+  name: "${opt.svr.regressor_caller}epsilon"
   low: 1e-7
   high: 1e-5
   type: 'real'

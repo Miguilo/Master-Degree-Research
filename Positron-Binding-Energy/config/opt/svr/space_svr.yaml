@@ -1,30 +1,30 @@
 regressor_caller : "regressor__reg__"
 
 kernel:
-  name: "{$opt.svr.regressor_caller}kernel"
+  name: "${opt.svr.regressor_caller}kernel"
   categories: ['rbf','sigmoid','poly']
   type : "categorical"
 gamma:
-  name: "{$opt.svr.regressor_caller}gamma"
+  name: "${opt.svr.regressor_caller}gamma"
   categories: ['scale', 'auto']
   type: "categorical"
 degree:
-  name: "{$opt.svr.regressor_caller}degree"
+  name: "${opt.svr.regressor_caller}degree"
   low: 1
   high: 10
   type: "integer"
 coef0:
-  name: "{$opt.svr.regressor_caller}coef0"
+  name: "${opt.svr.regressor_caller}coef0"
   low: 0
   high: 10
   type: "real"
 C:
-  name: "{$opt.svr.regressor_caller}C"
+  name: "${opt.svr.regressor_caller}C"
   low: 0.1
   high: 5
   type: "real"
 epsilon:
-  name: "{$opt.svr.regressor_caller}epsilon"
+  name: "${opt.svr.regressor_caller}epsilon"
   low: 0.01
   high: 5
   type: "real"

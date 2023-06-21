@@ -1,20 +1,23 @@
 apolar:  
   dir : ../models/apolar
+  all: ${models.apolar.dir}/all
   ei_alpha : ${models.apolar.dir}/ei_alpha
   pi_alpha: ${models.apolar.dir}/pi_alpha
   pi_ei: ${models.apolar.dir}/pi_ei
-  all: ${models.apolar.dir}/all
+  
 
 polar:
   dir: ../models/polar
+  all: ${models.polar.dir}/all
   ei_alpha : ${models.polar.dir}/ei_alpha
   pi_alpha: ${models.polar.dir}/pi_alpha
   pi_ei: ${models.polar.dir}/pi_ei
-  all: ${models.polar.dir}/all
+  
 
 polar_apolar:
   dir: ../models/polar_apolar
+  all: ${models.polar_apolar.dir}/all
   ei_alpha : ${models.polar_apolar.dir}/ei_alpha
   pi_alpha: ${models.polar_apolar.dir}/pi_alpha
   pi_ei: ${models.polar_apolar.dir}/pi_ei
-  all: ${models.polar_apolar.dir}/all
+  
