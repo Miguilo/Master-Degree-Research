@@ -13,16 +13,12 @@ from sklearn.linear_model import Ridge
 from sklearn.model_selection import KFold
 from sklearn.neural_network import MLPRegressor
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import (
-    MinMaxScaler,
-    PolynomialFeatures,
-    StandardScaler,
-)
+from sklearn.preprocessing import (MinMaxScaler, PolynomialFeatures,
+                                   StandardScaler)
 from sklearn.svm import SVR
-from xgboost import XGBRegressor
-
 from utils.data import get_absolute_path
 from utils.optimization import convert_to_space, opt_all
+from xgboost import XGBRegressor
 
 
 @hydra.main(config_path="../config", config_name="main.yaml")

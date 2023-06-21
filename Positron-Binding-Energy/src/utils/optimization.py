@@ -4,10 +4,10 @@ import warnings
 import numpy as np
 from sklearn.ensemble import VotingRegressor
 from sklearn.model_selection import cross_val_score
+from sklearn.preprocessing import MinMaxScaler, RobustScaler, StandardScaler
 from skopt import gp_minimize
 from skopt.space.space import Categorical, Integer, Real
 from skopt.utils import use_named_args
-from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
 
 
 def convert_to_space(caller, parameter):
