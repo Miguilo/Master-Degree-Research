@@ -1,5 +1,5 @@
+import copy
 import pickle
-import warnings
 
 import numpy as np
 from sklearn.ensemble import VotingRegressor
@@ -70,6 +70,8 @@ def att_model(estimator, space, values, neural=False):
 
     estimator.set_params(**params)
 
+    return estimator
+
 
 def gp_optimize(
     estim,
@@ -77,8 +79,8 @@ def gp_optimize(
     y,
     space,
     cv,
-    n_calls=15,
-    n_random_starts=10,
+    n_calls=150,
+    n_random_starts=100,
     neural=False,
     scoring="neg_mean_absolute_percentage_error",
     n_jobs_cv=8,
@@ -137,25 +139,28 @@ def opt_all(
     verbose=0,
 ):
     list_of_models = []
-    counting_j = 0
     for j, k in enumerate(estimator_list):
         neural = False
         if verbose != 0:
             print(f"--- We're in the model {names_estimator_list[j]} ---")
+
         if "nn" in names_estimator_list[j]:
             neural = True
 
-        if counting_j == len(estimator_list) - 1:
-            print("entered the loop you wished.")
-            stk_model = VotingRegressor(
-                [(a, b) for a, b in zip(names_estimator_list, list_of_models)]
-            )
-            list_of_models.append(stk_model)
-            save_models(path, list_of_models)
+        print("entered the loop of optimization")
+        opt = gp_optimize(k, x, y, spaces_list[j], cv=cv, neural=neural)
+        best_model = att_model(k, spaces_list[j], opt.x, neural=neural)
+        copy_of_best_model = copy.deepcopy(
+            best_model
+        )  # To ensure that we're not changing the original estimator
+        trained_model = copy_of_best_model.fit(x, y)
+        list_of_models.append(trained_model)
 
-        else:
-            warnings.filterwarnings("ignore")
-            opt = gp_optimize(k, x, y, spaces_list[j], cv=cv, neural=neural)
-            best_model = att_model(k, spaces_list[j], opt.x, neural=neural)
-            list_of_models.append(best_model)
-            counting_j += 1
+    stk_model = VotingRegressor(
+        [(a, b) for a, b in zip(names_estimator_list, list_of_models)]
+    )
+    copy_of_stk = copy.deepcopy(stk_model)
+    trained_stk = copy_of_stk.fit(x, y)  # The same as in line 152
+    print(list_of_models)
+    list_of_models.append(trained_stk)
+    save_models(path, list_of_models)

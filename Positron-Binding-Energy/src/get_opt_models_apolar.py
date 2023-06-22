@@ -2,8 +2,7 @@
 Script to get the final optimized models
 from all apolar molecules and partial apolar molecules.
 """
-
-import warnings
+from copy import deepcopy
 
 import hydra
 import pandas as pd
@@ -96,7 +95,7 @@ def main(cfg: DictConfig):
 
     xgb = XGBRegressor(random_state=0)
 
-    pipe = Pipeline(
+    pipe_nn = Pipeline(
         [
             ("scale", MinMaxScaler()),
             (
@@ -106,7 +105,7 @@ def main(cfg: DictConfig):
         ]
     )
     nn = TransformedTargetRegressor(
-        regressor=pipe, transformer=StandardScaler()
+        regressor=pipe_nn, transformer=StandardScaler()
     )
 
     # For all apolar molecules
@@ -115,10 +114,10 @@ def main(cfg: DictConfig):
         get_absolute_path(cfg.data.apolar.processed.path)
     )
 
-    x0_all = df_apolar_all[cfg.opt.features.all.apolar.feat1]
-    x1_all = df_apolar_all[cfg.opt.features.all.apolar.feat2]
-    x2_all = df_apolar_all[cfg.opt.features.all.apolar.feat3]
-    x3_all = df_apolar_all[cfg.opt.features.all.apolar.feat4]
+    x0_all = df_apolar_all[cfg.opt.features.all.apolar.feat1].values
+    x1_all = df_apolar_all[cfg.opt.features.all.apolar.feat2].values
+    x2_all = df_apolar_all[cfg.opt.features.all.apolar.feat3].values
+    x3_all = df_apolar_all[cfg.opt.features.all.apolar.feat4].values
 
     y_all = df_apolar_all[["Expt"]].values
 
@@ -136,7 +135,6 @@ def main(cfg: DictConfig):
 
     kf = KFold(n_splits=10, shuffle=True, random_state=0)
 
-    warnings.filterwarnings("ignore")
     for i, j in enumerate(list_of_x):
         print(f"=== {list_of_features[i]} Features ===")
         opt_all(
