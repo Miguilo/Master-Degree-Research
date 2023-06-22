@@ -4,3 +4,15 @@ all:
     feat2 : ['Ei', 'Alpha']
     feat3 : ['Ei', 'pi_bond']
     feat4 : ['Alpha', 'pi_bond']
+
+partial:
+  apolar:
+    feat1_iso : ['Ei', 'Alpha', 'pi_bond']
+    feat2_iso : ['Ei', 'Alpha']
+    feat3_iso : ['Ei', 'pi_bond']
+    feat4_iso : ['Alpha', 'pi_bond']
+    
+    feat1_aniso : ['Ei', 'axx', 'ayy', 'azz', 'pi_bond']
+    feat2_aniso : ['Ei', 'axx', 'ayy', 'azz']
+    feat3_aniso : ['Ei', 'pi_bond']
+    feat4_aniso : ['axx', 'ayy', 'azz', 'pi_bond']

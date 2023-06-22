@@ -147,7 +147,6 @@ def opt_all(
         if "nn" in names_estimator_list[j]:
             neural = True
 
-        print("entered the loop of optimization")
         opt = gp_optimize(k, x, y, spaces_list[j], cv=cv, neural=neural)
         best_model = att_model(k, spaces_list[j], opt.x, neural=neural)
         copy_of_best_model = copy.deepcopy(
@@ -161,6 +160,5 @@ def opt_all(
     )
     copy_of_stk = copy.deepcopy(stk_model)
     trained_stk = copy_of_stk.fit(x, y)  # The same as in line 152
-    print(list_of_models)
     list_of_models.append(trained_stk)
     save_models(path, list_of_models)
