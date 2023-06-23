@@ -5,6 +5,18 @@ all:
     feat3 : ['Ei', 'pi_bond']
     feat4 : ['Alpha', 'pi_bond']
 
+  polar:
+    feat1 : ['Ei', 'Alpha', 'Dipole','pi_bond']
+    feat2 : ['Ei', 'Alpha', 'Dipole']
+    feat3 : ['Alpha', 'Dipole']
+    feat4 : ['Alpha', 'Dipole', 'pi_bond']
+  
+  polar_apolar:
+    feat1 : ['Ei', 'Alpha', 'Dipole','pi_bond']
+    feat2 : ['Ei', 'Alpha', 'Dipole']
+    feat3 : ['Alpha', 'Dipole']
+    feat4 : ['Alpha', 'Dipole', 'pi_bond']
+
 partial:
   apolar:
     feat1_iso : ['Ei', 'Alpha', 'pi_bond']
@@ -16,3 +28,26 @@ partial:
     feat2_aniso : ['Ei', 'axx', 'ayy', 'azz']
     feat3_aniso : ['Ei', 'pi_bond']
     feat4_aniso : ['axx', 'ayy', 'azz', 'pi_bond']
+
+  polar:
+    feat1_iso : ['Ei', 'Alpha', 'Dipole','pi_bond']
+    feat2_iso : ['Ei', 'Alpha', 'Dipole']
+    feat3_iso : ['Alpha', 'Dipole']
+    feat4_iso : ['Alpha', 'Dipole', 'pi_bond']
+    
+    feat1_aniso : ['Ei', 'axx', 'ayy', 'azz', 'Dipole','pi_bond']
+    feat2_aniso : ['Ei', 'axx', 'ayy', 'azz', 'Dipole']
+    feat3_aniso : ['axx', 'ayy', 'azz', 'Dipole']
+    feat4_aniso : ['axx', 'ayy', 'azz', 'Dipole', 'pi_bond']
+
+  polar_apolar:
+    feat1_iso : ['Ei', 'Alpha', 'Dipole','pi_bond']
+    feat2_iso : ['Ei', 'Alpha', 'Dipole']
+    feat3_iso : ['Alpha', 'Dipole']
+    feat4_iso : ['Alpha', 'Dipole', 'pi_bond']
+    
+    feat1_aniso : ['Ei', 'axx', 'ayy', 'azz', 'Dipole','pi_bond']
+    feat2_aniso : ['Ei', 'axx', 'ayy', 'azz', 'Dipole']
+    feat3_aniso : ['axx', 'ayy', 'azz', 'Dipole']
+    feat4_aniso : ['axx', 'ayy', 'azz', 'Dipole', 'pi_bond']
+  

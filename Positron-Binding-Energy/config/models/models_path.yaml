@@ -9,15 +9,15 @@ apolar:
 polar:
   dir: ../models/polar
   all: ${models.polar.dir}/all
-  ei_alpha : ${models.polar.dir}/ei_alpha
-  pi_alpha: ${models.polar.dir}/pi_alpha
-  pi_ei: ${models.polar.dir}/pi_ei
+  ei_alpha_dipole : ${models.polar.dir}/ei_alpha_dipole
+  alpha_dipole: ${models.polar.dir}/alpha_dipole
+  alpha_dipole_pi: ${models.polar.dir}/alpha_dipole_pi
   
 
 polar_apolar:
   dir: ../models/polar_apolar
   all: ${models.polar_apolar.dir}/all
-  ei_alpha : ${models.polar_apolar.dir}/ei_alpha
-  pi_alpha: ${models.polar_apolar.dir}/pi_alpha
-  pi_ei: ${models.polar_apolar.dir}/pi_ei
+  ei_alpha_dipole : ${models.polar_apolar.dir}/ei_alpha_dipole
+  alpha_dipole: ${models.polar_apolar.dir}/alpha_dipole
+  alpha_dipole_pi: ${models.polar_apolar.dir}/alpha_dipole_pi
   
