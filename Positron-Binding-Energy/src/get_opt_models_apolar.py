@@ -133,7 +133,7 @@ def main(cfg: DictConfig):
         get_absolute_path(cfg.models.apolar["pi_ei"]),
     ]
 
-    kf = KFold(n_splits=10, shuffle=True, random_state=0)
+    kf = KFold(n_splits=5, shuffle=True, random_state=0)
 
     for i, j in enumerate(list_of_x_all):
         print(f"=== {list_of_features[i]} Features ===")
@@ -153,20 +153,46 @@ def main(cfg: DictConfig):
         get_absolute_path(cfg.data.apolar.final.path)
     )
 
-    x0_partial_iso = df_apolar_partial[cfg.opt.features.partial.apolar.feat1_iso].values
-    x1_partial_iso = df_apolar_partial[cfg.opt.features.partial.apolar.feat2_iso].values
-    x2_partial_iso = df_apolar_partial[cfg.opt.features.partial.apolar.feat3_iso].values
-    x3_partial_iso = df_apolar_partial[cfg.opt.features.partial.apolar.feat4_iso].values
+    x0_partial_iso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat1_iso
+    ].values
+    x1_partial_iso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat2_iso
+    ].values
+    x2_partial_iso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat3_iso
+    ].values
+    x3_partial_iso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat4_iso
+    ].values
 
-    x0_partial_aniso = df_apolar_partial[cfg.opt.features.partial.apolar.feat1_aniso].values
-    x1_partial_aniso = df_apolar_partial[cfg.opt.features.partial.apolar.feat2_aniso].values
-    x2_partial_aniso = df_apolar_partial[cfg.opt.features.partial.apolar.feat3_aniso].values
-    x3_partial_aniso = df_apolar_partial[cfg.opt.features.partial.apolar.feat4_aniso].values
+    x0_partial_aniso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat1_aniso
+    ].values
+    x1_partial_aniso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat2_aniso
+    ].values
+    x2_partial_aniso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat3_aniso
+    ].values
+    x3_partial_aniso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat4_aniso
+    ].values
 
     y_partial = df_apolar_partial[["Expt"]].values
 
-    list_of_x_partial_iso = [x0_partial_iso, x1_partial_iso, x2_partial_iso, x3_partial_iso]
-    list_of_x_partial_aniso = [x0_partial_aniso, x1_partial_aniso, x2_partial_aniso, x3_partial_aniso]
+    list_of_x_partial_iso = [
+        x0_partial_iso,
+        x1_partial_iso,
+        x2_partial_iso,
+        x3_partial_iso,
+    ]
+    list_of_x_partial_aniso = [
+        x0_partial_aniso,
+        x1_partial_aniso,
+        x2_partial_aniso,
+        x3_partial_aniso,
+    ]
 
     list_of_features = ["All", "Ei + Alpha", " Pi + Alpha", "Pi + Ei"]
     list_of_paths = [
@@ -176,7 +202,7 @@ def main(cfg: DictConfig):
         get_absolute_path(cfg.models.apolar["pi_ei"]),
     ]
 
-    kf = KFold(n_splits=10, shuffle=True, random_state=0)
+    kf = KFold(n_splits=5, shuffle=True, random_state=0)
     # For Isotropic
 
     for i, j in enumerate(list_of_x_partial_iso):
