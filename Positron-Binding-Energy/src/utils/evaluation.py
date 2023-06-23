@@ -53,7 +53,6 @@ def show_metrics(
     de regressão pra um data set já finalizado.
 
     scoring : The score that you want to show the metrics."""
-    # Parte do CV
 
     train_score, test_score = get_cross_validation_scores(estimator, x, y, cv)
 
