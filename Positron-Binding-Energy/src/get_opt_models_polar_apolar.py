@@ -103,18 +103,18 @@ def main(cfg: DictConfig):
         regressor=pipe_nn, transformer=StandardScaler()
     )
 
-    # For all polar molecules
+    # For all polar_apolar molecules
 
-    df_polar_all = pd.read_csv(
-        get_absolute_path(cfg.data.polar.processed.path)
+    df_polar_apolar_all = pd.read_csv(
+        get_absolute_path(cfg.data.polar_apolar.processed.path)
     )
 
-    x0_all = df_polar_all[cfg.opt.features.all.polar.feat1].values
-    x1_all = df_polar_all[cfg.opt.features.all.polar.feat2].values
-    x2_all = df_polar_all[cfg.opt.features.all.polar.feat3].values
-    x3_all = df_polar_all[cfg.opt.features.all.polar.feat4].values
+    x0_all = df_polar_apolar_all[cfg.opt.features.all.polar_apolar.feat1].values
+    x1_all = df_polar_apolar_all[cfg.opt.features.all.polar_apolar.feat2].values
+    x2_all = df_polar_apolar_all[cfg.opt.features.all.polar_apolar.feat3].values
+    x3_all = df_polar_apolar_all[cfg.opt.features.all.polar_apolar.feat4].values
 
-    y_all = df_polar_all[["Expt"]].values
+    y_all = df_polar_apolar_all[["Expt"]].values
 
     list_of_x_all = [x0_all, x1_all, x2_all, x3_all]
     list_of_models = [ridge, svr, xgb, nn]
@@ -122,10 +122,10 @@ def main(cfg: DictConfig):
     list_of_models_names = ["poly", "svr", "xgb", "nn"]
     list_of_features = ["All", "Ei + Alpha + Dipole", "Alpha + Dipole + Pi", "Alpha + Dipole + Ei"]
     list_of_paths = [
-        get_absolute_path(cfg.models.polar["all"]),
-        get_absolute_path(cfg.models.polar["ei_alpha_dipole"]),
-        get_absolute_path(cfg.models.polar["alpha_dipole"]),
-        get_absolute_path(cfg.models.polar["alpha_dipole_pi"]),
+        get_absolute_path(cfg.models.polar_apolar["all"]),
+        get_absolute_path(cfg.models.polar_apolar["ei_alpha_dipole"]),
+        get_absolute_path(cfg.models.polar_apolar["alpha_dipole"]),
+        get_absolute_path(cfg.models.polar_apolar["alpha_dipole_pi"]),
     ]
 
     kf = KFold(n_splits=5, shuffle=True, random_state=0)
@@ -144,37 +144,37 @@ def main(cfg: DictConfig):
         )
 
     # For partial molecules
-    df_polar_partial = pd.read_csv(
-        get_absolute_path(cfg.data.polar.final.path)
+    df_polar_apolar_partial = pd.read_csv(
+        get_absolute_path(cfg.data.polar_apolar.final.path)
     )
 
-    x0_partial_iso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat1_iso
+    x0_partial_iso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat1_iso
     ].values
-    x1_partial_iso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat2_iso
+    x1_partial_iso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat2_iso
     ].values
-    x2_partial_iso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat3_iso
+    x2_partial_iso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat3_iso
     ].values
-    x3_partial_iso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat4_iso
-    ].values
-
-    x0_partial_aniso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat1_aniso
-    ].values
-    x1_partial_aniso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat2_aniso
-    ].values
-    x2_partial_aniso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat3_aniso
-    ].values
-    x3_partial_aniso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat4_aniso
+    x3_partial_iso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat4_iso
     ].values
 
-    y_partial = df_polar_partial[["Expt"]].values
+    x0_partial_aniso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat1_aniso
+    ].values
+    x1_partial_aniso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat2_aniso
+    ].values
+    x2_partial_aniso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat3_aniso
+    ].values
+    x3_partial_aniso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat4_aniso
+    ].values
+
+    y_partial = df_polar_apolar_partial[["Expt"]].values
 
     list_of_x_partial_iso = [
         x0_partial_iso,
@@ -190,7 +190,7 @@ def main(cfg: DictConfig):
     ]
 
     kf = KFold(n_splits=5, shuffle=True, random_state=0)
-    # For Isotropic
+    # For Isotropic Polarizability
 
     for i, j in enumerate(list_of_x_partial_iso):
         print(f"=== {list_of_features[i]} Features ===")

@@ -12,8 +12,11 @@ from sklearn.linear_model import Ridge
 from sklearn.model_selection import KFold
 from sklearn.neural_network import MLPRegressor
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import (MinMaxScaler, PolynomialFeatures,
-                                   StandardScaler)
+from sklearn.preprocessing import (
+    MinMaxScaler,
+    PolynomialFeatures,
+    StandardScaler,
+)
 from sklearn.svm import SVR
 from utils.data import get_absolute_path
 from utils.optimization import convert_to_space, opt_all
@@ -192,14 +195,6 @@ def main(cfg: DictConfig):
         x1_partial_aniso,
         x2_partial_aniso,
         x3_partial_aniso,
-    ]
-
-    list_of_features = ["All", "Ei + Alpha", " Pi + Alpha", "Pi + Ei"]
-    list_of_paths = [
-        get_absolute_path(cfg.models.apolar["all"]),
-        get_absolute_path(cfg.models.apolar["ei_alpha"]),
-        get_absolute_path(cfg.models.apolar["pi_alpha"]),
-        get_absolute_path(cfg.models.apolar["pi_ei"]),
     ]
 
     kf = KFold(n_splits=5, shuffle=True, random_state=0)
