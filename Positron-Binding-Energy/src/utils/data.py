@@ -41,17 +41,19 @@ def make_processed_data(raw_path, processed_path, columns_to_drop):
 
     # Dropping the columns with missing values
     # (It'll be the ones without Anisotropic Polarizability)
-    if all:
+    try:
+        indexes_to_drop = df.query("Molecule == '2-2-Difluoropropane' or Molecule == '1-1-Dichloroethylene'").index
+        df.drop(indexes_to_drop, inplace=True).reset_index(drop=True, inplace=True)
+    except:
+        pass
         # Dropping the columns that we don't wanna to analyse here
-        df.drop(
-            columns_to_drop,
-            axis=1,
-            inplace=True,
-        )
-        df = ds.feature_engineering.drop_missing(df, percent=10)
+    df.drop(
+        columns_to_drop,
+        axis=1,
+        inplace=True,
+    )
+    df = ds.feature_engineering.drop_missing(df, percent=10)
 
-    else:
-        raise TypeError("Only boolean are allowed")
 
     new_path = get_absolute_path(processed_path)
     df.to_csv(new_path, index=False)
@@ -65,6 +67,11 @@ def make_final_data(raw_path, final_path, columns_to_drop):
     # Dropping rows
     molecules_to_drop = df.loc[np.isnan(df["axx"])].index
     df.drop(molecules_to_drop, inplace=True)
+    try:
+        indexes_to_drop = df.query("Molecule == '2-2-Difluoropropane' or Molecule == '1-1-Dichloroethylene'").index
+        df.drop(indexes_to_drop, inplace=True).reset_index(drop=True, inplace=True)
+    except:
+        pass
     df.reset_index(drop=True, inplace=True)
 
     # Dropping and Rearranging columns
@@ -88,3 +95,4 @@ def get_data(path: str):
     abs_path = get_absolute_path(path)
     df = pd.read_csv(abs_path)
     return df
+
