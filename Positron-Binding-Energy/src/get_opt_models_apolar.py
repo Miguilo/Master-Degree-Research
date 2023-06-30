@@ -3,6 +3,7 @@ Script to get the final optimized models
 from all apolar molecules and partial apolar molecules.
 """
 from copy import deepcopy
+from datetime import datetime
 
 import hydra
 import pandas as pd
@@ -12,16 +13,13 @@ from sklearn.linear_model import Ridge
 from sklearn.model_selection import KFold
 from sklearn.neural_network import MLPRegressor
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import (
-    MinMaxScaler,
-    PolynomialFeatures,
-    StandardScaler,
-)
+from sklearn.preprocessing import (MinMaxScaler, PolynomialFeatures,
+                                   StandardScaler)
 from sklearn.svm import SVR
 from utils.data import get_absolute_path
 from utils.optimization import convert_to_space, opt_all
 from xgboost import XGBRegressor
-from datetime import datetime
+
 
 @hydra.main(config_path="../config", config_name="main.yaml")
 def main(cfg: DictConfig):
@@ -232,6 +230,7 @@ def main(cfg: DictConfig):
     print("Date of execution: ", initial_t)
     print("Date of finalization: ", final_t)
     print("Time elapsed: ", execution_t)
+
 
 if __name__ == "__main__":
     main()

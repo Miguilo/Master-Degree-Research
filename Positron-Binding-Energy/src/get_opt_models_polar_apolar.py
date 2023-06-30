@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import hydra
 import pandas as pd
 from omegaconf import DictConfig
@@ -13,7 +15,6 @@ from utils.data import get_absolute_path
 from utils.evaluation import show_metrics
 from utils.optimization import convert_to_space, opt_all
 from xgboost import XGBRegressor
-from datetime import datetime
 
 
 @hydra.main(config_path="../config", config_name="main.yaml")
@@ -110,10 +111,18 @@ def main(cfg: DictConfig):
         get_absolute_path(cfg.data.polar_apolar.processed.path)
     )
 
-    x0_all = df_polar_apolar_all[cfg.opt.features.all.polar_apolar.feat1].values
-    x1_all = df_polar_apolar_all[cfg.opt.features.all.polar_apolar.feat2].values
-    x2_all = df_polar_apolar_all[cfg.opt.features.all.polar_apolar.feat3].values
-    x3_all = df_polar_apolar_all[cfg.opt.features.all.polar_apolar.feat4].values
+    x0_all = df_polar_apolar_all[
+        cfg.opt.features.all.polar_apolar.feat1
+    ].values
+    x1_all = df_polar_apolar_all[
+        cfg.opt.features.all.polar_apolar.feat2
+    ].values
+    x2_all = df_polar_apolar_all[
+        cfg.opt.features.all.polar_apolar.feat3
+    ].values
+    x3_all = df_polar_apolar_all[
+        cfg.opt.features.all.polar_apolar.feat4
+    ].values
 
     y_all = df_polar_apolar_all[["Expt"]].values
 
@@ -121,7 +130,12 @@ def main(cfg: DictConfig):
     list_of_models = [ridge, svr, xgb, nn]
     list_of_spaces = [space_poly, space_svr, space_xgb, space_nn]
     list_of_models_names = ["poly", "svr", "xgb", "nn"]
-    list_of_features = ["All", "Ei + Alpha + Dipole", "Alpha + Dipole + Pi", "Alpha + Dipole + Ei"]
+    list_of_features = [
+        "All",
+        "Ei + Alpha + Dipole",
+        "Alpha + Dipole + Pi",
+        "Alpha + Dipole + Ei",
+    ]
     list_of_paths = [
         get_absolute_path(cfg.models.polar_apolar["all"]),
         get_absolute_path(cfg.models.polar_apolar["ei_alpha_dipole"]),
@@ -225,6 +239,7 @@ def main(cfg: DictConfig):
     print("Date of execution: ", initial_t)
     print("Date of finalization: ", final_t)
     print("Time elapsed: ", execution_t)
+
 
 if __name__ == "__main__":
     main()
