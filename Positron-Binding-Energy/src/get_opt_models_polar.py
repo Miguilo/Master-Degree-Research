@@ -13,7 +13,7 @@ from utils.data import get_absolute_path
 from utils.evaluation import show_metrics
 from utils.optimization import convert_to_space, opt_all
 from xgboost import XGBRegressor
-
+from datetime import datetime
 
 @hydra.main(config_path="../config", config_name="main.yaml")
 def main(cfg: DictConfig):
@@ -130,6 +130,7 @@ def main(cfg: DictConfig):
 
     kf = KFold(n_splits=5, shuffle=True, random_state=0)
 
+    initial_t = datetime.now()
     for i, j in enumerate(list_of_x_all):
         print(f"=== {list_of_features[i]} Features ===")
         opt_all(
@@ -219,7 +220,11 @@ def main(cfg: DictConfig):
             path=f"{list_of_paths[i]}/partial_aniso_molecules_models.sav",
             verbose=1,
         )
-
+    final_t = datetime.now()
+    execution_t = final_t - initial_t
+    print("Date of execution: ", initial_t)
+    print("Date of finalization: ", final_t)
+    print("Time elapsed: ", execution_t)
 
 if __name__ == "__main__":
     main()
