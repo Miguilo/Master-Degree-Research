@@ -7,7 +7,7 @@ import warnings
 import hydra
 import pandas as pd
 from omegaconf import DictConfig
-from utils.data import make_final_data, make_processed_data
+from utils.data import make_final_data, make_processed_data, get_absolute_path
 
 warnings.filterwarnings("ignore")
 
@@ -51,9 +51,40 @@ def make_aniso_polar_data(config: DictConfig):
         config.process.to_drop.polar,
     )
 
+@hydra.main(config_path="../config", config_name="main.yaml")
+def make_polar_apolar_data(cfg:DictConfig) -> pd.DataFrame:
+    """"""
+    apol_path = get_absolute_path(cfg.data.apolar.processed.path)
+    pol_path = get_absolute_path(cfg.data.polar.processed.path)
+    pol_apol_path = get_absolute_path(cfg.data.polar_apolar.processed.path)
+
+    df_apol = pd.read_csv(apol_path)
+    df_pol = pd.read_csv(pol_path)
+
+    polar_apolar_data = pd.concat([df_apol, df_pol], axis=0, ignore_index=True)
+    polar_apolar_data['Dipole'] = polar_apolar_data['Dipole'].fillna(0)
+
+    polar_apolar_data.to_csv(pol_apol_path, index = False)
+
+@hydra.main(config_path="../config", config_name="main.yaml")
+def make_aniso_polar_apolar_data(cfg: DictConfig):
+
+    apol_path = get_absolute_path(cfg.data.apolar.final.path)
+    pol_path = get_absolute_path(cfg.data.polar.final.path)
+    pol_apol_path = get_absolute_path(cfg.data.polar_apolar.final.path)
+
+    df_apol = pd.read_csv(apol_path)
+    df_pol = pd.read_csv(pol_path)
+
+    polar_apolar_data = pd.concat([df_apol, df_pol], axis=0, ignore_index=True)
+    polar_apolar_data['Dipole'] = polar_apolar_data['Dipole'].fillna(0)
+
+    polar_apolar_data.to_csv(pol_apol_path, index = False)
+
 
 if __name__ == "__main__":
     make_apolar_data()
     make_aniso_apolar_data()
     make_polar_data()
     make_aniso_polar_data()
+    make_aniso_polar_apolar_data()

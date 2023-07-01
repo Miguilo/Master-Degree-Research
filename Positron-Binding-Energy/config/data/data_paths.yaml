@@ -28,8 +28,6 @@ polar:
     path: ${data.polar.final.dir}/${data.polar.final.name}
 
 polar_apolar:
-  raw: ../data/raw/polar_apolar_molecules.CSV
-
   processed:
     dir: ../data/processed
     name: processed_polar_apolar.csv
