@@ -8,7 +8,7 @@ defaults:
 
 
 scaling_regressor:
-  name: "regressor__scale"
+  name: "regressor__scale__scale"
   categories: [StandardScaler(),MinMaxScaler(),RobustScaler()]
   type: 'scalers'
 

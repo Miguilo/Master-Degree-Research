@@ -8,7 +8,18 @@ from sklearn.preprocessing import MinMaxScaler, RobustScaler, StandardScaler
 from skopt import gp_minimize
 from skopt.space.space import Categorical, Integer, Real
 from skopt.utils import use_named_args
+from sklearn.compose import ColumnTransformer
 
+def modify_scaling(list_of_models, list_of_models_names, X, name_of_features):
+
+    num_of_features = X.shape[1]
+    ct = ColumnTransformer([('scale', StandardScaler(), [i for i in range(num_of_features)])])
+    if 'pi' in name_of_features.lower() or 'all' in name_of_features.lower():
+        ct = ColumnTransformer([('scale', StandardScaler(), [i for i in range(num_of_features - 1)])])
+    for k, l in enumerate(list_of_models):
+        if 'xgb' not in list_of_models_names[k]:
+            l.set_params(regressor__scale = ct)
+    return
 
 def convert_to_space(caller, parameter):
     """
@@ -137,6 +148,7 @@ def opt_all(
     cv,
     path,
     verbose=0,
+    print_models=False
 ):
     list_of_models = []
     for j, k in enumerate(estimator_list):
@@ -161,4 +173,9 @@ def opt_all(
     copy_of_stk = copy.deepcopy(stk_model)
     trained_stk = copy_of_stk.fit(x, y)  # The same as in line 152
     list_of_models.append(trained_stk)
+
+    if print_models:
+        for i in list_of_models:
+            print(i)
+
     save_models(path, list_of_models)

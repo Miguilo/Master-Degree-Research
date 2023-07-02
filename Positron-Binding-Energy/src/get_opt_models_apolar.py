@@ -17,8 +17,9 @@ from sklearn.preprocessing import (MinMaxScaler, PolynomialFeatures,
                                    StandardScaler)
 from sklearn.svm import SVR
 from utils.data import get_absolute_path
-from utils.optimization import convert_to_space, opt_all
+from utils.optimization import convert_to_space, opt_all, modify_scaling
 from xgboost import XGBRegressor
+from sklearn.compose import ColumnTransformer
 
 
 @hydra.main(config_path="../config", config_name="main.yaml")
@@ -138,6 +139,8 @@ def main(cfg: DictConfig):
     initial_t = datetime.now()
     for i, j in enumerate(list_of_x_all):
         print(f"=== {list_of_features[i]} Features ===")
+        modify_scaling(list_of_models, list_of_models_names, j, list_of_features[i])
+    
         opt_all(
             list_of_models,
             list_of_models_names,
@@ -147,6 +150,7 @@ def main(cfg: DictConfig):
             cv=kf,
             path=f"{list_of_paths[i]}/all_molecules_models.sav",
             verbose=1,
+            print_models=True
         )
 
     # For partial molecules
@@ -200,6 +204,7 @@ def main(cfg: DictConfig):
 
     for i, j in enumerate(list_of_x_partial_iso):
         print(f"=== {list_of_features[i]} Features ===")
+        modify_scaling(list_of_models, list_of_models_names, j, list_of_features[i])
         opt_all(
             list_of_models,
             list_of_models_names,
@@ -215,6 +220,7 @@ def main(cfg: DictConfig):
 
     for i, j in enumerate(list_of_x_partial_aniso):
         print(f"=== {list_of_features[i]} Features ===")
+        modify_scaling(list_of_models, list_of_models_names, j, list_of_features[i])
         opt_all(
             list_of_models,
             list_of_models_names,

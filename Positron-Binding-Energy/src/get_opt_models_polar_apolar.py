@@ -13,7 +13,7 @@ from sklearn.preprocessing import (MinMaxScaler, PolynomialFeatures,
 from sklearn.svm import SVR
 from utils.data import get_absolute_path
 from utils.evaluation import show_metrics
-from utils.optimization import convert_to_space, opt_all
+from utils.optimization import convert_to_space, opt_all, modify_scaling
 from xgboost import XGBRegressor
 
 
@@ -133,8 +133,8 @@ def main(cfg: DictConfig):
     list_of_features = [
         "All",
         "Ei + Alpha + Dipole",
+        "Alpha + Dipole",
         "Alpha + Dipole + Pi",
-        "Alpha + Dipole + Ei",
     ]
     list_of_paths = [
         get_absolute_path(cfg.models.polar_apolar["all"]),
@@ -147,6 +147,7 @@ def main(cfg: DictConfig):
     initial_t = datetime.now()
     for i, j in enumerate(list_of_x_all):
         print(f"=== {list_of_features[i]} Features ===")
+        modify_scaling(list_of_models, list_of_models_names, j, list_of_features[i])
         opt_all(
             list_of_models,
             list_of_models_names,
@@ -209,6 +210,7 @@ def main(cfg: DictConfig):
 
     for i, j in enumerate(list_of_x_partial_iso):
         print(f"=== {list_of_features[i]} Features ===")
+        modify_scaling(list_of_models, list_of_models_names, j, list_of_features[i])
         opt_all(
             list_of_models,
             list_of_models_names,
@@ -224,6 +226,7 @@ def main(cfg: DictConfig):
 
     for i, j in enumerate(list_of_x_partial_aniso):
         print(f"=== {list_of_features[i]} Features ===")
+        modify_scaling(list_of_models, list_of_models_names, j, list_of_features[i])
         opt_all(
             list_of_models,
             list_of_models_names,
