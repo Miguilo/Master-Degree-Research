@@ -2294,3 +2294,809 @@ See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ fo
 --- We're in the model svr ---
 --- We're in the model xgb ---
 --- We're in the model nn ---
+/home/mfasenra/Documentos/Master-Degree-Research/Positron-Binding-Energy/src/get_opt_models_apolar.py:25: UserWarning: 
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  @hydra.main(config_path="../config", config_name="main.yaml")
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+  ret = run_job(
+=== All Features ===
+--- We're in the model poly ---
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+--- We're in the model svr ---
+--- We're in the model xgb ---
+--- We're in the model nn ---
+TransformedTargetRegressor(regressor=Pipeline(steps=[('poli',
+                                                      PolynomialFeatures(degree=10,
+                                                                         include_bias=False)),
+                                                     ('scale',
+                                                      ColumnTransformer(transformers=[('scale',
+                                                                                       MinMaxScaler(),
+                                                                                       [0,
+                                                                                        1])])),
+                                                     ('reg',
+                                                      Ridge(alpha=0.19424819132221335,
+                                                            copy_X=False,
+                                                            fit_intercept=False,
+                                                            max_iter=30000))]),
+                           transformer=MinMaxScaler())
+TransformedTargetRegressor(regressor=Pipeline(steps=[('scale',
+                                                      ColumnTransformer(transformers=[('scale',
+                                                                                       MinMaxScaler(),
+                                                                                       [0,
+                                                                                        1])])),
+                                                     ('reg',
+                                                      SVR(C=0.47171330666480693,
+                                                          coef0=10.0, degree=1,
+                                                          epsilon=0.07266673429945208,
+                                                          kernel='poly',
+                                                          max_iter=10000))]),
+                           transformer=RobustScaler())
+XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=0.7417153624119505, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, feature_types=None,
+             gamma=6.0, gpu_id=None, grow_policy=None, importance_type=None,
+             interaction_constraints=None, learning_rate=0.0783801432615173,
+             max_bin=None, max_cat_threshold=None, max_cat_to_onehot=None,
+             max_delta_step=None, max_depth=1, max_leaves=None,
+             min_child_weight=2, missing=nan, monotone_constraints=None,
+             n_estimators=2000, n_jobs=None, num_parallel_tree=None,
+             predictor=None, random_state=0, ...)
+TransformedTargetRegressor(regressor=Pipeline(steps=[('scale',
+                                                      ColumnTransformer(transformers=[('scale',
+                                                                                       RobustScaler(),
+                                                                                       [0,
+                                                                                        1])])),
+                                                     ('reg',
+                                                      MLPRegressor(activation='tanh',
+                                                                   beta_1=0.8978065020251125,
+                                                                   beta_2=0.874300334782341,
+                                                                   epsilon=7.81148435786657e-06,
+                                                                   hidden_layer_sizes=(10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10),
+                                                                   learning_rate_init=0.00033255473062119184,
+                                                                   max_iter=5000,
+                                                                   random_state=0))]),
+                           transformer=RobustScaler())
+VotingRegressor(estimators=[('poly',
+                             TransformedTargetRegressor(regressor=Pipeline(steps=[('poli',
+                                                                                   PolynomialFeatures(degree=10,
+                                                                                                      include_bias=False)),
+                                                                                  ('scale',
+                                                                                   ColumnTransformer(transformers=[('scale',
+                                                                                                                    MinMaxScaler(),
+                                                                                                                    [0,
+                                                                                                                     1])])),
+                                                                                  ('reg',
+                                                                                   Ridge(alpha=0.19424819132221335,
+                                                                                         copy_X=False,
+                                                                                         fit_intercept=False,
+                                                                                         max_iter=30000))]),
+                                                        transformer=MinMaxScaler())),
+                            ('svr',
+                             T...
+                             TransformedTargetRegressor(regressor=Pipeline(steps=[('scale',
+                                                                                   ColumnTransformer(transformers=[('scale',
+                                                                                                                    RobustScaler(),
+                                                                                                                    [0,
+                                                                                                                     1])])),
+                                                                                  ('reg',
+                                                                                   MLPRegressor(activation='tanh',
+                                                                                                beta_1=0.8978065020251125,
+                                                                                                beta_2=0.874300334782341,
+                                                                                                epsilon=7.81148435786657e-06,
+                                                                                                hidden_layer_sizes=(10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10),
+                                                                                                learning_rate_init=0.00033255473062119184,
+                                                                                                max_iter=5000,
+                                                                                                random_state=0))]),
+                                                        transformer=RobustScaler()))])/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+
+=== Ei + Alpha Features ===
+--- We're in the model poly ---
+--- We're in the model svr ---
+--- We're in the model xgb ---
+--- We're in the model nn ---
+TransformedTargetRegressor(regressor=Pipeline(steps=[('poli',
+                                                      PolynomialFeatures(degree=10,
+                                                                         include_bias=False)),
+                                                     ('scale',
+                                                      ColumnTransformer(transformers=[('scale',
+                                                                                       MinMaxScaler(),
+                                                                                       [0,
+                                                                                        1])])),
+                                                     ('reg',
+                                                      Ridge(alpha=0.19424819132221335,
+                                                            copy_X=False,
+                                                            fit_intercept=False,
+                                                            max_iter=30000))]),
+                           transformer=MinMaxScaler())
+TransformedTargetRegressor(regressor=Pipeline(steps=[('scale',
+                                                      ColumnTransformer(transformers=[('scale',
+                                                                                       MinMaxScaler(),
+                                                                                       [0,
+                                                                                        1])])),
+                                                     ('reg',
+                                                      SVR(C=0.47171330666480693,
+                                                          coef0=10.0, degree=1,
+                                                          epsilon=0.07266673429945208,
+                                                          kernel='poly',
+                                                          max_iter=10000))]),
+                           transformer=RobustScaler())
+XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=0.3865646000517754, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, feature_types=None,
+             gamma=2.139284647831813, gpu_id=None, grow_policy=None,
+             importance_type=None, interaction_constraints=None,
+             learning_rate=0.11962783347037192, max_bin=None,
+             max_cat_threshold=None, max_cat_to_onehot=None,
+             max_delta_step=None, max_depth=12, max_leaves=None,
+             min_child_weight=3, missing=nan, monotone_constraints=None,
+             n_estimators=2000, n_jobs=None, num_parallel_tree=None,
+             predictor=None, random_state=0, ...)
+TransformedTargetRegressor(regressor=Pipeline(steps=[('scale',
+                                                      ColumnTransformer(transformers=[('scale',
+                                                                                       RobustScaler(),
+                                                                                       [0,
+                                                                                        1])])),
+                                                     ('reg',
+                                                      MLPRegressor(activation='tanh',
+                                                                   beta_1=0.8978065020251125,
+                                                                   beta_2=0.874300334782341,
+                                                                   epsilon=7.81148435786657e-06,
+                                                                   hidden_layer_sizes=(10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10),
+                                                                   learning_rate_init=0.00033255473062119184,
+                                                                   max_iter=5000,
+                                                                   random_state=0))]),
+                           transformer=RobustScaler())
+VotingRegressor(estimators=[('poly',
+                             TransformedTargetRegressor(regressor=Pipeline(steps=[('poli',
+                                                                                   PolynomialFeatures(degree=10,
+                                                                                                      include_bias=False)),
+                                                                                  ('scale',
+                                                                                   ColumnTransformer(transformers=[('scale',
+                                                                                                                    MinMaxScaler(),
+                                                                                                                    [0,
+                                                                                                                     1])])),
+                                                                                  ('reg',
+                                                                                   Ridge(alpha=0.19424819132221335,
+                                                                                         copy_X=False,
+                                                                                         fit_intercept=False,
+                                                                                         max_iter=30000))]),
+                                                        transformer=MinMaxScaler())),
+                            ('svr',
+                             T...
+                             TransformedTargetRegressor(regressor=Pipeline(steps=[('scale',
+                                                                                   ColumnTransformer(transformers=[('scale',
+                                                                                                                    RobustScaler(),
+                                                                                                                    [0,
+                                                                                                                     1])])),
+                                                                                  ('reg',
+                                                                                   MLPRegressor(activation='tanh',
+                                                                                                beta_1=0.8978065020251125,
+                                                                                                beta_2=0.874300334782341,
+                                                                                                epsilon=7.81148435786657e-06,
+                                                                                                hidden_layer_sizes=(10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10),
+                                                                                                learning_rate_init=0.00033255473062119184,
+                                                                                                max_iter=5000,
+                                                                                                random_state=0))]),
+                                                        transformer=RobustScaler()))])/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+
+===  Pi + Alpha Features ===
+--- We're in the model poly ---
+--- We're in the model svr ---
+--- We're in the model xgb ---
+--- We're in the model nn ---
+TransformedTargetRegressor(regressor=Pipeline(steps=[('poli',
+                                                      PolynomialFeatures(degree=6)),
+                                                     ('scale',
+                                                      ColumnTransformer(transformers=[('scale',
+                                                                                       MinMaxScaler(),
+                                                                                       [0])])),
+                                                     ('reg',
+                                                      Ridge(alpha=0.0008102034013106679,
+                                                            fit_intercept=False,
+                                                            max_iter=30000))]),
+                           transformer=MinMaxScaler())
+TransformedTargetRegressor(regressor=Pipeline(steps=[('scale',
+                                                      ColumnTransformer(transformers=[('scale',
+                                                                                       MinMaxScaler(),
+                                                                                       [0])])),
+                                                     ('reg',
+                                                      SVR(C=5.0,
+                                                          epsilon=0.08397463938364277,
+                                                          gamma='auto',
+                                                          max_iter=10000))]),
+                           transformer=RobustScaler())
+XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=0.5943927452866488, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, feature_types=None,
+             gamma=2.917223037744989, gpu_id=None, grow_policy=None,
+             importance_type=None, interaction_constraints=None,
+             learning_rate=0.00012250059385572119, max_bin=None,
+             max_cat_threshold=None, max_cat_to_onehot=None,
+             max_delta_step=None, max_depth=6, max_leaves=None,
+             min_child_weight=6, missing=nan, monotone_constraints=None,
+             n_estimators=1155, n_jobs=None, num_parallel_tree=None,
+             predictor=None, random_state=0, ...)
+TransformedTargetRegressor(regressor=Pipeline(steps=[('scale',
+                                                      ColumnTransformer(transformers=[('scale',
+                                                                                       StandardScaler(),
+                                                                                       [0])])),
+                                                     ('reg',
+                                                      MLPRegressor(activation='logistic',
+                                                                   beta_1=0.6247631982115336,
+                                                                   beta_2=0.8489835976132287,
+                                                                   epsilon=1e-05,
+                                                                   hidden_layer_sizes=(10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10,
+                                                                                       10),
+                                                                   learning_rate_init=2.6348177279985816e-05,
+                                                                   max_iter=5000,
+                                                                   random_state=0))]),
+                           transformer=MinMaxScaler())
+VotingRegressor(estimators=[('poly',
+                             TransformedTargetRegressor(regressor=Pipeline(steps=[('poli',
+                                                                                   PolynomialFeatures(degree=6)),
+                                                                                  ('scale',
+                                                                                   ColumnTransformer(transformers=[('scale',
+                                                                                                                    MinMaxScaler(),
+                                                                                                                    [0])])),
+                                                                                  ('reg',
+                                                                                   Ridge(alpha=0.0008102034013106679,
+                                                                                         fit_intercept=False,
+                                                                                         max_iter=30000))]),
+                                                        transformer=MinMaxScaler())),
+                            ('svr',
+                             TransformedTargetRegressor(regress...
+                             TransformedTargetRegressor(regressor=Pipeline(steps=[('scale',
+                                                                                   ColumnTransformer(transformers=[('scale',
+                                                                                                                    StandardScaler(),
+                                                                                                                    [0])])),
+                                                                                  ('reg',
+                                                                                   MLPRegressor(activation='logistic',
+                                                                                                beta_1=0.6247631982115336,
+                                                                                                beta_2=0.8489835976132287,
+                                                                                                epsilon=1e-05,
+                                                                                                hidden_layer_sizes=(10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10,
+                                                                                                                    10),
+                                                                                                learning_rate_init=2.6348177279985816e-05,
+                                                                                                max_iter=5000,
+                                                                                                random_state=0))]),
+                                                        transformer=MinMaxScaler()))])/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+
+=== Pi + Ei Features ===
+--- We're in the model poly ---
+--- We're in the model svr ---
+--- We're in the model xgb ---
+--- We're in the model nn ---
+TransformedTargetRegressor(regressor=Pipeline(steps=[('poli',
+                                                      PolynomialFeatures(degree=6,
+                                                                         include_bias=False)),
+                                                     ('scale',
+                                                      ColumnTransformer(transformers=[('scale',
+                                                                                       RobustScaler(),
+                                                                                       [0])])),
+                                                     ('reg',
+                                                      Ridge(alpha=0.010000309592322183,
+                                                            copy_X=False,
+                                                            fit_intercept=False,
+                                                            max_iter=30000))]),
+                           transformer=RobustScaler())
+TransformedTargetRegressor(regressor=Pipeline(steps=[('scale',
+                                                      ColumnTransformer(transformers=[('scale',
+                                                                                       MinMaxScaler(),
+                                                                                       [0])])),
+                                                     ('reg',
+                                                      SVR(C=1.439553306274801,
+                                                          coef0=3.489574982351298,
+                                                          epsilon=0.01,
+                                                          max_iter=10000))]),
+                           transformer=StandardScaler())
+XGBRegressor(base_score=None, booster=None, callbacks=None,
+             colsample_bylevel=None, colsample_bynode=None,
+             colsample_bytree=0.1, early_stopping_rounds=None,
+             enable_categorical=False, eval_metric=None, feature_types=None,
+             gamma=5.204183812755781, gpu_id=None, grow_policy=None,
+             importance_type=None, interaction_constraints=None,
+             learning_rate=0.0991376144772732, max_bin=None,
+             max_cat_threshold=None, max_cat_to_onehot=None,
+             max_delta_step=None, max_depth=8, max_leaves=None,
+             min_child_weight=2, missing=nan, monotone_constraints=None,
+             n_estimators=2000, n_jobs=None, num_parallel_tree=None,
+             predictor=None, random_state=0, ...)
+TransformedTargetRegressor(regressor=Pipeline(steps=[('scale',
+                                                      ColumnTransformer(transformers=[('scale',
+                                                                                       MinMaxScaler(),
+                                                                                       [0])])),
+                                                     ('reg',
+                                                      MLPRegressor(beta_1=0.7972663692000757,
+                                                                   beta_2=0.8451249709250763,
+                                                                   epsilon=5.661541754756458e-06,
+                                                                   hidden_layer_sizes=(6,
+                                                                                       6,
+                                                                                       6,
+                                                                                       6),
+                                                                   max_iter=5000,
+                                                                   random_state=0))]),
+                           transformer=RobustScaler())
+VotingRegressor(estimators=[('poly',
+                             TransformedTargetRegressor(regressor=Pipeline(steps=[('poli',
+                                                                                   PolynomialFeatures(degree=6,
+                                                                                                      include_bias=False)),
+                                                                                  ('scale',
+                                                                                   ColumnTransformer(transformers=[('scale',
+                                                                                                                    RobustScaler(),
+                                                                                                                    [0])])),
+                                                                                  ('reg',
+                                                                                   Ridge(alpha=0.010000309592322183,
+                                                                                         copy_X=False,
+                                                                                         fit_intercept=False,
+                                                                                         max_iter=30000))]),
+                                                        transformer=RobustScaler())),
+                            ('svr',
+                             Tra...
+                                          predictor=None, random_state=0, ...)),
+                            ('nn',
+                             TransformedTargetRegressor(regressor=Pipeline(steps=[('scale',
+                                                                                   ColumnTransformer(transformers=[('scale',
+                                                                                                                    MinMaxScaler(),
+                                                                                                                    [0])])),
+                                                                                  ('reg',
+                                                                                   MLPRegressor(beta_1=0.7972663692000757,
+                                                                                                beta_2=0.8451249709250763,
+                                                                                                epsilon=5.661541754756458e-06,
+                                                                                                hidden_layer_sizes=(6,
+                                                                                                                    6,
+                                                                                                                    6,
+                                                                                                                    6),
+                                                                                                max_iter=5000,
+                                                                                                random_state=0))]),
+                                                        transformer=RobustScaler()))])
+=== All Features ===
+--- We're in the model poly ---
+--- We're in the model svr ---
+--- We're in the model xgb ---
+--- We're in the model nn ---
+=== Ei + Alpha Features ===
+--- We're in the model poly ---
+--- We're in the model svr ---
+--- We're in the model xgb ---
+--- We're in the model nn ---
+===  Pi + Alpha Features ===
+--- We're in the model poly ---
+--- We're in the model svr ---
+--- We're in the model xgb ---
+--- We're in the model nn ---
+=== Pi + Ei Features ===
+--- We're in the model poly ---
+--- We're in the model svr ---
+--- We're in the model xgb ---
+--- We're in the model nn ---
+=== All Features ===
+--- We're in the model poly ---
+--- We're in the model svr ---
+--- We're in the model xgb ---
+--- We're in the model nn ---
+=== Ei + Alpha Features ===
+--- We're in the model poly ---/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py:449: UserWarning: The objective has been evaluated at this point before.
+  warnings.warn("The objective has been evaluated "
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:299: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+/home/mfasenra/.cache/pypoetry/virtualenvs/apolar-molecules-7gQ_aExa-py3.9/lib/python3.9/site-packages/sklearn/neural_network/_multilayer_perceptron.py:686: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (5000) reached and the optimization hasn't converged yet.
+  warnings.warn(
+
+--- We're in the model svr ---
+--- We're in the model xgb ---
+--- We're in the model nn ---
+===  Pi + Alpha Features ===
+--- We're in the model poly ---
+--- We're in the model svr ---
+--- We're in the model xgb ---
+--- We're in the model nn ---
+=== Pi + Ei Features ===
+--- We're in the model poly ---
+--- We're in the model svr ---
+--- We're in the model xgb ---
+--- We're in the model nn ---
+Date of execution:  2023-07-01 23:44:23.151747
+Date of finalization:  2023-07-02 03:24:27.646231
+Time elapsed:  3:40:04.494484
