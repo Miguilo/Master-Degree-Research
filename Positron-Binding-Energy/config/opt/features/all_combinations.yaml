@@ -1,3 +1,4 @@
+# One specification: pi_bond must always be the last feature in case he's there.
 all:
   apolar: 
     feat1 : ['Ei', 'Alpha', 'pi_bond']
