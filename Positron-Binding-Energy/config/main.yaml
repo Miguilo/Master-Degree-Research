@@ -3,4 +3,5 @@ defaults:
   - process: process_data
   - data: data_paths
   - models: models_path
+  - eval: eval_paths
   - _self_
