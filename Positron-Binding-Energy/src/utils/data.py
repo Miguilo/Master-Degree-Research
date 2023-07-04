@@ -96,3 +96,11 @@ def get_data(path: str):
     df = pd.read_csv(abs_path)
     return df
 
+def create_df(column_names, row_names):
+    dict = {
+
+    }
+    for i in column_names:
+        dict[i] = np.full((len(row_names)), np.nan)
+    df = pd.DataFrame(dict, index=row_names)
+    return df
