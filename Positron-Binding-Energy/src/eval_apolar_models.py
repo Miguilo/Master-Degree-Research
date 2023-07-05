@@ -149,7 +149,7 @@ def main(cfg: DictConfig):
         modify_scaling(list_of_models, list_of_models_names, j, list_of_features[i])
 
         dict_test, dict_train = stacked_nested_cv(list_of_models, list_of_models_names, list_of_spaces, j, 
-                          y_all.ravel(), 3, 2, n_calls=15, n_random_starts=10)
+                          y_all.ravel(), 10, 5, n_calls=150, n_random_starts=100)
         
         for k in dict_test.keys():
             all_train_score_df[list_of_features[i]][k] = np.mean(dict_train[k])
@@ -160,8 +160,117 @@ def main(cfg: DictConfig):
         all_train_score_df.to_csv(all_train_score_df_path, index_label=False)
         all_test_score_df.to_csv(all_test_score_df_path, index_label=False)  
         all_train_std_df.to_csv(all_train_std_df_path, index_label=False)  
-        all_train_std_df.to_csv(all_test_std_df_path, index_label=False)          
+        all_train_std_df.to_csv(all_test_std_df_path, index_label=False)
 
+    # For partial molecules
+    df_apolar_partial = pd.read_csv(
+        get_absolute_path(cfg.data.apolar.final.path)
+    )
+
+    x0_partial_iso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat1_iso
+    ].values
+    x1_partial_iso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat2_iso
+    ].values
+    x2_partial_iso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat3_iso
+    ].values
+    x3_partial_iso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat4_iso
+    ].values
+
+    x0_partial_aniso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat1_aniso
+    ].values
+    x1_partial_aniso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat2_aniso
+    ].values
+    x2_partial_aniso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat3_aniso
+    ].values
+    x3_partial_aniso = df_apolar_partial[
+        cfg.opt.features.partial.apolar.feat4_aniso
+    ].values
+
+    y_partial = df_apolar_partial[["Expt"]].values
+
+    list_of_x_partial_iso = [
+        x0_partial_iso,
+        x1_partial_iso,
+        x2_partial_iso,
+        x3_partial_iso,
+    ]
+    list_of_x_partial_aniso = [
+        x0_partial_aniso,
+        x1_partial_aniso,
+        x2_partial_aniso,
+        x3_partial_aniso,
+    ]          
+
+    partial_iso_train_score_df = create_df(list_of_features, rows)
+    partial_iso_test_score_df = create_df(list_of_features, rows)
+    partial_iso_train_std_df = create_df(list_of_features, rows)
+    partial_iso_test_std_df = create_df(list_of_features, rows)
+
+    partial_iso_train_score_df_path = get_absolute_path(cfg.eval.partial_iso.apolar.train_score_path)
+    partial_iso_test_score_df_path = get_absolute_path(cfg.eval.partial_iso.apolar.test_score_path)
+    partial_iso_train_std_df_path = get_absolute_path(cfg.eval.partial_iso.apolar.train_std_path)
+    partial_iso_test_std_df_path = get_absolute_path(cfg.eval.partial_iso.apolar.test_std_path)
+
+    for i, j in enumerate(list_of_x_partial_iso):
+        print(f"=== {list_of_features[i]} Features ===")
+        modify_scaling(list_of_models, list_of_models_names, j, list_of_features[i])
+
+        dict_test, dict_train = stacked_nested_cv(list_of_models, list_of_models_names, list_of_spaces, j, 
+                          y_partial.ravel(), 10, 5, n_calls=150, n_random_starts=100)
+        
+        for k in dict_test.keys():
+            partial_iso_train_score_df[list_of_features[i]][k] = np.mean(dict_train[k])
+            partial_iso_test_score_df[list_of_features[i]][k] = np.mean(dict_test[k])
+            partial_iso_train_std_df[list_of_features[i]][k] = np.std(dict_train[k])
+            partial_iso_test_std_df[list_of_features[i]][k] = np.std(dict_test[k])
+
+        partial_iso_train_score_df.to_csv(partial_iso_train_score_df_path, index_label=False)
+        partial_iso_test_score_df.to_csv(partial_iso_test_score_df_path, index_label=False)  
+        partial_iso_train_std_df.to_csv(partial_iso_train_std_df_path, index_label=False)  
+        partial_iso_train_std_df.to_csv(partial_iso_test_std_df_path, index_label=False)
+
+    # For partial aniso
+
+    partial_aniso_train_score_df = create_df(list_of_features, rows)
+    partial_aniso_test_score_df = create_df(list_of_features, rows)
+    partial_aniso_train_std_df = create_df(list_of_features, rows)
+    partial_aniso_test_std_df = create_df(list_of_features, rows)
+
+    partial_aniso_train_score_df_path = get_absolute_path(cfg.eval.partial_aniso.apolar.train_score_path)
+    partial_aniso_test_score_df_path = get_absolute_path(cfg.eval.partial_aniso.apolar.test_score_path)
+    partial_aniso_train_std_df_path = get_absolute_path(cfg.eval.partial_aniso.apolar.train_std_path)
+    partial_aniso_test_std_df_path = get_absolute_path(cfg.eval.partial_aniso.apolar.test_std_path)
+
+    for i, j in enumerate(list_of_x_partial_aniso):
+        print(f"=== {list_of_features[i]} Features ===")
+        modify_scaling(list_of_models, list_of_models_names, j, list_of_features[i])
+
+        dict_test, dict_train = stacked_nested_cv(list_of_models, list_of_models_names, list_of_spaces, j, 
+                          y_partial.ravel(), 10, 5, n_calls=150, n_random_starts=100)
+        
+        for k in dict_test.keys():
+            partial_aniso_train_score_df[list_of_features[i]][k] = np.mean(dict_train[k])
+            partial_aniso_test_score_df[list_of_features[i]][k] = np.mean(dict_test[k])
+            partial_aniso_train_std_df[list_of_features[i]][k] = np.std(dict_train[k])
+            partial_aniso_test_std_df[list_of_features[i]][k] = np.std(dict_test[k])
+
+        partial_aniso_train_score_df.to_csv(partial_aniso_train_score_df_path, index_label=False)
+        partial_aniso_test_score_df.to_csv(partial_aniso_test_score_df_path, index_label=False)  
+        partial_aniso_train_std_df.to_csv(partial_aniso_train_std_df_path, index_label=False)  
+        partial_aniso_train_std_df.to_csv(partial_aniso_test_std_df_path, index_label=False)
+
+    final_t = datetime.now()
+    execution_t = final_t - initial_t
+    print("Date of execution: ", initial_t)
+    print("Date of finalization: ", final_t)
+    print("Time elapsed: ", execution_t)
 
         
 if __name__ == "__main__":

@@ -270,7 +270,6 @@ def stacked_nested_cv(estimators, estimators_names, spaces, x, y, out_cv, inner_
                 dict_test_scores[i].append(np.sqrt(mean_squared_error(y_test, y_pred)))
                 dict_train_scores[i].append(np.sqrt(mean_squared_error(y_train, y_train_pred)))
 
-    print(dict_test_scores)
     clear_output()
     return dict_test_scores, dict_train_scores
         
