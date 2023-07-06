@@ -215,9 +215,6 @@ def stacked_nested_cv(estimators, estimators_names, spaces, x, y, out_cv, inner_
         dict_test_scores['stacked'] = []
         dict_train_scores['stacked'] = []
 
-    cv_scores = []
-    train_scores = []
-    std = []
     count = 1
     
     #Dividindo entre treino e teste na pasta de fora.
