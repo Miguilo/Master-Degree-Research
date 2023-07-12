@@ -4,11 +4,11 @@ import hydra
 import pandas as pd
 from omegaconf import DictConfig
 from sklearn.compose import TransformedTargetRegressor
-from sklearn.linear_model import Ridge
+from sklearn import linear_model
 from sklearn.model_selection import KFold
 from sklearn.neural_network import MLPRegressor
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import (MinMaxScaler, PolynomialFeatures,
+from sklearn.preprocessing import (RobustScaler, PolynomialFeatures,
                                    StandardScaler)
 from sklearn.svm import SVR
 from utils.data import get_absolute_path
@@ -75,8 +75,8 @@ def main(cfg: DictConfig):
     pipe_elastic = Pipeline(
         [
             ("poli", PolynomialFeatures()),
-            ("scale", MinMaxScaler()),
-            ("reg", Ridge(max_iter=30000)),
+            ("scale", RobustScaler()),
+            ("reg", linear_model.Ridge(max_iter=30000, random_state=0)),
         ]
     )
     ridge = TransformedTargetRegressor(
@@ -84,7 +84,7 @@ def main(cfg: DictConfig):
     )
 
     pipe_svr = Pipeline(
-        [("scale", StandardScaler()), ("reg", SVR(max_iter=10000))]
+        [("scale", RobustScaler()), ("reg", SVR(max_iter=10000))]
     )
     svr = TransformedTargetRegressor(
         transformer=StandardScaler(), regressor=pipe_svr
@@ -94,7 +94,7 @@ def main(cfg: DictConfig):
 
     pipe_nn = Pipeline(
         [
-            ("scale", MinMaxScaler()),
+            ("scale", RobustScaler()),
             (
                 "reg",
                 MLPRegressor(max_iter=5000, random_state=0, solver="adam"),
