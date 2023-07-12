@@ -22,8 +22,8 @@ fi
 for arquivo in "${arquivos[@]}"; do
     nome_arquivo_saida="${arquivo%.*}_output.txt"  # Gera o nome do arquivo de saída
     caminho_arquivo_saida="$pasta_saida/$nome_arquivo_saida"  # Caminho completo do arquivo de saída
-    nohup poetry run python3 "$arquivo" > "$caminho_arquivo_saida"
     echo "Arquivo $arquivo adicionado à fila. Saída em $caminho_arquivo_saida"
+    nohup poetry run python3 "$arquivo" > "$caminho_arquivo_saida"
     wait  # Aguarda a conclusão da execução atual antes de prosseguir
 done
 
