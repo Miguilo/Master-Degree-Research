@@ -147,9 +147,9 @@ def main(cfg: DictConfig):
     initial_t = datetime.now()
     for i, j in enumerate(list_of_x_all):
         print(f"=== {list_of_features[i]} Features ===")
-        modify_scaling(list_of_models, list_of_models_names, j, list_of_features[i])
+        new_list_of_models = modify_scaling(list_of_models, list_of_models_names, list_of_features[i])
         opt_all(
-            list_of_models,
+            new_list_of_models,
             list_of_models_names,
             list_of_spaces,
             j,
@@ -210,9 +210,9 @@ def main(cfg: DictConfig):
 
     for i, j in enumerate(list_of_x_partial_iso):
         print(f"=== {list_of_features[i]} Features ===")
-        modify_scaling(list_of_models, list_of_models_names, j, list_of_features[i])
+        new_list_of_models = modify_scaling(list_of_models, list_of_models_names, list_of_features[i])
         opt_all(
-            list_of_models,
+            new_list_of_models,
             list_of_models_names,
             list_of_spaces,
             j,
@@ -226,9 +226,9 @@ def main(cfg: DictConfig):
 
     for i, j in enumerate(list_of_x_partial_aniso):
         print(f"=== {list_of_features[i]} Features ===")
-        modify_scaling(list_of_models, list_of_models_names, j, list_of_features[i])
+        new_list_of_models = modify_scaling(list_of_models, list_of_models_names, list_of_features[i])
         opt_all(
-            list_of_models,
+            new_list_of_models,
             list_of_models_names,
             list_of_spaces,
             j,
