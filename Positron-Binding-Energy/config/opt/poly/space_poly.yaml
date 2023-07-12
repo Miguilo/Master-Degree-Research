@@ -3,7 +3,7 @@ polynomial_caller : "regressor__poli__"
 
 alpha:
   name: "${opt.poly.regressor_caller}alpha"
-  low: 0.00001
+  low: 1e-5
   high: 100
   prior: 'log-uniform'
   type: 'real'
