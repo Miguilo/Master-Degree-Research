@@ -225,7 +225,7 @@ def main(cfg: DictConfig):
         new_list_of_models = modify_scaling(list_of_models, list_of_models_names, list_of_features[i])
         
         dict_test, dict_train = stacked_nested_cv(new_list_of_models, list_of_models_names, list_of_spaces,
-                                                  j, y_all, 10, 5)
+                                                  j, y_partial, 10, 5)
         
         for k in dict_test.keys():
             partial_iso_train_score_df[list_of_features[i]][k] = np.mean(dict_train[k])
@@ -255,7 +255,7 @@ def main(cfg: DictConfig):
         new_list_of_models = modify_scaling(list_of_models, list_of_models_names, list_of_features[i])
         
         dict_test, dict_train = stacked_nested_cv(new_list_of_models, list_of_models_names, list_of_spaces,
-                                                  j, y_all, 10, 5)
+                                                  j, y_partial, 10, 5)
         
         for k in dict_test.keys():
             partial_aniso_train_score_df[list_of_features[i]][k] = np.mean(dict_train[k])
