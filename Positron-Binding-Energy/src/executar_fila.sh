@@ -10,7 +10,7 @@ arquivos=(
 
 # Loop para processar cada arquivo da fila
 for arquivo in "${arquivos[@]}"; do
-    nome_arquivo_saida="${arquivo%.*}_output.txt"  # Gera o nome do arquivo de saída
+    nome_arquivo_saida="$txt_outputs/{arquivo%.*}_output.txt"  # Gera o nome do arquivo de saída
     nohup poetry run python3 "$arquivo" > "$nome_arquivo_saida" &
     echo "Arquivo $arquivo adicionado à fila. Saída em $nome_arquivo_saida"
     wait  # Pausa de 1 segundo entre as execuções
