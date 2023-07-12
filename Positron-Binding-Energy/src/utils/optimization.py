@@ -12,17 +12,32 @@ from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import KFold
 from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error
 from IPython.display import clear_output
+from sklearn.base import clone
 
-def modify_scaling(list_of_models, list_of_models_names, X, name_of_features):
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import RobustScaler
+from sklearn.base import clone
 
-    num_of_features = X.shape[1]
-    ct = ColumnTransformer([('scale', StandardScaler(), [i for i in range(num_of_features)])])
-    if 'pi' in name_of_features.lower() or 'all' in name_of_features.lower():
-        ct = ColumnTransformer([('scale', StandardScaler(), [i for i in range(num_of_features - 1)])])
-    for k, l in enumerate(list_of_models):
-        if 'xgb' not in list_of_models_names[k]:
-            l.set_params(regressor__scale = ct)
-    return
+def modify_scaling(list_of_models, list_of_models_names, name_of_features):
+    modified_models = []  # Lista para armazenar os modelos modificados
+    
+    for model, name in zip(list_of_models, list_of_models_names):
+        if 'xgb' in name:
+            modified_models.append(model)
+        else:
+            ct = ColumnTransformer([('scale', RobustScaler(), slice(0, None))], remainder='passthrough')
+            if 'pi' in name_of_features.lower() or 'all' in name_of_features.lower():
+                ct = ColumnTransformer([('scale', RobustScaler(), slice(0, -1))], remainder='passthrough')
+            elif 'poly' in name.lower() or 'poli' in name.lower():
+                ct = ColumnTransformer([('scale', RobustScaler(), slice(0, None))], remainder='passthrough')
+            
+            modified_model = clone(model)  
+            modified_model.set_params(regressor__scale=ct) 
+            modified_models.append(modified_model)  
+        
+    return modified_models
+
+
 
 def convert_to_space(caller, parameter):
     """
@@ -125,7 +140,7 @@ def gp_optimize(
 
         return mean_score
 
-    gp_optimize.opt = gp_minimize(
+    result = gp_minimize(
         objective,
         space,
         n_calls=n_calls,
@@ -134,8 +149,8 @@ def gp_optimize(
         verbose=verbose,
         n_jobs=n_jobs_opt,
     )
-    # print("Os hiper parâmetros que minimizam são: ", gp_optimize.opt.x)
-    return gp_optimize.opt
+    # print("Os hiper parâmetros que minimizam são: ", result.x)
+    return result
 
 
 def save_models(path: str, model):
@@ -183,9 +198,83 @@ def opt_all(
 
     save_models(path, list_of_models)
 
-def stacked_nested_cv(estimators, estimators_names, spaces, x, y, out_cv, inner_cv, scoring = "neg_mean_absolute_percentage_error",
-               neural = False, n_calls=150, n_random_starts = 100, verbose = 0, shuffle=True, 
+def nested_cv(estimator, space, x, y, out_cv, inner_cv, scoring = "neg_mean_absolute_percentage_error",
+               neural = False, n_calls=15, n_random_starts = 10, verbose = 0, shuffle=True, 
                random_state=0, print_mode = False):
+    
+    '''
+    A função retornará os scores de cada fold pra k_fold externo
+    train_scores: Score de treino pra cada fold de treino.
+    test_pred: Predição de teste pra cada elemento quando esteve no conjunto de teste.
+    test_error: Erro de teste pra cada elemento quando esteve no conjunto de teste.
+    cv_score: Erro de teste de cada k_fold externo.
+    stacked: Argumento utilizado quando o modelo a ter o nested-cv retirado é um modelo stacking.
+
+    Importante lembrar que a média do test error não será equivalente ao cv score.
+    Isto pois o agrupamento de dados de teste é diferente do que a simples soma e divisão por N
+    da média do test error.
+    '''
+
+    kf_out = KFold(n_splits = out_cv, shuffle=shuffle, random_state=random_state) #Folders externo.
+    kf_in = KFold(n_splits = inner_cv, shuffle=shuffle, random_state=random_state) #Folders internos.
+
+    test_pred = np.zeros_like(y)
+    test_error = np.zeros_like(y)
+
+    cv_scores = []
+    train_scores = []
+    count = 1
+
+    #Dividindo entre treino e teste na pasta de fora.
+    for train_index, test_index in kf_out.split(x):
+        print(f"Out folder {count} of {out_cv}.")
+        count += 1
+        x_train, x_test = x[list(train_index)], x[list(test_index)]
+        y_train, y_test = y[train_index], y[test_index]
+        
+        #Otimizando o modelo pro x_train e y_train com validação cruzada interna.
+        opt_model = gp_optimize(estimator, x_train, y_train, space = space, cv = kf_in, n_calls=n_calls, 
+                                n_random_starts = n_random_starts, 
+                                neural = neural, scoring = scoring, verbose = verbose)
+        
+        #Pegando o melhor modelo com os valores de otimização
+        att_model(estimator, space, opt_model.x, neural = neural)
+        #Fitando o melhor modelo
+        fitted_model = estimator.fit(x_train, y_train)
+        #Prevendo agora com o melhor modelo, a performance no dado de teste.
+        y_train_pred = fitted_model.predict(x_train)
+        y_pred = fitted_model.predict(x_test)
+
+
+        #Mudando a métrica de acordo com scoring
+        if scoring == "neg_mean_absolute_percentage_error":
+            cv_scores.append(mean_absolute_percentage_error(y_test, y_pred))
+            train_scores.append(mean_absolute_percentage_error(y_train,y_train_pred))
+        elif scoring == "neg_root_mean_squared_error":
+            cv_scores.append(np.sqrt(mean_squared_error(y_test, y_pred)))
+            train_scores.append(np.sqrt(mean_squared_error(y_train, y_train_pred)))
+
+        #Gerando o erro de teste índice a índice
+        for i,z,w in zip(test_index, x_test, y_test):
+            test_pred[i] = fitted_model.predict(z.reshape(1,-1))
+            if scoring == "neg_mean_absolute_percentage_error":
+                test_error[i] = mean_absolute_percentage_error(w, test_pred[i])
+            elif scoring=="neg_root_mean_squared_error":
+                test_error[i] = np.sqrt(mean_squared_error(w, test_pred[i]))
+  
+
+    if print_mode:
+        clear_output()
+        print("Cv Score:", np.mean(cv_scores))
+        print("Desvio Padrão:", round(np.std(cv_scores),2))
+        print("Score de Treino:", np.mean(train_scores))
+
+    return np.mean(cv_scores), round(np.std(cv_scores),2), np.mean(train_scores), test_error
+
+
+def stacked_nested_cv(estimators, estimators_names, spaces, x, y, out_cv, inner_cv, scoring = "neg_mean_absolute_percentage_error",
+               neural = False, n_calls=15, n_random_starts = 10, verbose = 0, shuffle=True, 
+               random_state=0):
     '''
     A função retornará os scores de cada fold pra k_fold externo em um modelo stacked via voting
     estimators: Lista contendo estimadores a serem otimizados para futura agregação no stacking.
@@ -195,17 +284,9 @@ def stacked_nested_cv(estimators, estimators_names, spaces, x, y, out_cv, inner_
     - Params
     estimators_names: Lista contendo string dos nomes dos estimadores a serem otimizados.
     spaces: Espaços de busca de hiperparâmetro individual pra cada estimador.
-    - Variables inside Function
-    train_scores: Score de treino pra cada fold de treino.
-    test_pred: Predição de teste pra cada elemento quando esteve no conjunto de teste.
-    test_error: Erro de teste pra cada elemento quando esteve no conjunto de teste.
-    cv_score: Erro de teste de cada k_fold externo.
     '''
     kf_out = KFold(n_splits = out_cv, shuffle=shuffle, random_state=random_state) #Folders externos.
     kf_in = KFold(n_splits = inner_cv, shuffle=shuffle, random_state=random_state) #Folders internos.
-
-    test_pred = np.zeros(x.shape[0])
-    test_error = np.zeros(x.shape[0])
 
     dict_test_scores = {} # Dicionário que conterá os scores de teste de cada modelo
     dict_train_scores = {} # Dicionário que conterá os scores de treino de cada modelo
@@ -229,7 +310,7 @@ def stacked_nested_cv(estimators, estimators_names, spaces, x, y, out_cv, inner_
         for i,j in enumerate(estimators):
             print(f"Optimizing estimator {estimators_names[i]}")
             neural=False # Garantindo que não haja um modelo após uma rede neural com parâmetro "neural = True"
-            if 'nn' in estimators_names[i]:
+            if 'nn' in estimators_names[i].lower():
                 neural=True
             opt_model = gp_optimize(j, x_train, y_train, space = spaces[i], cv = kf_in, 
                                 n_calls=n_calls, n_random_starts = n_random_starts, 
@@ -240,6 +321,21 @@ def stacked_nested_cv(estimators, estimators_names, spaces, x, y, out_cv, inner_
 
         stk_model = VotingRegressor(list_of_models, n_jobs=6)
         
+        for i,j in list_of_models:
+            # Fitando os modelos
+            copied_model = clone(j)
+            fitted_model = copied_model.fit(x_train, y_train)
+            # Prevendo com os melhores modelos, a performance nos dados de treino e teste
+            y_train_pred = fitted_model.predict(x_train)
+            y_pred = fitted_model.predict(x_test)
+
+            # Adicionando os scores de teste/treino nos dicionários por nome de modelo
+            if scoring == "neg_mean_absolute_percentage_error":
+                dict_test_scores[i].append(mean_absolute_percentage_error(y_test, y_pred))
+                dict_train_scores[i].append(mean_absolute_percentage_error(y_train, y_train_pred))
+            elif scoring == "neg_root_mean_squared_error":
+                dict_test_scores[i].append(np.sqrt(mean_squared_error(y_test, y_pred)))
+                dict_train_scores[i].append(np.sqrt(mean_squared_error(y_train, y_train_pred)))
             
         # Já adicionando o score do modelo stacked
         stk_model.fit(x_train, y_train)
@@ -252,21 +348,5 @@ def stacked_nested_cv(estimators, estimators_names, spaces, x, y, out_cv, inner_
             dict_test_scores['stacked'].append(np.sqrt(mean_squared_error(y_test, y_pred_stk)))
             dict_train_scores['stacked'].append(np.sqrt(mean_squared_error(y_train, y_train_pred_stk)))
 
-        for i,j in list_of_models.copy():
-            # Fitando os modelos
-            fitted_model = j.fit(x_train, y_train)
-            # Prevendo com os melhores modelos, a performance nos dados de treino e teste
-            y_train_pred = fitted_model.predict(x_train)
-            y_pred = fitted_model.predict(x_test)
-
-            # Adicionando os scores de teste/treino nos dicionários por nome de modelo
-            if scoring == "neg_mean_absolute_percentage_error":
-                dict_test_scores[i].append(mean_absolute_percentage_error(y_test, y_pred))
-                dict_train_scores[i].append(mean_absolute_percentage_error(y_train, y_train_pred))
-            elif scoring == "neg_root_mean_squared_error":
-                dict_test_scores[i].append(np.sqrt(mean_squared_error(y_test, y_pred)))
-                dict_train_scores[i].append(np.sqrt(mean_squared_error(y_train, y_train_pred)))
-
-    clear_output()
     return dict_test_scores, dict_train_scores
         
