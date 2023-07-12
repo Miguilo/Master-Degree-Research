@@ -199,7 +199,7 @@ def opt_all(
     save_models(path, list_of_models)
 
 def nested_cv(estimator, space, x, y, out_cv, inner_cv, scoring = "neg_mean_absolute_percentage_error",
-               neural = False, n_calls=15, n_random_starts = 10, verbose = 0, shuffle=True, 
+               neural = False, n_calls=150, n_random_starts = 100, verbose = 0, shuffle=True, 
                random_state=0, print_mode = False):
     
     '''
