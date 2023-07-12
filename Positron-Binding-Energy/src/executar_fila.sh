@@ -5,12 +5,12 @@ pasta_saida="txt_outputs"
 
 # Lista de arquivos a serem executados
 arquivos=(
-    "eval_apolar_models.py"
-    "eval_polar_models.py"
-    "eval_polar_apolar_models.py"
     "get_opt_models_apolar.py"
     "get_opt_models_polar.py"
     "get_opt_models_polar_apolar.py"
+    "eval_apolar_models.py"
+    "eval_polar_models.py"
+    "eval_polar_apolar_models.py"
 )
 
 # Verifica se a pasta de saída existe, caso contrário, cria-a
