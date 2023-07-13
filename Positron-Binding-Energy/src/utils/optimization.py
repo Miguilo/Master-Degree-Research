@@ -177,7 +177,7 @@ def opt_all(
         if "nn" in names_estimator_list[j]:
             neural = True
 
-        opt = gp_optimize(k, x, y, spaces_list[j], cv=cv, neural=neural)
+        opt = gp_optimize(k, x, y, spaces_list[j], cv=cv, neural=neural, verbose=verbose)
         best_model = att_model(k, spaces_list[j], opt.x, neural=neural)
         copy_of_best_model = copy.deepcopy(
             best_model
