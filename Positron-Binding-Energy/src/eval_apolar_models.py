@@ -124,13 +124,8 @@ def main(cfg: DictConfig):
     list_of_models = [svr, ridge, xgb, nn]
     list_of_spaces = [space_svr, space_poly, space_xgb,space_nn  ]
     list_of_models_names = ["svr", "poly", "xgb","nn" ]
-    list_of_features = ["All", "Ei + Alpha", " Pi + Alpha", "Pi + Ei"]
-    list_of_paths = [
-        get_absolute_path(cfg.models.apolar["all"]),
-        get_absolute_path(cfg.models.apolar["ei_alpha"]),
-        get_absolute_path(cfg.models.apolar["pi_alpha"]),
-        get_absolute_path(cfg.models.apolar["pi_ei"]),
-    ]
+    list_of_features = ["All", "Ei + Alpha", "Pi + Ei", "Pi + Alpha"]
+    
     initial_t = datetime.now()
     rows = list_of_models_names.copy()
     rows.append('stacked')
