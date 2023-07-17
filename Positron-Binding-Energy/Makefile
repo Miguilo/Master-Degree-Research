@@ -10,17 +10,6 @@ activate:
 	@echo "Activating virtual environment"
 	poetry shell
 
-initialize_git:
-	git init 
-
-pull_data:
-	poetry run dvc pull
-
-setup: initialize_git install
-
-test:
-	pytest
-
 docs_view:
 	@echo View API documentation... 
 	pdoc src --http localhost:8080
