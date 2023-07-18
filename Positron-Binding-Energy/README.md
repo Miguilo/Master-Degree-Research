@@ -57,7 +57,7 @@ To install new PyPI packages, run:
 poetry add <package-name>
 ```
 ## Fixing some issues
-### Optimization Libraries
+### Optimization Library
 The librarie used here to hyperparameter optimization (skopt) have some bugs that we have to fix mannually and it can be done just
 by replacing the transformers.py file. One easy way to do this is get the directory returned by "poetry shell" command and do the following:
 ```bash
