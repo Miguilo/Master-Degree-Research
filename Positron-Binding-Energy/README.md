@@ -60,16 +60,16 @@ poetry add <package-name>
 ### Optimization Libraries
 The librarie used here to hyperparameter optimization (skopt) have some bugs that we have to fix mannually and it can be done just
 by replacing the transformers.py file. One easy way to do this is get the directory returned by "poetry shell" command and do the following:
-'''bash
+```bash
 cp transformers.py {poetry_shell_path_returned}/lib/python3.9/site-packages/skopt/space/transformers.py
-'''
+```
 Where you just have do substitute the {poetry_shell_path_returned} with the path provided by poetry shell when activating the virtual environment.
 
 ### Running Jupyter Notebook
 To run an Jupyter Notebook within the virtual environment created by poetry in this project, you could, of couse in the fold of the project when the environment is activated by "poetry shell" tip the following command:
-'''bash
+```bash
 poetry run ipython kernel install --user --name=pbe_for_molecules
-'''
+```
 If you want to change the name of the kernel created, you can just replace "pbe_for_molecules" by another name.
 
 # Auto-generate API documentation
