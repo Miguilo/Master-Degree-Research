@@ -48,7 +48,7 @@
 2. Set up the environment:
 ```bash
 make activate
-make setup
+make install
 ```
 
 ## Install new packages
@@ -56,38 +56,21 @@ To install new PyPI packages, run:
 ```bash
 poetry add <package-name>
 ```
+## Fixing some issues
+### Optimization Libraries
+The librarie used here to hyperparameter optimization (skopt) have some bugs that we have to fix mannually and it can be done just
+by replacing the transformers.py file. One easy way to do this is get the directory returned by "poetry shell" command and do the following:
+'''bash
+cp transformers.py {poetry_shell_path_returned}/lib/python3.9/site-packages/skopt/space/transformers.py
+'''
+Where you just have do substitute the {poetry_shell_path_returned} with the path provided by poetry shell when activating the virtual environment.
 
-## Run the entire pipeline
-To run the entire pipeline, type:
-```bash
-dvc repo
-```
-
-## Version your data
-Read [this article](https://towardsdatascience.com/introduction-to-dvc-data-version-control-tool-for-machine-learning-projects-7cb49c229fe0) on how to use DVC to version your data.
-
-Basically, you start with setting up a remote storage. The remote storage is where your data is stored. You can store your data on DagsHub, Google Drive, Amazon S3, Azure Blob Storage, Google Cloud Storage, Aliyun OSS, SSH, HDFS, and HTTP.
-
-```bash
-dvc remote add -d remote <REMOTE-URL>
-```
-
-Commit the config file:
-```bash
-git commit .dvc/config -m "Configure remote storage"
-```
-
-Push the data to remote storage:
-```bash
-dvc push 
-```
-
-Add and push all changes to Git:
-```bash
-git add .
-git commit -m 'commit-message'
-git push origin <branch>
-```
+### Running Jupyter Notebook
+To run an Jupyter Notebook within the virtual environment created by poetry in this project, you could, of couse in the fold of the project when the environment is activated by "poetry shell" tip the following command:
+'''bash
+poetry run ipython kernel install --user --name=pbe_for_molecules
+'''
+If you want to change the name of the kernel created, you can just replace "pbe_for_molecules" by another name.
 
 # Auto-generate API documentation
 
