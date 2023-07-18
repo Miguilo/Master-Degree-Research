@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../')
+sys.path.append('../src/')
 
 from copy import deepcopy
 from datetime import datetime

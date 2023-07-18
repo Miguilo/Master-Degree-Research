@@ -3,7 +3,7 @@ Script to get the final optimized models
 from all apolar molecules and partial apolar molecules.
 """
 import sys
-sys.path.append('../')
+sys.path.append('../src/')
 
 from copy import deepcopy
 from datetime import datetime
