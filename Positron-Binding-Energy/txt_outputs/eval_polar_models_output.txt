@@ -670,6 +670,6 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
-Date of execution:  2023-07-16 09:05:08.873546
-Date of finalization:  2023-07-17 16:40:15.379112
-Time elapsed:  1 day, 7:35:06.505566
+Date of execution:  2023-07-15 01:55:42.696662
+Date of finalization:  2023-07-16 09:04:56.845049
+Time elapsed:  1 day, 7:09:14.148387

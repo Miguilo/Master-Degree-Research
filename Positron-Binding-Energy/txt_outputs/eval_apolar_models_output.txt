@@ -1,5 +1,5 @@
 === All Features ===
---- We're in poly model ---
+--- We're in svr model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -10,7 +10,7 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
---- We're in svr model ---
+--- We're in poly model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -54,8 +54,8 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
-=== Ei + Alpha + Dipole Features ===
---- We're in poly model ---
+=== Ei + Alpha Features ===
+--- We're in svr model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -66,7 +66,7 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
---- We're in svr model ---
+--- We're in poly model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -110,8 +110,8 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
-=== Alpha + Dipole Features ===
---- We're in poly model ---
+===  Pi + Alpha Features ===
+--- We're in svr model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -122,7 +122,7 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
---- We're in svr model ---
+--- We're in poly model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -166,18 +166,7 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
-=== Alpha + Dipole + Pi Features ===
---- We're in poly model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
+=== Pi + Ei Features ===
 --- We're in svr model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
@@ -189,220 +178,7 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
---- We're in xgb model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in nn model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in stacked model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
-=== All Features ===
 --- We're in poly model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in svr model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in xgb model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in nn model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in stacked model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
-=== Ei + Alpha + Dipole Features ===
---- We're in poly model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in svr model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in xgb model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in nn model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in stacked model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
-=== Alpha + Dipole Features ===
---- We're in poly model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in svr model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in xgb model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in nn model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in stacked model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
-=== Alpha + Dipole + Pi Features ===
---- We're in poly model ---
-Out folder 1 of 10.
-Out folder 2 of 10.
-Out folder 3 of 10.
-Out folder 4 of 10.
-Out folder 5 of 10.
-Out folder 6 of 10.
-Out folder 7 of 10.
-Out folder 8 of 10.
-Out folder 9 of 10.
-Out folder 10 of 10.
---- We're in svr model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -447,7 +223,7 @@ Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
 === All Features ===
---- We're in poly model ---
+--- We're in svr model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -458,7 +234,7 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
---- We're in svr model ---
+--- We're in poly model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -502,8 +278,8 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
-=== Ei + Alpha + Dipole Features ===
---- We're in poly model ---
+=== Ei + Alpha Features ===
+--- We're in svr model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -514,7 +290,7 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
---- We're in svr model ---
+--- We're in poly model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -558,8 +334,8 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
-=== Alpha + Dipole Features ===
---- We're in poly model ---
+===  Pi + Alpha Features ===
+--- We're in svr model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -570,7 +346,7 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
---- We're in svr model ---
+--- We're in poly model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -614,8 +390,8 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
-=== Alpha + Dipole + Pi Features ===
---- We're in poly model ---
+=== Pi + Ei Features ===
+--- We're in svr model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -626,7 +402,7 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
---- We're in svr model ---
+--- We're in poly model ---
 Out folder 1 of 10.
 Out folder 2 of 10.
 Out folder 3 of 10.
@@ -670,6 +446,230 @@ Out folder 7 of 10.
 Out folder 8 of 10.
 Out folder 9 of 10.
 Out folder 10 of 10.
-Date of execution:  2023-07-16 09:05:08.873546
-Date of finalization:  2023-07-17 16:40:15.379112
-Time elapsed:  1 day, 7:35:06.505566
+=== All Features ===
+--- We're in svr model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in poly model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in xgb model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in nn model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in stacked model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+=== Ei + Alpha Features ===
+--- We're in svr model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in poly model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in xgb model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in nn model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in stacked model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+===  Pi + Alpha Features ===
+--- We're in svr model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in poly model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in xgb model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in nn model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in stacked model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+=== Pi + Ei Features ===
+--- We're in svr model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in poly model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in xgb model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in nn model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in stacked model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+Date of execution:  2023-07-13 18:33:59.458047
+Date of finalization:  2023-07-15 01:55:29.956899
+Time elapsed:  1 day, 7:21:30.498852
