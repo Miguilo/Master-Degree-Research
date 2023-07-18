@@ -1,6 +1,8 @@
 """
 Module to process raw data into data's that I want to utilize.
 """
+import sys
+sys.path.append('../')
 
 import warnings
 

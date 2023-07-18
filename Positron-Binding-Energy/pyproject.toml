@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "Apolar-Molecules"
+name = "PBE for Molecules"
 version = "0.1.0"
 description = ""
 authors = ["Miguel Senra"]

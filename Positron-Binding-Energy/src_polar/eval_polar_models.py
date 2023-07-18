@@ -1,6 +1,9 @@
 from copy import deepcopy
 from datetime import datetime
 
+import sys
+sys.path.append('../')
+
 import numpy as np
 import hydra
 import pandas as pd

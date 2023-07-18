@@ -1,3 +1,6 @@
+import sys
+sys.path.append('../')
+
 from copy import deepcopy
 from datetime import datetime
 
