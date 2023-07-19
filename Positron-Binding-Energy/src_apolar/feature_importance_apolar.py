@@ -5,7 +5,7 @@ import hydra
 from omegaconf import DictConfig
 import pandas as pd
 from utils.data import get_absolute_path
-from utils.evaluation import create_graph_shap
+from utils.evaluation import create_graph_shap, show_metrics
 import pickle
 
 @hydra.main(config_path="../config", config_name="main.yaml")
@@ -51,7 +51,8 @@ def main(cfg: DictConfig):
     #     create_graph_shap(list_of_models[i], list_of_x_all[i], y_all.ravel(), j)
     # create_graph_shap(list_of_models[-1], list_of_x_all[-1], y_all.ravel(), list_of_feat_names[-1])
     list_of_models[-1][0].fit(list_of_x_all[-1], y_all.ravel())
-    print(list_of_models[-1][0].regressor_[0].get_feature_names_out())
+    show_metrics(list_of_models[-1][0], list_of_x_all[-1], y_all, cv=5, scoring="neg_mean_absolute_percentage_error"
+)
     
 
 

@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn.model_selection import cross_validate
+from sklearn.model_selection import cross_validate, KFold
 import shap
 from sklearn.base import clone
 import matplotlib.pyplot as plt
@@ -58,8 +58,9 @@ def show_metrics(
     de regressão pra um data set já finalizado.
 
     scoring : The score that you want to show the metrics."""
+    kf = KFold(n_splits = 5, shuffle=True, random_state=0)
 
-    train_score, test_score = get_cross_validation_scores(estimator, x, y, cv)
+    train_score, test_score = get_cross_validation_scores(estimator, x, y, kf)
 
     display_scores(test_score[scoring])
     print(f"\nTrain Score: {np.round(np.mean(train_score[scoring]), 2)}\n")
