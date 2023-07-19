@@ -97,8 +97,6 @@ def create_fast_graph(
     img_name,
     isotropy=True,
     img_path=None,
-    models_name=["SVR", "XGBoost", "NN", "Poli", "Stk"],
-    hue=["All", "Ei + Alpha", "Pi + Ei", "Pi + Alpha"],
     y="Relative Error",
     palette="hls",
     title="Title",
