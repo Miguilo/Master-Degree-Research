@@ -63,3 +63,9 @@ partial_aniso:
     test_score_path: ${eval.partial_aniso.polar_apolar.dir}/partial_aniso_test_score.csv
     train_std_path: ${eval.partial_aniso.polar_apolar.dir}/partial_aniso_train_std.csv
     test_std_path: ${eval.partial_aniso.polar_apolar.dir}/partial_aniso_test_std.csv
+
+imgs:
+  dir: ../performances_imgs
+  apolar: ${eval.imgs.dir}/apolar
+  polar: ${eval.imgs.dir}/polar
+  polar_apolar: ${eval.imgs.dir}/polar_apolar
