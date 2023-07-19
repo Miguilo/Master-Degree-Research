@@ -5,6 +5,7 @@ from sklearn.base import clone
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+import os
 
 
 def display_scores(scores):
@@ -107,7 +108,7 @@ def create_mean_results(dict, features, error_column):
 
     return final_df
 
-def create_graph_shap(estimators, x ,y, feature_names, models_names=['svr','xgb','nn','poli', 'stk'], 
+def create_graph_shap(estimators, x ,y, feature_names, path_to_save, img_name, models_names=['svr','xgb','nn','poli', 'stk'], 
                       figsize = (16,9), title = 'SHAP Feature Importance', show_mean_error = True):
     scores = []
     feat_column = []
@@ -135,4 +136,8 @@ def create_graph_shap(estimators, x ,y, feature_names, models_names=['svr','xgb'
     ax.set_title(title)
     ax.set_xlabel("Models")
     ax.set_ylabel("Feature Importance")
-    plt.show()
+
+    if not os.path.exists(path_to_save):
+        os.mkdir(path_to_save)
+
+    plt.savefig(f"{path_to_save}/{img_name}")
