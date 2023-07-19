@@ -113,7 +113,7 @@ def create_graph_shap(estimators, x ,y, feature_names, models_names=['svr','xgb'
     models = []
     for i,j in zip(estimators, models_names):
         #print('entered the loop')
-        feat_score = FI_shap_values(i, x, y,j)
+        feat_score = FI_shap_values(i, x, y)
         scores.extend(feat_score)
         feat_column.extend(feature_names)
         list_models_names = [j]
