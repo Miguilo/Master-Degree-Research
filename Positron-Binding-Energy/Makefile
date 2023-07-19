@@ -5,8 +5,6 @@ install:
 	@echo "Installing..."
 	poetry install
 	poetry run pre-commit install
-	cp transformers.py /home/$(USER)/.cache/pypoetry/virtualenvs/pbe_for_molecules-GBFEFQnP-py3.9/lib/python3.9/site-packages/skopt/space/transformers.py
-	poetry run ipython kernel install --user --name=pbe_for_molecules
 
 activate:
 	@echo "Activating virtual environment"
