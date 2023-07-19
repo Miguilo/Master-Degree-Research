@@ -14,14 +14,22 @@ from utils.evaluation import create_graph_shap, show_metrics
 @hydra.main(config_path="../config", config_name="main.yaml")
 def main(cfg: DictConfig):
 
-    # For all polar Molecules
-    df_polar_all = pd.read_csv(
-        get_absolute_path(cfg.data.polar.processed.path)
+    # For all polar_apolar Molecules
+    df_polar_apolar_all = pd.read_csv(
+        get_absolute_path(cfg.data.polar_apolar.processed.path)
     )
-    x0_all = df_polar_all[cfg.opt.features.all.polar.feat1].values
-    x1_all = df_polar_all[cfg.opt.features.all.polar.feat2].values
-    x2_all = df_polar_all[cfg.opt.features.all.polar.feat3].values
-    x3_all = df_polar_all[cfg.opt.features.all.polar.feat4].values
+    x0_all = df_polar_apolar_all[
+        cfg.opt.features.all.polar_apolar.feat1
+    ].values
+    x1_all = df_polar_apolar_all[
+        cfg.opt.features.all.polar_apolar.feat2
+    ].values
+    x2_all = df_polar_apolar_all[
+        cfg.opt.features.all.polar_apolar.feat3
+    ].values
+    x3_all = df_polar_apolar_all[
+        cfg.opt.features.all.polar_apolar.feat4
+    ].values
 
     list_of_feat_names = [
         ["Ei", "Alpha", "Dipole", "Pi Bond"],
@@ -30,32 +38,34 @@ def main(cfg: DictConfig):
         ["Alpha", "Dipole", "Pi Bond"],
     ]
 
-    y_all = df_polar_all[["Expt"]].values
+    y_all = df_polar_apolar_all[["Expt"]].values
 
     list_of_x_all = [x0_all, x1_all, x2_all, x3_all]
 
     path_all_mol_x0 = get_absolute_path(
-        f"{cfg.models.polar.all}/all_molecules_models.sav"
+        f"{cfg.models.polar_apolar.all}/all_molecules_models.sav"
     )
     path_all_mol_x1 = get_absolute_path(
-        f"{cfg.models.polar.ei_alpha_dipole}/all_molecules_models.sav"
+        f"{cfg.models.polar_apolar.ei_alpha_dipole}/all_molecules_models.sav"
     )
     path_all_mol_x2 = get_absolute_path(
-        f"{cfg.models.polar.alpha_dipole}/all_molecules_models.sav"
+        f"{cfg.models.polar_apolar.alpha_dipole}/all_molecules_models.sav"
     )
     path_all_mol_x3 = get_absolute_path(
-        f"{cfg.models.polar.alpha_dipole_pi}/all_molecules_models.sav"
+        f"{cfg.models.polar_apolar.alpha_dipole_pi}/all_molecules_models.sav"
     )
 
-    path_to_save_imgs_x0 = get_absolute_path(cfg.feat_importance.polar.all)
+    path_to_save_imgs_x0 = get_absolute_path(
+        cfg.feat_importance.polar_apolar.all
+    )
     path_to_save_imgs_x1 = get_absolute_path(
-        cfg.feat_importance.polar.ei_alpha_dipole
+        cfg.feat_importance.polar_apolar.ei_alpha_dipole
     )
     path_to_save_imgs_x2 = get_absolute_path(
-        cfg.feat_importance.polar.alpha_dipole
+        cfg.feat_importance.polar_apolar.alpha_dipole
     )
     path_to_save_imgs_x3 = get_absolute_path(
-        cfg.feat_importance.polar.alpha_dipole_pi
+        cfg.feat_importance.polar_apolar.alpha_dipole_pi
     )
 
     list_of_paths = [
@@ -87,23 +97,23 @@ def main(cfg: DictConfig):
         )
 
     # For partial iso molecules
-    df_polar_partial = pd.read_csv(
-        get_absolute_path(cfg.data.polar.final.path)
+    df_polar_apolar_partial = pd.read_csv(
+        get_absolute_path(cfg.data.polar_apolar.final.path)
     )
-    x0_partial_iso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat1_iso
+    x0_partial_iso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat1_iso
     ].values
-    x1_partial_iso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat2_iso
+    x1_partial_iso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat2_iso
     ].values
-    x2_partial_iso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat3_iso
+    x2_partial_iso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat3_iso
     ].values
-    x3_partial_iso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat4_iso
+    x3_partial_iso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat4_iso
     ].values
 
-    y_partial = df_polar_partial[["Expt"]].values
+    y_partial = df_polar_apolar_partial[["Expt"]].values
 
     list_of_x_all = [
         x0_partial_iso,
@@ -113,16 +123,16 @@ def main(cfg: DictConfig):
     ]
 
     path_partial_iso_mol_x0 = get_absolute_path(
-        f"{cfg.models.polar.all}/partial_iso_molecules_models.sav"
+        f"{cfg.models.polar_apolar.all}/partial_iso_molecules_models.sav"
     )
     path_partial_iso_mol_x1 = get_absolute_path(
-        f"{cfg.models.polar.ei_alpha_dipole}/partial_iso_molecules_models.sav"
+        f"{cfg.models.polar_apolar.ei_alpha_dipole}/partial_iso_molecules_models.sav"
     )
     path_partial_iso_mol_x2 = get_absolute_path(
-        f"{cfg.models.polar.alpha_dipole}/partial_iso_molecules_models.sav"
+        f"{cfg.models.polar_apolar.alpha_dipole}/partial_iso_molecules_models.sav"
     )
     path_partial_iso_mol_x3 = get_absolute_path(
-        f"{cfg.models.polar.alpha_dipole_pi}/partial_iso_molecules_models.sav"
+        f"{cfg.models.polar_apolar.alpha_dipole_pi}/partial_iso_molecules_models.sav"
     )
 
     list_of_paths = [
@@ -149,17 +159,17 @@ def main(cfg: DictConfig):
 
     # For partial aniso molecules.
 
-    x0_partial_aniso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat1_aniso
+    x0_partial_aniso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat1_aniso
     ].values
-    x1_partial_aniso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat2_aniso
+    x1_partial_aniso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat2_aniso
     ].values
-    x2_partial_aniso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat3_aniso
+    x2_partial_aniso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat3_aniso
     ].values
-    x3_partial_aniso = df_polar_partial[
-        cfg.opt.features.partial.polar.feat4_aniso
+    x3_partial_aniso = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat4_aniso
     ].values
 
     list_of_x_all = [
@@ -176,16 +186,16 @@ def main(cfg: DictConfig):
         ["axx", "ayy", "azz", "Dipole", "Pi Bond"],
     ]
     path_partial_aniso_mol_x0 = get_absolute_path(
-        f"{cfg.models.polar.all}/partial_aniso_molecules_models.sav"
+        f"{cfg.models.polar_apolar.all}/partial_aniso_molecules_models.sav"
     )
     path_partial_aniso_mol_x1 = get_absolute_path(
-        f"{cfg.models.polar.ei_alpha_dipole}/partial_aniso_molecules_models.sav"
+        f"{cfg.models.polar_apolar.ei_alpha_dipole}/partial_aniso_molecules_models.sav"
     )
     path_partial_aniso_mol_x2 = get_absolute_path(
-        f"{cfg.models.polar.alpha_dipole}/partial_aniso_molecules_models.sav"
+        f"{cfg.models.polar_apolar.alpha_dipole}/partial_aniso_molecules_models.sav"
     )
     path_partial_aniso_mol_x3 = get_absolute_path(
-        f"{cfg.models.polar.alpha_dipole_pi}/partial_aniso_molecules_models.sav"
+        f"{cfg.models.polar_apolar.alpha_dipole_pi}/partial_aniso_molecules_models.sav"
     )
 
     list_of_paths = [
