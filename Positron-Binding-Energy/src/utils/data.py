@@ -8,14 +8,10 @@ from sklearn.preprocessing import FunctionTransformer
 
 
 def log_transform(x):
-    """
-    testing docstring.
-    """
     return np.log(x)
 
 
 def log_transform_dataframe(dataframe, column_name):
-    """"""
     dataframe = dataframe.copy()
 
     transformer = FunctionTransformer(log_transform)
@@ -27,7 +23,6 @@ def log_transform_dataframe(dataframe, column_name):
 
 
 def get_absolute_path(file_path):
-    """"""
     abs_path = os.path.abspath(
         os.path.join(hydra.utils.get_original_cwd(), file_path)
     )
@@ -35,7 +30,18 @@ def get_absolute_path(file_path):
 
 
 def make_processed_data(raw_path, processed_path, columns_to_drop):
-    ""
+    """
+    Create a processed dataset by dropping missing values and columns.
+
+    Args:
+        raw_path: The path to the raw dataset.
+        processed_path: The path where the processed dataset will be saved.
+        columns_to_drop: The columns to be dropped.
+
+    Returns:
+        None.
+
+    """
     abs_file_path = get_absolute_path(raw_path)
     print(abs_file_path)
 
@@ -65,7 +71,18 @@ def make_processed_data(raw_path, processed_path, columns_to_drop):
 
 
 def make_final_data(raw_path, final_path, columns_to_drop):
-    """"""
+    """
+    Create a final dataset by dropping rows, columns, and rounding the values.
+
+    Args:
+        raw_path: The path to the raw dataset.
+        final_path: The path where the final dataset will be saved.
+        columns_to_drop: The columns to be dropped.
+
+    Returns:
+        None.
+
+    """
     abs_file_path = get_absolute_path(raw_path)
 
     df = pd.read_csv(abs_file_path)
