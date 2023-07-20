@@ -8,7 +8,9 @@ from sklearn.preprocessing import FunctionTransformer
 
 
 def log_transform(x):
-    """"""
+    """
+    testing docstring.
+    """
     return np.log(x)
 
 
@@ -42,8 +44,12 @@ def make_processed_data(raw_path, processed_path, columns_to_drop):
     # Dropping the columns with missing values
     # (It'll be the ones without Anisotropic Polarizability)
     try:
-        indexes_to_drop = df.query("Molecule == '2-2-Difluoropropane' or Molecule == '1-1-Dichloroethylene'").index
-        df.drop(indexes_to_drop, inplace=True).reset_index(drop=True, inplace=True)
+        indexes_to_drop = df.query(
+            "Molecule == '2-2-Difluoropropane' or Molecule == '1-1-Dichloroethylene'"
+        ).index
+        df.drop(indexes_to_drop, inplace=True).reset_index(
+            drop=True, inplace=True
+        )
     except:
         pass
         # Dropping the columns that we don't wanna to analyse here
@@ -53,7 +59,6 @@ def make_processed_data(raw_path, processed_path, columns_to_drop):
         inplace=True,
     )
     df = ds.feature_engineering.drop_missing(df, percent=10)
-
 
     new_path = get_absolute_path(processed_path)
     df.to_csv(new_path, index=False)
@@ -68,8 +73,12 @@ def make_final_data(raw_path, final_path, columns_to_drop):
     molecules_to_drop = df.loc[np.isnan(df["axx"])].index
     df.drop(molecules_to_drop, inplace=True)
     try:
-        indexes_to_drop = df.query("Molecule == '2-2-Difluoropropane' or Molecule == '1-1-Dichloroethylene'").index
-        df.drop(indexes_to_drop, inplace=True).reset_index(drop=True, inplace=True)
+        indexes_to_drop = df.query(
+            "Molecule == '2-2-Difluoropropane' or Molecule == '1-1-Dichloroethylene'"
+        ).index
+        df.drop(indexes_to_drop, inplace=True).reset_index(
+            drop=True, inplace=True
+        )
     except:
         pass
     df.reset_index(drop=True, inplace=True)
@@ -96,10 +105,9 @@ def get_data(path: str):
     df = pd.read_csv(abs_path)
     return df
 
-def create_df(column_names, row_names):
-    dict = {
 
-    }
+def create_df(column_names, row_names):
+    dict = {}
     for i in column_names:
         dict[i] = np.full((len(row_names)), np.nan)
     df = pd.DataFrame(dict, index=row_names)

@@ -1,13 +1,16 @@
 """
 Module to process raw data into data's that I want to utilize.
 """
+import sys
+
+sys.path.append("../src/")
 
 import warnings
 
 import hydra
 import pandas as pd
 from omegaconf import DictConfig
-from utils.data import make_final_data, make_processed_data, get_absolute_path
+from utils.data import get_absolute_path, make_final_data, make_processed_data
 
 warnings.filterwarnings("ignore")
 
@@ -51,8 +54,9 @@ def make_aniso_polar_data(config: DictConfig):
         config.process.to_drop.polar,
     )
 
+
 @hydra.main(config_path="../config", config_name="main.yaml")
-def make_polar_apolar_data(cfg:DictConfig) -> pd.DataFrame:
+def make_polar_apolar_data(cfg: DictConfig) -> pd.DataFrame:
     """"""
     apol_path = get_absolute_path(cfg.data.apolar.processed.path)
     pol_path = get_absolute_path(cfg.data.polar.processed.path)
@@ -62,9 +66,10 @@ def make_polar_apolar_data(cfg:DictConfig) -> pd.DataFrame:
     df_pol = pd.read_csv(pol_path)
 
     polar_apolar_data = pd.concat([df_apol, df_pol], axis=0, ignore_index=True)
-    polar_apolar_data['Dipole'] = polar_apolar_data['Dipole'].fillna(0)
+    polar_apolar_data["Dipole"] = polar_apolar_data["Dipole"].fillna(0)
 
-    polar_apolar_data.to_csv(pol_apol_path, index = False)
+    polar_apolar_data.to_csv(pol_apol_path, index=False)
+
 
 @hydra.main(config_path="../config", config_name="main.yaml")
 def make_aniso_polar_apolar_data(cfg: DictConfig):
@@ -77,9 +82,9 @@ def make_aniso_polar_apolar_data(cfg: DictConfig):
     df_pol = pd.read_csv(pol_path)
 
     polar_apolar_data = pd.concat([df_apol, df_pol], axis=0, ignore_index=True)
-    polar_apolar_data['Dipole'] = polar_apolar_data['Dipole'].fillna(0)
+    polar_apolar_data["Dipole"] = polar_apolar_data["Dipole"].fillna(0)
 
-    polar_apolar_data.to_csv(pol_apol_path, index = False)
+    polar_apolar_data.to_csv(pol_apol_path, index=False)
 
 
 if __name__ == "__main__":

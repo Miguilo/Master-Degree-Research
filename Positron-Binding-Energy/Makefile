@@ -14,6 +14,6 @@ docs_view:
 	@echo View API documentation... 
 	pdoc src --http localhost:8080
 
-docs_save:
+docs:
 	@echo Save documentation to docs... 
 	pdoc src -o docs
