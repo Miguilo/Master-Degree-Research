@@ -1,5 +1,6 @@
 Module src.utils.optimization
 =============================
+This module is utilized in optimization related function in all the pipelines.
 
 Functions
 ---------
@@ -8,7 +9,7 @@ Functions
 `att_model(estimator, space, values, neural=False)`
 :   Builds an estimator from a space and values.
     
-    Args:
+    #Args:
         estimator: The estimator to be built.
         space: The space of hyperparameters.
         values: The values of the hyperparameters.
