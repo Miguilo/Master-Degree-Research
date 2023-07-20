@@ -10,8 +10,15 @@ from sklearn.model_selection import KFold, cross_validate
 
 
 def display_scores(scores):
-    """
-    scores : Teste Scores of the cross_val procedure
+     """
+    Displays the scores of the cross-validation procedure.
+
+    Args:
+        scores: The test scores of the cross-validation procedure.
+
+    Returns:
+        None.
+
     """
 
     print("Test Scores:", scores)
@@ -23,6 +30,19 @@ def display_scores(scores):
 
 
 def get_cross_validation_scores(estimator, X, y, cv):
+    """
+    Get the cross-validation scores for a given estimator.
+
+    Args:
+        estimator: The estimator to be evaluated.
+        X: The training data.
+        y: The target values.
+        cv: The cross-validation folds.
+
+    Returns:
+        A tuple of train and test scores.
+
+    """
 
     scoring = [
         "neg_root_mean_squared_error",
@@ -56,10 +76,20 @@ def get_cross_validation_scores(estimator, X, y, cv):
 def show_metrics(
     estimator, x, y, cv, scoring="neg_mean_absolute_percentage_error"
 ):
-    """Algoritmo que devolve a análise da métrica a ser analisada em problema
-    de regressão pra um data set já finalizado.
+    """
+    Displays the metrics of a regression model.
 
-    scoring : The score that you want to show the metrics."""
+    Args:
+        estimator: The estimator to be evaluated.
+        x: The training data.
+        y: The target values.
+        cv: The cross-validation folds.
+        scoring: The scoring metric.
+
+    Returns:
+        None.
+
+    """
     kf = KFold(n_splits=5, shuffle=True, random_state=0)
 
     train_score, test_score = get_cross_validation_scores(estimator, x, y, kf)
@@ -74,6 +104,18 @@ def unity_norm(array):
 
 
 def FI_shap_values(estimator, x, y):
+     """
+    Computes the feature importance using SHAP values.
+
+    Args:
+        estimator: The estimator to be evaluated.
+        x: The training data.
+        y: The target values.
+
+    Returns:
+        A list of feature importance scores.
+
+    """
     model = clone(estimator)
     model.fit(x, y)
 
@@ -104,6 +146,25 @@ def create_fast_graph(
     show_mean=True,
     figsize=(16, 9),
 ):
+    """
+    Create a barplot for the error of different models.
+
+    Args:
+        df: The dataframe with the errors.
+        img_name: The name of the image to be saved.
+        isotropy: Whether the error is for isotropy or anisotropy.
+        img_path: The path where the image will be saved.
+        y: The name of the column with the error values.
+        palette: The palette to be used in the barplot.
+        title: The title of the barplot.
+        show_values: Whether to show the values on the bars.
+        show_mean: Whether to show the mean error in the barplot.
+        figsize: The size of the barplot.
+
+    Returns:
+        None.
+
+    """
 
     columns = list(df.columns)
     for i in range(len(columns)):
@@ -227,6 +288,24 @@ def create_graph_shap(
     title="SHAP Feature Importance",
     show_mean_error=True,
 ):
+    """
+    Create a barplot for the SHAP feature importance of different models.
+
+    Args:
+        estimators: The list of estimators.
+        x: The training data.
+        y: The target values.
+        feature_names: The names of the features.
+        path_to_save: The path where the image will be saved.
+        img_name: The name of the image to be saved.
+        models_names: The names of the models.
+        figsize: The size of the barplot.
+        title: The title of the barplot.
+        show_mean_error: Whether to show the mean error in the barplot.
+
+    Returns:
+        None.
+
     scores = []
     feat_column = []
     models = []
