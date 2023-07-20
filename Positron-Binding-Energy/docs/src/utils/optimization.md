@@ -9,7 +9,7 @@ Functions
 `att_model(estimator, space, values, neural=False)`
 :   Builds an estimator from a space and values.
     
-    #Args:
+    Args:
         estimator: The estimator to be built.
         space: The space of hyperparameters.
         values: The values of the hyperparameters.
