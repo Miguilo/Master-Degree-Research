@@ -119,8 +119,8 @@ def gp_optimize(
     n_random_starts=100,
     neural=False,
     scoring="neg_mean_absolute_percentage_error",
-    n_jobs_cv=-1,
-    n_jobs_opt=-1,
+    n_jobs_cv=4,
+    n_jobs_opt=4,
     verbose=0,
 ):
     @use_named_args(space)
