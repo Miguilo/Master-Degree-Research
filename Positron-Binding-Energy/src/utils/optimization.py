@@ -327,20 +327,33 @@ def nested_cv(
     print_mode=False,
 ):
 
-    """
-    A função retornará os scores de cada fold pra k_fold externo
-    train_scores: Score de treino pra cada fold de treino.
-    test_pred: Predição de teste pra cada elemento quando esteve no conjunto de teste.
-    test_error: Erro de teste pra cada elemento quando esteve no conjunto de teste.
-    cv_score: Erro de teste de cada k_fold externo.
+   """
+    Perform nested cross-validation.
 
-    Importante lembrar que a média do test error não será equivalente ao cv score.
-    Isto pois o agrupamento de dados de teste é diferente do que a simples soma e divisão por N
-    da média do test error.
-    # Return
-    - out_test_scores: The score of the outer folds in the test set
-    - out_train_scores: The score of the outer folds in the train set
-    - best_models: The best estimators founded in each run of outer fold's to be utilized in stacked cv
+    The function will return the scores of each fold for the outer k-fold, the train scores for each fold of the inner k-fold, the test predictions for each element when it was in the test set, the test errors for each element when it was in the test set, and the cv score.
+
+    It is important to remember that the mean of the test error will not be equivalent to the cv score. This is because the grouping of test data is different from the simple sum and division by N of the mean of the test error.
+
+    Args:
+        estimator: The estimator to be optimized.
+        space: The space of hyperparameters.
+        x: The training data.
+        y: The target values.
+        out_cv: The number of folds for the outer k-fold.
+        inner_cv: The number of folds for the inner k-fold.
+        scoring: The scoring metric.
+        neural: Whether the estimator is a neural network.
+        n_calls: The number of function calls to the optimizer.
+        n_random_starts: The number of random restarts.
+        verbose: The verbosity level.
+        shuffle: Whether to shuffle the data.
+        random_state: The random seed.
+        print_mode: Whether to print the scores.
+
+    Returns:
+        out_test_scores: The score of the outer folds in the test set.
+        out_train_scores: The score of the outer folds in the train set.
+        best_models: The best estimators founded in each run of outer fold's to be utilized in stacked cv.
     """
 
     kf_out = KFold(
@@ -437,6 +450,35 @@ def stacked_nested_cv(
     shuffle=True,
     random_state=0,
 ):
+    
+    """
+    Perform stacked nested cross-validation.
+
+    The function will return the scores of each fold for the outer k-fold, the train scores for each fold of the inner k-fold, the test predictions for each element when it was in the test set, the test errors for each element when it was in the test set, and the cv score for each model.
+
+    It is important to remember that the mean of the test error will not be equivalent to the cv score. This is because the grouping of test data is different from the simple sum and division by N of the mean of the test error.
+
+    Args:
+        estimators: A list of estimators to be optimized.
+        estimators_names: A list of names of the estimators.
+        spaces: A list of spaces of the estimators.
+        x: The training data.
+        y: The target values.
+        out_cv: The number of folds for the outer k-fold.
+        inner_cv: The number of folds for the inner k-fold.
+        scoring: The scoring metric.
+        neural: Whether the estimators are neural networks.
+        n_calls: The number of function calls to the optimizer.
+        n_random_starts: The number of random restarts.
+        verbose: The verbosity level.
+        shuffle: Whether to shuffle the data.
+        random_state: The random seed.
+
+    Returns:
+        dict_test: A dictionary with the test scores for each model.
+        dict_train: A dictionary with the train scores for each model.
+
+    """
     dict_train = {}
     dict_test = {}
     dict_best_models = {}
