@@ -222,7 +222,7 @@ def create_graph_shap(
     feature_names,
     path_to_save,
     img_name,
-    models_names=["svr", "xgb", "nn", "poli", "stk"],
+    models_names=["poly", "svr", "xgb", "nn", "stk"],
     figsize=(16, 9),
     title="SHAP Feature Importance",
     show_mean_error=True,

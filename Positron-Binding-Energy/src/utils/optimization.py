@@ -2,41 +2,48 @@ import copy
 import pickle
 
 import numpy as np
+from IPython.display import clear_output
+from sklearn.base import clone
+from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import VotingRegressor
-from sklearn.model_selection import cross_val_score
+from sklearn.metrics import mean_absolute_percentage_error, mean_squared_error
+from sklearn.model_selection import KFold, cross_val_score
 from sklearn.preprocessing import MinMaxScaler, RobustScaler, StandardScaler
 from skopt import gp_minimize
 from skopt.space.space import Categorical, Integer, Real
 from skopt.utils import use_named_args
-from sklearn.compose import ColumnTransformer
-from sklearn.model_selection import KFold
-from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error
-from IPython.display import clear_output
-from sklearn.base import clone
 
-from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import RobustScaler
-from sklearn.base import clone
 
 def modify_scaling(list_of_models, list_of_models_names, name_of_features):
     modified_models = []  # Lista para armazenar os modelos modificados
-    
+
     for model, name in zip(list_of_models, list_of_models_names):
-        if 'xgb' in name:
+        if "xgb" in name:
             modified_models.append(model)
         else:
-            ct = ColumnTransformer([('scale', RobustScaler(), slice(0, None))], remainder='passthrough')
-            if 'pi' in name_of_features.lower() or 'all' in name_of_features.lower():
-                ct = ColumnTransformer([('scale', RobustScaler(), slice(0, -1))], remainder='passthrough')
-            elif 'poly' in name.lower() or 'poli' in name.lower():
-                ct = ColumnTransformer([('scale', RobustScaler(), slice(0, None))], remainder='passthrough')
-            
-            modified_model = clone(model)  
-            modified_model.set_params(regressor__scale=ct) 
-            modified_models.append(modified_model)  
-        
-    return modified_models
+            ct = ColumnTransformer(
+                [("scale", RobustScaler(), slice(0, None))],
+                remainder="passthrough",
+            )
+            if (
+                "pi" in name_of_features.lower()
+                or "all" in name_of_features.lower()
+            ):
+                ct = ColumnTransformer(
+                    [("scale", RobustScaler(), slice(0, -1))],
+                    remainder="passthrough",
+                )
+            elif "poly" in name.lower() or "poli" in name.lower():
+                ct = ColumnTransformer(
+                    [("scale", RobustScaler(), slice(0, None))],
+                    remainder="passthrough",
+                )
 
+            modified_model = clone(model)
+            modified_model.set_params(regressor__scale=ct)
+            modified_models.append(modified_model)
+
+    return modified_models
 
 
 def convert_to_space(caller, parameter):
@@ -112,8 +119,8 @@ def gp_optimize(
     n_random_starts=100,
     neural=False,
     scoring="neg_mean_absolute_percentage_error",
-    n_jobs_cv=6,
-    n_jobs_opt=6,
+    n_jobs_cv=-1,
+    n_jobs_opt=-1,
     verbose=0,
 ):
     @use_named_args(space)
@@ -166,7 +173,7 @@ def opt_all(
     cv,
     path,
     verbose=0,
-    print_models=False
+    print_models=False,
 ):
     list_of_models = []
     for j, k in enumerate(estimator_list):
@@ -177,7 +184,9 @@ def opt_all(
         if "nn" in names_estimator_list[j]:
             neural = True
 
-        opt = gp_optimize(k, x, y, spaces_list[j], cv=cv, neural=neural, verbose=verbose)
+        opt = gp_optimize(
+            k, x, y, spaces_list[j], cv=cv, neural=neural, verbose=verbose
+        )
         best_model = att_model(k, spaces_list[j], opt.x, neural=neural)
         copy_of_best_model = copy.deepcopy(
             best_model
@@ -198,11 +207,25 @@ def opt_all(
 
     save_models(path, list_of_models)
 
-def nested_cv(estimator, space, x, y, out_cv, inner_cv, scoring = "neg_mean_absolute_percentage_error",
-               neural = False, n_calls=150, n_random_starts = 100, verbose = 0, shuffle=True, 
-               random_state=0, print_mode = False):
-    
-    '''
+
+def nested_cv(
+    estimator,
+    space,
+    x,
+    y,
+    out_cv,
+    inner_cv,
+    scoring="neg_mean_absolute_percentage_error",
+    neural=False,
+    n_calls=150,
+    n_random_starts=100,
+    verbose=0,
+    shuffle=True,
+    random_state=0,
+    print_mode=False,
+):
+
+    """
     A função retornará os scores de cada fold pra k_fold externo
     train_scores: Score de treino pra cada fold de treino.
     test_pred: Predição de teste pra cada elemento quando esteve no conjunto de teste.
@@ -216,10 +239,14 @@ def nested_cv(estimator, space, x, y, out_cv, inner_cv, scoring = "neg_mean_abso
     - out_test_scores: The score of the outer folds in the test set
     - out_train_scores: The score of the outer folds in the train set
     - best_models: The best estimators founded in each run of outer fold's to be utilized in stacked cv
-    '''
+    """
 
-    kf_out = KFold(n_splits = out_cv, shuffle=shuffle, random_state=random_state) #Folders externo.
-    kf_in = KFold(n_splits = inner_cv, shuffle=shuffle, random_state=random_state) #Folders internos.
+    kf_out = KFold(
+        n_splits=out_cv, shuffle=shuffle, random_state=random_state
+    )  # Folders externo.
+    kf_in = KFold(
+        n_splits=inner_cv, shuffle=shuffle, random_state=random_state
+    )  # Folders internos.
 
     test_pred = np.zeros_like(y)
     test_error = np.zeros_like(y)
@@ -230,62 +257,89 @@ def nested_cv(estimator, space, x, y, out_cv, inner_cv, scoring = "neg_mean_abso
     out_train_scores = []
     count = 1
 
-    #Dividindo entre treino e teste na pasta de fora.
+    # Dividindo entre treino e teste na pasta de fora.
     for train_index, test_index in kf_out.split(x):
         print(f"Out folder {count} of {out_cv}.")
         count += 1
         x_train, x_test = x[list(train_index)], x[list(test_index)]
         y_train, y_test = y[train_index], y[test_index]
-        
-        #Otimizando o modelo pro x_train e y_train com validação cruzada interna.
-        opt_model = gp_optimize(estimator, x_train, y_train, space = space, cv = kf_in, n_calls=n_calls, 
-                                n_random_starts = n_random_starts, 
-                                neural = neural, scoring = scoring, verbose = verbose)
-        
-        #Pegando o melhor modelo com os valores de otimização
-        att_model(estimator, space, opt_model.x, neural = neural)
+
+        # Otimizando o modelo pro x_train e y_train com validação cruzada interna.
+        opt_model = gp_optimize(
+            estimator,
+            x_train,
+            y_train,
+            space=space,
+            cv=kf_in,
+            n_calls=n_calls,
+            n_random_starts=n_random_starts,
+            neural=neural,
+            scoring=scoring,
+            verbose=verbose,
+        )
+
+        # Pegando o melhor modelo com os valores de otimização
+        att_model(estimator, space, opt_model.x, neural=neural)
         best_model = clone(estimator)
         best_models.append(best_model)
-        #Fitando o melhor modelo
+        # Fitando o melhor modelo
         fitted_model = best_model.fit(x_train, y_train)
-        #Prevendo agora com o melhor modelo, a performance no dado de teste.
+        # Prevendo agora com o melhor modelo, a performance no dado de teste.
         y_train_pred = fitted_model.predict(x_train)
         y_pred = fitted_model.predict(x_test)
 
-
-        #Mudando a métrica de acordo com scoring
+        # Mudando a métrica de acordo com scoring
         if scoring == "neg_mean_absolute_percentage_error":
-            out_test_scores.append(mean_absolute_percentage_error(y_test, y_pred))
-            out_train_scores.append(mean_absolute_percentage_error(y_train,y_train_pred))
+            out_test_scores.append(
+                mean_absolute_percentage_error(y_test, y_pred)
+            )
+            out_train_scores.append(
+                mean_absolute_percentage_error(y_train, y_train_pred)
+            )
         elif scoring == "neg_root_mean_squared_error":
             out_test_scores.append(np.sqrt(mean_squared_error(y_test, y_pred)))
-            out_train_scores.append(np.sqrt(mean_squared_error(y_train, y_train_pred)))
+            out_train_scores.append(
+                np.sqrt(mean_squared_error(y_train, y_train_pred))
+            )
 
-        #Gerando o erro de teste índice a índice
-        for i,z,w in zip(test_index, x_test, y_test):
-            test_pred[i] = fitted_model.predict(z.reshape(1,-1))
+        # Gerando o erro de teste índice a índice
+        for i, z, w in zip(test_index, x_test, y_test):
+            test_pred[i] = fitted_model.predict(z.reshape(1, -1))
             if scoring == "neg_mean_absolute_percentage_error":
                 test_error[i] = mean_absolute_percentage_error(w, test_pred[i])
-            elif scoring=="neg_root_mean_squared_error":
+            elif scoring == "neg_root_mean_squared_error":
                 test_error[i] = np.sqrt(mean_squared_error(w, test_pred[i]))
-  
 
     if print_mode:
         clear_output()
         print("Cv Score:", np.mean(out_test_scores))
-        print("Desvio Padrão:", round(np.std(out_test_scores),2))
+        print("Desvio Padrão:", round(np.std(out_test_scores), 2))
         print("Score de Treino:", np.mean(out_train_scores))
 
     return out_test_scores, out_train_scores, best_models
 
-def stacked_nested_cv(estimators, estimators_names, spaces, x, y, out_cv, inner_cv, scoring = "neg_mean_absolute_percentage_error",
-               neural = False, n_calls=150, n_random_starts = 100, verbose = 0, shuffle=True, 
-               random_state=0):
+
+def stacked_nested_cv(
+    estimators,
+    estimators_names,
+    spaces,
+    x,
+    y,
+    out_cv,
+    inner_cv,
+    scoring="neg_mean_absolute_percentage_error",
+    neural=False,
+    n_calls=150,
+    n_random_starts=100,
+    verbose=0,
+    shuffle=True,
+    random_state=0,
+):
     dict_train = {}
     dict_test = {}
     dict_best_models = {}
 
-    for i,j in enumerate(estimators):
+    for i, j in enumerate(estimators):
         actual_dict_key = estimators_names[i]
         print(f"--- We're in {actual_dict_key} model ---")
         dict_train[actual_dict_key] = []
@@ -294,24 +348,35 @@ def stacked_nested_cv(estimators, estimators_names, spaces, x, y, out_cv, inner_
 
         neural = False
 
-        if 'nn' in estimators_names[i].lower():
-            neural=True
+        if "nn" in estimators_names[i].lower():
+            neural = True
 
-        out_test_scores, out_train_scores, best_models = nested_cv(j, spaces[i], x, y, out_cv, 
-                                                                   inner_cv, scoring=scoring, neural=neural,
-                                                                   n_calls=n_calls, n_random_starts=n_random_starts,
-                                                                   verbose=verbose, shuffle=shuffle, random_state=random_state)
-        
+        out_test_scores, out_train_scores, best_models = nested_cv(
+            j,
+            spaces[i],
+            x,
+            y,
+            out_cv,
+            inner_cv,
+            scoring=scoring,
+            neural=neural,
+            n_calls=n_calls,
+            n_random_starts=n_random_starts,
+            verbose=verbose,
+            shuffle=shuffle,
+            random_state=random_state,
+        )
+
         dict_train[actual_dict_key].extend(out_train_scores)
         dict_test[actual_dict_key].extend(out_test_scores)
         dict_best_models[actual_dict_key].extend(best_models)
-    
+
     # Stacking part
     print("--- We're in stacked model ---")
     counting = 0
     kf_out = KFold(out_cv, shuffle=shuffle, random_state=random_state)
-    dict_train['stacked'] = []
-    dict_test['stacked'] = []
+    dict_train["stacked"] = []
+    dict_test["stacked"] = []
     for train_index, test_index in kf_out.split(x):
         print(f"Out folder {counting + 1} of {out_cv}.")
         x_train, x_test = x[list(train_index)], x[list(test_index)]
@@ -321,7 +386,7 @@ def stacked_nested_cv(estimators, estimators_names, spaces, x, y, out_cv, inner_
 
         for j in dict_best_models.keys():
             list_of_estimators.append((j, dict_best_models[j][counting]))
-        
+
         stacked_estimator = VotingRegressor(list_of_estimators)
 
         stacked_estimator.fit(x_train, y_train.ravel())
@@ -330,13 +395,20 @@ def stacked_nested_cv(estimators, estimators_names, spaces, x, y, out_cv, inner_
         y_test_pred = stacked_estimator.predict(x_test)
 
         if scoring == "neg_mean_absolute_percentage_error":
-            dict_test['stacked'].append(mean_absolute_percentage_error(y_test, y_test_pred))
-            dict_train['stacked'].append(mean_absolute_percentage_error(y_train, y_train_pred))
+            dict_test["stacked"].append(
+                mean_absolute_percentage_error(y_test, y_test_pred)
+            )
+            dict_train["stacked"].append(
+                mean_absolute_percentage_error(y_train, y_train_pred)
+            )
         elif scoring == "neg_root_mean_squared_error":
-            dict_test['stacked'].append(np.sqrt(mean_squared_error(y_test, y_test_pred)))
-            dict_train['stacked'].append(np.sqrt(mean_squared_error(y_train, y_train_pred)))
-        
+            dict_test["stacked"].append(
+                np.sqrt(mean_squared_error(y_test, y_test_pred))
+            )
+            dict_train["stacked"].append(
+                np.sqrt(mean_squared_error(y_train, y_train_pred))
+            )
+
         counting += 1
 
     return dict_test, dict_train
-        
