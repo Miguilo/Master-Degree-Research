@@ -16,4 +16,4 @@ docs_view:
 
 docs:
 	@echo Save documentation to docs... 
-	pdoc src -o docs
+	pdoc src -o docs --html

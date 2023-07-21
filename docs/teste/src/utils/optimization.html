@@ -1,0 +1,1447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>src.utils.optimization API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>src.utils.optimization</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import copy
+import pickle
+
+import numpy as np
+from IPython.display import clear_output
+from sklearn.base import clone
+from sklearn.compose import ColumnTransformer
+from sklearn.ensemble import VotingRegressor
+from sklearn.metrics import mean_absolute_percentage_error, mean_squared_error
+from sklearn.model_selection import KFold, cross_val_score
+from sklearn.preprocessing import MinMaxScaler, RobustScaler, StandardScaler
+from skopt import gp_minimize
+from skopt.space.space import Categorical, Integer, Real
+from skopt.utils import use_named_args
+
+
+def modify_scaling(list_of_models, list_of_models_names, name_of_features):
+    &#34;&#34;&#34;
+    Modifies the scaling of a list of models.
+
+    Args:
+        list_of_models: A list of models to be modified.
+        list_of_models_names: A list of the names of the models.
+        name_of_features: The name of the features to be scaled.
+
+    Returns:
+        A list of the modified models.
+
+    Example:
+        modify_scaling([model1, model2], [&#34;model1&#34;, &#34;model2&#34;], &#34;all&#34;)
+    &#34;&#34;&#34;
+    modified_models = []  # Lista para armazenar os modelos modificados
+
+    for model, name in zip(list_of_models, list_of_models_names):
+        if &#34;xgb&#34; in name:
+            modified_models.append(model)
+        else:
+            ct = ColumnTransformer(
+                [(&#34;scale&#34;, RobustScaler(), slice(0, None))],
+                remainder=&#34;passthrough&#34;,
+            )
+            if (
+                &#34;pi&#34; in name_of_features.lower()
+                or &#34;all&#34; in name_of_features.lower()
+            ):
+                ct = ColumnTransformer(
+                    [(&#34;scale&#34;, RobustScaler(), slice(0, -1))],
+                    remainder=&#34;passthrough&#34;,
+                )
+            elif &#34;poly&#34; in name.lower() or &#34;poli&#34; in name.lower():
+                ct = ColumnTransformer(
+                    [(&#34;scale&#34;, RobustScaler(), slice(0, None))],
+                    remainder=&#34;passthrough&#34;,
+                )
+
+            modified_model = clone(model)
+            modified_model.set_params(regressor__scale=ct)
+            modified_models.append(modified_model)
+
+    return modified_models
+
+
+def convert_to_space(caller, parameter):
+    &#34;&#34;&#34;
+    Converts a hyperparameter from a YAML file to a Space object.
+
+    Args:
+        caller: The dictionary containing the hyperparameters.
+        parameter: The key of the hyperparameter to be converted.
+
+    Returns:
+        A Space object representing the hyperparameter.
+
+    Example:
+        convert_to_space(cfg.opt.estimator, &#34;learning_rate&#34;)
+    &#34;&#34;&#34;
+    param_info = caller[parameter]
+    name = param_info[&#34;name&#34;]
+    type = param_info[&#34;type&#34;]
+
+    if &#34;low&#34; in param_info:
+        low = param_info[&#34;low&#34;]
+        high = param_info[&#34;high&#34;]
+
+        if type == &#34;real&#34;:
+            if &#34;prior&#34; in param_info:
+                return Real(low, high, prior=param_info[&#34;prior&#34;], name=name)
+            else:
+                return Real(low, high, name=name)
+
+        else:
+            return Integer(low, high, name=name)
+
+    elif type == &#34;scalers&#34;:
+        return Categorical(
+            [eval(i) for i in param_info[&#34;categories&#34;]], name=name
+        )
+
+    else:
+        return Categorical(param_info[&#34;categories&#34;], name=name)
+
+
+def change_nn_params(params):
+    &#34;&#34;&#34;
+    Changes the parameters of a neural network regressor.
+
+    Args:
+        params: A dictionary of parameters for the regressor.
+
+    Returns:
+        The modified dictionary of parameters.
+
+    Example:
+        params = change_nn_params({&#34;n_neurons_per_layer&#34;: 10, &#34;n_hidden_layer&#34;: 2})
+    &#34;&#34;&#34;
+    n_neurons = params[&#34;n_neurons_per_layer&#34;]
+    n_layers = params[&#34;n_hidden_layer&#34;]
+
+    params[&#34;regressor__reg__hidden_layer_sizes&#34;] = (n_neurons,) * n_layers
+
+    # the parameters are deleted to avoid an error from the MLPRegressor
+    params.pop(&#34;n_neurons_per_layer&#34;)
+    params.pop(&#34;n_hidden_layer&#34;)
+
+
+def att_model(estimator, space, values, neural=False):
+    &#34;&#34;&#34;
+    Builds an estimator from a space and values.
+
+    Args:
+        estimator: The estimator to be built.
+        space: The space of hyperparameters.
+        values: The values of the hyperparameters.
+        neural: Whether the estimator is a neural network.
+
+    Returns:
+        The built estimator.
+
+    Note:
+        In the case of neural networks, the names of the parameters associated with 
+        hidden layers must be `n_neurons_per_layer` and `n_hidden_layer`.
+
+    Example:
+        att_model(estimator=LinearRegression(), space=space, values=values)
+    &#34;&#34;&#34;
+    params = {}
+
+    for i in range(len(space)):
+        params[f&#34;{space[i].name}&#34;] = values[i]
+    if neural:
+        change_nn_params(params)
+
+    estimator.set_params(**params)
+
+    return estimator
+
+
+def gp_optimize(
+    estim,
+    x,
+    y,
+    space,
+    cv,
+    n_calls=150,
+    n_random_starts=100,
+    neural=False,
+    scoring=&#34;neg_mean_absolute_percentage_error&#34;,
+    n_jobs_cv=4,
+    n_jobs_opt=4,
+    verbose=0,
+):
+    &#34;&#34;&#34;
+    Optimizes an estimator using Gaussian Process.
+
+    Args:
+        estim: The estimator to be optimized.
+        x: The training data.
+        y: The target values.
+        space: The space of hyperparameters.
+        cv: The cross-validation folds.
+        n_calls: The number of function calls to the optimizer.
+        n_random_starts: The number of random restarts.
+        neural: Whether the estimator is a neural network.
+        scoring: The scoring metric.
+        n_jobs_cv: The number of jobs for the cross-validation.
+        n_jobs_opt: The number of jobs for the optimizer.
+        verbose: The verbosity level.
+
+    Returns:
+        The results of the optimization.
+
+    Example:
+        gp_optimize(estim=LinearRegression(), x=x, y=y, space=space, cv=cv)
+    &#34;&#34;&#34;
+    @use_named_args(space)
+    def objective(**params):
+        if neural:
+            change_nn_params(params)
+
+        estim.set_params(**params)
+
+        mean_score = -np.mean(
+            cross_val_score(
+                estim,
+                x,
+                y,
+                cv=cv,
+                scoring=scoring,
+                n_jobs=n_jobs_cv,
+                error_score=-100,
+            )
+        )
+
+        if mean_score &gt; 1000:
+            mean_score = 100
+
+        return mean_score
+
+    result = gp_minimize(
+        objective,
+        space,
+        n_calls=n_calls,
+        random_state=0,
+        n_random_starts=n_random_starts,
+        verbose=verbose,
+        n_jobs=n_jobs_opt,
+    )
+    # print(&#34;Os hiper parâmetros que minimizam são: &#34;, result.x)
+    return result
+
+
+def save_models(path: str, model):
+    &#34;&#34;&#34;
+    Saves a model to a file.
+
+    Args:
+        path: The path to the file where the model will be saved.
+        model: The model to be saved.
+
+    Returns:
+        None.
+
+    Example:
+        save_models(path=&#34;models/model.pkl&#34;, model=my_model)
+    &#34;&#34;&#34;
+    pickle.dump(model, open(path, &#34;wb&#34;))
+
+
+def opt_all(
+    estimator_list,
+    names_estimator_list,
+    spaces_list,
+    x,
+    y,
+    cv,
+    path,
+    verbose=0,
+    print_models=False,
+):
+    &#34;&#34;&#34;
+    Optimizes all the estimators in the list and saves them.
+
+    Args:
+        estimator_list: The list of estimators to be optimized.
+        names_estimator_list: The list of names of the estimators.
+        spaces_list: The list of spaces of the estimators.
+        x: The training data.
+        y: The target values.
+        cv: The cross-validation folds.
+        path: The path to the directory where the models will be saved.
+        verbose: The verbosity level.
+        print_models: Whether to print the models.
+
+    Returns:
+        None.
+
+    Example:
+        opt_all(estimator_list=estimators, names_estimator_list=names, spaces_list=spaces, x=x, y=y, cv=cv, path=&#34;models&#34;)
+    &#34;&#34;&#34;
+    list_of_models = []
+    for j, k in enumerate(estimator_list):
+        neural = False
+        if verbose != 0:
+            print(f&#34;--- We&#39;re in the model {names_estimator_list[j]} ---&#34;)
+
+        if &#34;nn&#34; in names_estimator_list[j]:
+            neural = True
+
+        opt = gp_optimize(
+            k, x, y, spaces_list[j], cv=cv, neural=neural, verbose=verbose
+        )
+        best_model = att_model(k, spaces_list[j], opt.x, neural=neural)
+        copy_of_best_model = copy.deepcopy(
+            best_model
+        )  # To ensure that we&#39;re not changing the original estimator
+        trained_model = copy_of_best_model.fit(x, y)
+        list_of_models.append(trained_model)
+
+    stk_model = VotingRegressor(
+        [(a, b) for a, b in zip(names_estimator_list, list_of_models)]
+    )
+    copy_of_stk = copy.deepcopy(stk_model)
+    trained_stk = copy_of_stk.fit(x, y)  # The same as in line 152
+    list_of_models.append(trained_stk)
+
+    if print_models:
+        for i in list_of_models:
+            print(i)
+
+    save_models(path, list_of_models)
+
+
+def nested_cv(
+    estimator,
+    space,
+    x,
+    y,
+    out_cv,
+    inner_cv,
+    scoring=&#34;neg_mean_absolute_percentage_error&#34;,
+    neural=False,
+    n_calls=150,
+    n_random_starts=100,
+    verbose=0,
+    shuffle=True,
+    random_state=0,
+    print_mode=False,
+):
+    &#34;&#34;&#34;
+    Perform nested cross-validation.
+
+    The function will return the scores of each fold for the outer k-fold, the train scores for each fold of the inner k-fold, the test predictions for each element when it was in the test set, the test errors for each element when it was in the test set, and the cv score.
+
+    It is important to remember that the mean of the test error will not be equivalent to the cv score. This is because the grouping of test data is different from the simple sum and division by N of the mean of the test error.
+
+    Args:
+        estimator: The estimator to be optimized.
+        space: The space of hyperparameters.
+        x: The training data.
+        y: The target values.
+        out_cv: The number of folds for the outer k-fold.
+        inner_cv: The number of folds for the inner k-fold.
+        scoring: The scoring metric.
+        neural: Whether the estimator is a neural network.
+        n_calls: The number of function calls to the optimizer.
+        n_random_starts: The number of random restarts.
+        verbose: The verbosity level.
+        shuffle: Whether to shuffle the data.
+        random_state: The random seed.
+        print_mode: Whether to print the scores.
+
+    Returns:
+        out_test_scores: The score of the outer folds in the test set.
+        out_train_scores: The score of the outer folds in the train set.
+        best_models: The best estimators founded in each run of outer fold&#39;s to be utilized in stacked cv.
+    &#34;&#34;&#34;
+    
+    kf_out = KFold(n_splits=out_cv, shuffle=shuffle, random_state=random_state)  # Folders externo.
+    kf_in = KFold(n_splits=inner_cv, shuffle=shuffle, random_state=random_state)  # Folders internos.
+
+    test_pred = np.zeros_like(y)
+    test_error = np.zeros_like(y)
+
+    best_models = []
+
+    out_test_scores = []
+    out_train_scores = []
+    count = 1
+
+    # Dividindo entre treino e teste na pasta de fora.
+    for train_index, test_index in kf_out.split(x):
+        print(f&#34;Out folder {count} of {out_cv}.&#34;)
+        count += 1
+        x_train, x_test = x[list(train_index)], x[list(test_index)]
+        y_train, y_test = y[train_index], y[test_index]
+
+        # Otimizando o modelo pro x_train e y_train com validação cruzada interna.
+        opt_model = gp_optimize(
+            estimator,
+            x_train,
+            y_train,
+            space=space,
+            cv=kf_in,
+            n_calls=n_calls,
+            n_random_starts=n_random_starts,
+            neural=neural,
+            scoring=scoring,
+            verbose=verbose,
+        )
+
+        # Pegando o melhor modelo com os valores de otimização
+        att_model(estimator, space, opt_model.x, neural=neural)
+        best_model = clone(estimator)
+        best_models.append(best_model)
+        # Fitando o melhor modelo
+        fitted_model = best_model.fit(x_train, y_train)
+        # Prevendo agora com o melhor modelo, a performance no dado de teste.
+        y_train_pred = fitted_model.predict(x_train)
+        y_pred = fitted_model.predict(x_test)
+
+        # Mudando a métrica de acordo com scoring
+        if scoring == &#34;neg_mean_absolute_percentage_error&#34;:
+            out_test_scores.append(
+                mean_absolute_percentage_error(y_test, y_pred)
+            )
+            out_train_scores.append(
+                mean_absolute_percentage_error(y_train, y_train_pred)
+            )
+        elif scoring == &#34;neg_root_mean_squared_error&#34;:
+            out_test_scores.append(np.sqrt(mean_squared_error(y_test, y_pred)))
+            out_train_scores.append(
+                np.sqrt(mean_squared_error(y_train, y_train_pred))
+            )
+
+        # Gerando o erro de teste índice a índice
+        for i, z, w in zip(test_index, x_test, y_test):
+            test_pred[i] = fitted_model.predict(z.reshape(1, -1))
+            if scoring == &#34;neg_mean_absolute_percentage_error&#34;:
+                test_error[i] = mean_absolute_percentage_error(w, test_pred[i])
+            elif scoring == &#34;neg_root_mean_squared_error&#34;:
+                test_error[i] = np.sqrt(mean_squared_error(w, test_pred[i]))
+
+    if print_mode:
+        clear_output()
+        print(&#34;Cv Score:&#34;, np.mean(out_test_scores))
+        print(&#34;Desvio Padrão:&#34;, round(np.std(out_test_scores), 2))
+        print(&#34;Score de Treino:&#34;, np.mean(out_train_scores))
+
+    return out_test_scores, out_train_scores, best_models
+
+
+def stacked_nested_cv(
+    estimators,
+    estimators_names,
+    spaces,
+    x,
+    y,
+    out_cv,
+    inner_cv,
+    scoring=&#34;neg_mean_absolute_percentage_error&#34;,
+    neural=False,
+    n_calls=150,
+    n_random_starts=100,
+    verbose=0,
+    shuffle=True,
+    random_state=0,
+):
+    
+    &#34;&#34;&#34;
+    Perform stacked nested cross-validation.
+
+    The function will return the scores of each fold for the outer k-fold, the train scores for each fold of the inner k-fold, the test predictions for each element when it was in the test set, the test errors for each element when it was in the test set, and the cv score for each model.
+
+    It is important to remember that the mean of the test error will not be equivalent to the cv score. This is because the grouping of test data is different from the simple sum and division by N of the mean of the test error.
+
+    Args:
+        estimators: A list of estimators to be optimized.
+        estimators_names: A list of names of the estimators.
+        spaces: A list of spaces of the estimators.
+        x: The training data.
+        y: The target values.
+        out_cv: The number of folds for the outer k-fold.
+        inner_cv: The number of folds for the inner k-fold.
+        scoring: The scoring metric.
+        neural: Whether the estimators are neural networks.
+        n_calls: The number of function calls to the optimizer.
+        n_random_starts: The number of random restarts.
+        verbose: The verbosity level.
+        shuffle: Whether to shuffle the data.
+        random_state: The random seed.
+
+    Returns:
+        dict_test: A dictionary with the test scores for each model.
+        dict_train: A dictionary with the train scores for each model.
+
+    &#34;&#34;&#34;
+    dict_train = {}
+    dict_test = {}
+    dict_best_models = {}
+
+    for i, j in enumerate(estimators):
+        actual_dict_key = estimators_names[i]
+        print(f&#34;--- We&#39;re in {actual_dict_key} model ---&#34;)
+        dict_train[actual_dict_key] = []
+        dict_test[actual_dict_key] = []
+        dict_best_models[actual_dict_key] = []
+
+        neural = False
+
+        if &#34;nn&#34; in estimators_names[i].lower():
+            neural = True
+
+        out_test_scores, out_train_scores, best_models = nested_cv(
+            j,
+            spaces[i],
+            x,
+            y,
+            out_cv,
+            inner_cv,
+            scoring=scoring,
+            neural=neural,
+            n_calls=n_calls,
+            n_random_starts=n_random_starts,
+            verbose=verbose,
+            shuffle=shuffle,
+            random_state=random_state,
+        )
+
+        dict_train[actual_dict_key].extend(out_train_scores)
+        dict_test[actual_dict_key].extend(out_test_scores)
+        dict_best_models[actual_dict_key].extend(best_models)
+
+    # Stacking part
+    print(&#34;--- We&#39;re in stacked model ---&#34;)
+    counting = 0
+    kf_out = KFold(out_cv, shuffle=shuffle, random_state=random_state)
+    dict_train[&#34;stacked&#34;] = []
+    dict_test[&#34;stacked&#34;] = []
+    for train_index, test_index in kf_out.split(x):
+        print(f&#34;Out folder {counting + 1} of {out_cv}.&#34;)
+        x_train, x_test = x[list(train_index)], x[list(test_index)]
+        y_train, y_test = y[train_index], y[test_index]
+
+        list_of_estimators = []
+
+        for j in dict_best_models.keys():
+            list_of_estimators.append((j, dict_best_models[j][counting]))
+
+        stacked_estimator = VotingRegressor(list_of_estimators)
+
+        stacked_estimator.fit(x_train, y_train.ravel())
+
+        y_train_pred = stacked_estimator.predict(x_train)
+        y_test_pred = stacked_estimator.predict(x_test)
+
+        if scoring == &#34;neg_mean_absolute_percentage_error&#34;:
+            dict_test[&#34;stacked&#34;].append(
+                mean_absolute_percentage_error(y_test, y_test_pred)
+            )
+            dict_train[&#34;stacked&#34;].append(
+                mean_absolute_percentage_error(y_train, y_train_pred)
+            )
+        elif scoring == &#34;neg_root_mean_squared_error&#34;:
+            dict_test[&#34;stacked&#34;].append(
+                np.sqrt(mean_squared_error(y_test, y_test_pred))
+            )
+            dict_train[&#34;stacked&#34;].append(
+                np.sqrt(mean_squared_error(y_train, y_train_pred))
+            )
+
+        counting += 1
+
+    return dict_test, dict_train</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="src.utils.optimization.att_model"><code class="name flex">
+<span>def <span class="ident">att_model</span></span>(<span>estimator, space, values, neural=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Builds an estimator from a space and values.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>estimator</code></strong></dt>
+<dd>The estimator to be built.</dd>
+<dt><strong><code>space</code></strong></dt>
+<dd>The space of hyperparameters.</dd>
+<dt><strong><code>values</code></strong></dt>
+<dd>The values of the hyperparameters.</dd>
+<dt><strong><code>neural</code></strong></dt>
+<dd>Whether the estimator is a neural network.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The built estimator.</p>
+<h2 id="note">Note</h2>
+<p>In the case of neural networks, the names of the parameters associated with
+hidden layers must be <code>n_neurons_per_layer</code> and <code>n_hidden_layer</code>.</p>
+<h2 id="example">Example</h2>
+<p>att_model(estimator=LinearRegression(), space=space, values=values)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def att_model(estimator, space, values, neural=False):
+    &#34;&#34;&#34;
+    Builds an estimator from a space and values.
+
+    Args:
+        estimator: The estimator to be built.
+        space: The space of hyperparameters.
+        values: The values of the hyperparameters.
+        neural: Whether the estimator is a neural network.
+
+    Returns:
+        The built estimator.
+
+    Note:
+        In the case of neural networks, the names of the parameters associated with 
+        hidden layers must be `n_neurons_per_layer` and `n_hidden_layer`.
+
+    Example:
+        att_model(estimator=LinearRegression(), space=space, values=values)
+    &#34;&#34;&#34;
+    params = {}
+
+    for i in range(len(space)):
+        params[f&#34;{space[i].name}&#34;] = values[i]
+    if neural:
+        change_nn_params(params)
+
+    estimator.set_params(**params)
+
+    return estimator</code></pre>
+</details>
+</dd>
+<dt id="src.utils.optimization.change_nn_params"><code class="name flex">
+<span>def <span class="ident">change_nn_params</span></span>(<span>params)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Changes the parameters of a neural network regressor.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>params</code></strong></dt>
+<dd>A dictionary of parameters for the regressor.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The modified dictionary of parameters.</p>
+<h2 id="example">Example</h2>
+<p>params = change_nn_params({"n_neurons_per_layer": 10, "n_hidden_layer": 2})</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def change_nn_params(params):
+    &#34;&#34;&#34;
+    Changes the parameters of a neural network regressor.
+
+    Args:
+        params: A dictionary of parameters for the regressor.
+
+    Returns:
+        The modified dictionary of parameters.
+
+    Example:
+        params = change_nn_params({&#34;n_neurons_per_layer&#34;: 10, &#34;n_hidden_layer&#34;: 2})
+    &#34;&#34;&#34;
+    n_neurons = params[&#34;n_neurons_per_layer&#34;]
+    n_layers = params[&#34;n_hidden_layer&#34;]
+
+    params[&#34;regressor__reg__hidden_layer_sizes&#34;] = (n_neurons,) * n_layers
+
+    # the parameters are deleted to avoid an error from the MLPRegressor
+    params.pop(&#34;n_neurons_per_layer&#34;)
+    params.pop(&#34;n_hidden_layer&#34;)</code></pre>
+</details>
+</dd>
+<dt id="src.utils.optimization.convert_to_space"><code class="name flex">
+<span>def <span class="ident">convert_to_space</span></span>(<span>caller, parameter)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts a hyperparameter from a YAML file to a Space object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>caller</code></strong></dt>
+<dd>The dictionary containing the hyperparameters.</dd>
+<dt><strong><code>parameter</code></strong></dt>
+<dd>The key of the hyperparameter to be converted.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>A Space object representing the hyperparameter.</p>
+<h2 id="example">Example</h2>
+<p>convert_to_space(cfg.opt.estimator, "learning_rate")</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert_to_space(caller, parameter):
+    &#34;&#34;&#34;
+    Converts a hyperparameter from a YAML file to a Space object.
+
+    Args:
+        caller: The dictionary containing the hyperparameters.
+        parameter: The key of the hyperparameter to be converted.
+
+    Returns:
+        A Space object representing the hyperparameter.
+
+    Example:
+        convert_to_space(cfg.opt.estimator, &#34;learning_rate&#34;)
+    &#34;&#34;&#34;
+    param_info = caller[parameter]
+    name = param_info[&#34;name&#34;]
+    type = param_info[&#34;type&#34;]
+
+    if &#34;low&#34; in param_info:
+        low = param_info[&#34;low&#34;]
+        high = param_info[&#34;high&#34;]
+
+        if type == &#34;real&#34;:
+            if &#34;prior&#34; in param_info:
+                return Real(low, high, prior=param_info[&#34;prior&#34;], name=name)
+            else:
+                return Real(low, high, name=name)
+
+        else:
+            return Integer(low, high, name=name)
+
+    elif type == &#34;scalers&#34;:
+        return Categorical(
+            [eval(i) for i in param_info[&#34;categories&#34;]], name=name
+        )
+
+    else:
+        return Categorical(param_info[&#34;categories&#34;], name=name)</code></pre>
+</details>
+</dd>
+<dt id="src.utils.optimization.gp_optimize"><code class="name flex">
+<span>def <span class="ident">gp_optimize</span></span>(<span>estim, x, y, space, cv, n_calls=150, n_random_starts=100, neural=False, scoring='neg_mean_absolute_percentage_error', n_jobs_cv=4, n_jobs_opt=4, verbose=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Optimizes an estimator using Gaussian Process.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>estim</code></strong></dt>
+<dd>The estimator to be optimized.</dd>
+<dt><strong><code>x</code></strong></dt>
+<dd>The training data.</dd>
+<dt><strong><code>y</code></strong></dt>
+<dd>The target values.</dd>
+<dt><strong><code>space</code></strong></dt>
+<dd>The space of hyperparameters.</dd>
+<dt><strong><code>cv</code></strong></dt>
+<dd>The cross-validation folds.</dd>
+<dt><strong><code>n_calls</code></strong></dt>
+<dd>The number of function calls to the optimizer.</dd>
+<dt><strong><code>n_random_starts</code></strong></dt>
+<dd>The number of random restarts.</dd>
+<dt><strong><code>neural</code></strong></dt>
+<dd>Whether the estimator is a neural network.</dd>
+<dt><strong><code>scoring</code></strong></dt>
+<dd>The scoring metric.</dd>
+<dt><strong><code>n_jobs_cv</code></strong></dt>
+<dd>The number of jobs for the cross-validation.</dd>
+<dt><strong><code>n_jobs_opt</code></strong></dt>
+<dd>The number of jobs for the optimizer.</dd>
+<dt><strong><code>verbose</code></strong></dt>
+<dd>The verbosity level.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The results of the optimization.</p>
+<h2 id="example">Example</h2>
+<p>gp_optimize(estim=LinearRegression(), x=x, y=y, space=space, cv=cv)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def gp_optimize(
+    estim,
+    x,
+    y,
+    space,
+    cv,
+    n_calls=150,
+    n_random_starts=100,
+    neural=False,
+    scoring=&#34;neg_mean_absolute_percentage_error&#34;,
+    n_jobs_cv=4,
+    n_jobs_opt=4,
+    verbose=0,
+):
+    &#34;&#34;&#34;
+    Optimizes an estimator using Gaussian Process.
+
+    Args:
+        estim: The estimator to be optimized.
+        x: The training data.
+        y: The target values.
+        space: The space of hyperparameters.
+        cv: The cross-validation folds.
+        n_calls: The number of function calls to the optimizer.
+        n_random_starts: The number of random restarts.
+        neural: Whether the estimator is a neural network.
+        scoring: The scoring metric.
+        n_jobs_cv: The number of jobs for the cross-validation.
+        n_jobs_opt: The number of jobs for the optimizer.
+        verbose: The verbosity level.
+
+    Returns:
+        The results of the optimization.
+
+    Example:
+        gp_optimize(estim=LinearRegression(), x=x, y=y, space=space, cv=cv)
+    &#34;&#34;&#34;
+    @use_named_args(space)
+    def objective(**params):
+        if neural:
+            change_nn_params(params)
+
+        estim.set_params(**params)
+
+        mean_score = -np.mean(
+            cross_val_score(
+                estim,
+                x,
+                y,
+                cv=cv,
+                scoring=scoring,
+                n_jobs=n_jobs_cv,
+                error_score=-100,
+            )
+        )
+
+        if mean_score &gt; 1000:
+            mean_score = 100
+
+        return mean_score
+
+    result = gp_minimize(
+        objective,
+        space,
+        n_calls=n_calls,
+        random_state=0,
+        n_random_starts=n_random_starts,
+        verbose=verbose,
+        n_jobs=n_jobs_opt,
+    )
+    # print(&#34;Os hiper parâmetros que minimizam são: &#34;, result.x)
+    return result</code></pre>
+</details>
+</dd>
+<dt id="src.utils.optimization.modify_scaling"><code class="name flex">
+<span>def <span class="ident">modify_scaling</span></span>(<span>list_of_models, list_of_models_names, name_of_features)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Modifies the scaling of a list of models.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>list_of_models</code></strong></dt>
+<dd>A list of models to be modified.</dd>
+<dt><strong><code>list_of_models_names</code></strong></dt>
+<dd>A list of the names of the models.</dd>
+<dt><strong><code>name_of_features</code></strong></dt>
+<dd>The name of the features to be scaled.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>A list of the modified models.</p>
+<h2 id="example">Example</h2>
+<p>modify_scaling([model1, model2], ["model1", "model2"], "all")</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def modify_scaling(list_of_models, list_of_models_names, name_of_features):
+    &#34;&#34;&#34;
+    Modifies the scaling of a list of models.
+
+    Args:
+        list_of_models: A list of models to be modified.
+        list_of_models_names: A list of the names of the models.
+        name_of_features: The name of the features to be scaled.
+
+    Returns:
+        A list of the modified models.
+
+    Example:
+        modify_scaling([model1, model2], [&#34;model1&#34;, &#34;model2&#34;], &#34;all&#34;)
+    &#34;&#34;&#34;
+    modified_models = []  # Lista para armazenar os modelos modificados
+
+    for model, name in zip(list_of_models, list_of_models_names):
+        if &#34;xgb&#34; in name:
+            modified_models.append(model)
+        else:
+            ct = ColumnTransformer(
+                [(&#34;scale&#34;, RobustScaler(), slice(0, None))],
+                remainder=&#34;passthrough&#34;,
+            )
+            if (
+                &#34;pi&#34; in name_of_features.lower()
+                or &#34;all&#34; in name_of_features.lower()
+            ):
+                ct = ColumnTransformer(
+                    [(&#34;scale&#34;, RobustScaler(), slice(0, -1))],
+                    remainder=&#34;passthrough&#34;,
+                )
+            elif &#34;poly&#34; in name.lower() or &#34;poli&#34; in name.lower():
+                ct = ColumnTransformer(
+                    [(&#34;scale&#34;, RobustScaler(), slice(0, None))],
+                    remainder=&#34;passthrough&#34;,
+                )
+
+            modified_model = clone(model)
+            modified_model.set_params(regressor__scale=ct)
+            modified_models.append(modified_model)
+
+    return modified_models</code></pre>
+</details>
+</dd>
+<dt id="src.utils.optimization.nested_cv"><code class="name flex">
+<span>def <span class="ident">nested_cv</span></span>(<span>estimator, space, x, y, out_cv, inner_cv, scoring='neg_mean_absolute_percentage_error', neural=False, n_calls=150, n_random_starts=100, verbose=0, shuffle=True, random_state=0, print_mode=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Perform nested cross-validation.</p>
+<p>The function will return the scores of each fold for the outer k-fold, the train scores for each fold of the inner k-fold, the test predictions for each element when it was in the test set, the test errors for each element when it was in the test set, and the cv score.</p>
+<p>It is important to remember that the mean of the test error will not be equivalent to the cv score. This is because the grouping of test data is different from the simple sum and division by N of the mean of the test error.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>estimator</code></strong></dt>
+<dd>The estimator to be optimized.</dd>
+<dt><strong><code>space</code></strong></dt>
+<dd>The space of hyperparameters.</dd>
+<dt><strong><code>x</code></strong></dt>
+<dd>The training data.</dd>
+<dt><strong><code>y</code></strong></dt>
+<dd>The target values.</dd>
+<dt><strong><code>out_cv</code></strong></dt>
+<dd>The number of folds for the outer k-fold.</dd>
+<dt><strong><code>inner_cv</code></strong></dt>
+<dd>The number of folds for the inner k-fold.</dd>
+<dt><strong><code>scoring</code></strong></dt>
+<dd>The scoring metric.</dd>
+<dt><strong><code>neural</code></strong></dt>
+<dd>Whether the estimator is a neural network.</dd>
+<dt><strong><code>n_calls</code></strong></dt>
+<dd>The number of function calls to the optimizer.</dd>
+<dt><strong><code>n_random_starts</code></strong></dt>
+<dd>The number of random restarts.</dd>
+<dt><strong><code>verbose</code></strong></dt>
+<dd>The verbosity level.</dd>
+<dt><strong><code>shuffle</code></strong></dt>
+<dd>Whether to shuffle the data.</dd>
+<dt><strong><code>random_state</code></strong></dt>
+<dd>The random seed.</dd>
+<dt><strong><code>print_mode</code></strong></dt>
+<dd>Whether to print the scores.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>out_test_scores</code></dt>
+<dd>The score of the outer folds in the test set.</dd>
+<dt><code>out_train_scores</code></dt>
+<dd>The score of the outer folds in the train set.</dd>
+<dt><code>best_models</code></dt>
+<dd>The best estimators founded in each run of outer fold's to be utilized in stacked cv.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def nested_cv(
+    estimator,
+    space,
+    x,
+    y,
+    out_cv,
+    inner_cv,
+    scoring=&#34;neg_mean_absolute_percentage_error&#34;,
+    neural=False,
+    n_calls=150,
+    n_random_starts=100,
+    verbose=0,
+    shuffle=True,
+    random_state=0,
+    print_mode=False,
+):
+    &#34;&#34;&#34;
+    Perform nested cross-validation.
+
+    The function will return the scores of each fold for the outer k-fold, the train scores for each fold of the inner k-fold, the test predictions for each element when it was in the test set, the test errors for each element when it was in the test set, and the cv score.
+
+    It is important to remember that the mean of the test error will not be equivalent to the cv score. This is because the grouping of test data is different from the simple sum and division by N of the mean of the test error.
+
+    Args:
+        estimator: The estimator to be optimized.
+        space: The space of hyperparameters.
+        x: The training data.
+        y: The target values.
+        out_cv: The number of folds for the outer k-fold.
+        inner_cv: The number of folds for the inner k-fold.
+        scoring: The scoring metric.
+        neural: Whether the estimator is a neural network.
+        n_calls: The number of function calls to the optimizer.
+        n_random_starts: The number of random restarts.
+        verbose: The verbosity level.
+        shuffle: Whether to shuffle the data.
+        random_state: The random seed.
+        print_mode: Whether to print the scores.
+
+    Returns:
+        out_test_scores: The score of the outer folds in the test set.
+        out_train_scores: The score of the outer folds in the train set.
+        best_models: The best estimators founded in each run of outer fold&#39;s to be utilized in stacked cv.
+    &#34;&#34;&#34;
+    
+    kf_out = KFold(n_splits=out_cv, shuffle=shuffle, random_state=random_state)  # Folders externo.
+    kf_in = KFold(n_splits=inner_cv, shuffle=shuffle, random_state=random_state)  # Folders internos.
+
+    test_pred = np.zeros_like(y)
+    test_error = np.zeros_like(y)
+
+    best_models = []
+
+    out_test_scores = []
+    out_train_scores = []
+    count = 1
+
+    # Dividindo entre treino e teste na pasta de fora.
+    for train_index, test_index in kf_out.split(x):
+        print(f&#34;Out folder {count} of {out_cv}.&#34;)
+        count += 1
+        x_train, x_test = x[list(train_index)], x[list(test_index)]
+        y_train, y_test = y[train_index], y[test_index]
+
+        # Otimizando o modelo pro x_train e y_train com validação cruzada interna.
+        opt_model = gp_optimize(
+            estimator,
+            x_train,
+            y_train,
+            space=space,
+            cv=kf_in,
+            n_calls=n_calls,
+            n_random_starts=n_random_starts,
+            neural=neural,
+            scoring=scoring,
+            verbose=verbose,
+        )
+
+        # Pegando o melhor modelo com os valores de otimização
+        att_model(estimator, space, opt_model.x, neural=neural)
+        best_model = clone(estimator)
+        best_models.append(best_model)
+        # Fitando o melhor modelo
+        fitted_model = best_model.fit(x_train, y_train)
+        # Prevendo agora com o melhor modelo, a performance no dado de teste.
+        y_train_pred = fitted_model.predict(x_train)
+        y_pred = fitted_model.predict(x_test)
+
+        # Mudando a métrica de acordo com scoring
+        if scoring == &#34;neg_mean_absolute_percentage_error&#34;:
+            out_test_scores.append(
+                mean_absolute_percentage_error(y_test, y_pred)
+            )
+            out_train_scores.append(
+                mean_absolute_percentage_error(y_train, y_train_pred)
+            )
+        elif scoring == &#34;neg_root_mean_squared_error&#34;:
+            out_test_scores.append(np.sqrt(mean_squared_error(y_test, y_pred)))
+            out_train_scores.append(
+                np.sqrt(mean_squared_error(y_train, y_train_pred))
+            )
+
+        # Gerando o erro de teste índice a índice
+        for i, z, w in zip(test_index, x_test, y_test):
+            test_pred[i] = fitted_model.predict(z.reshape(1, -1))
+            if scoring == &#34;neg_mean_absolute_percentage_error&#34;:
+                test_error[i] = mean_absolute_percentage_error(w, test_pred[i])
+            elif scoring == &#34;neg_root_mean_squared_error&#34;:
+                test_error[i] = np.sqrt(mean_squared_error(w, test_pred[i]))
+
+    if print_mode:
+        clear_output()
+        print(&#34;Cv Score:&#34;, np.mean(out_test_scores))
+        print(&#34;Desvio Padrão:&#34;, round(np.std(out_test_scores), 2))
+        print(&#34;Score de Treino:&#34;, np.mean(out_train_scores))
+
+    return out_test_scores, out_train_scores, best_models</code></pre>
+</details>
+</dd>
+<dt id="src.utils.optimization.opt_all"><code class="name flex">
+<span>def <span class="ident">opt_all</span></span>(<span>estimator_list, names_estimator_list, spaces_list, x, y, cv, path, verbose=0, print_models=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Optimizes all the estimators in the list and saves them.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>estimator_list</code></strong></dt>
+<dd>The list of estimators to be optimized.</dd>
+<dt><strong><code>names_estimator_list</code></strong></dt>
+<dd>The list of names of the estimators.</dd>
+<dt><strong><code>spaces_list</code></strong></dt>
+<dd>The list of spaces of the estimators.</dd>
+<dt><strong><code>x</code></strong></dt>
+<dd>The training data.</dd>
+<dt><strong><code>y</code></strong></dt>
+<dd>The target values.</dd>
+<dt><strong><code>cv</code></strong></dt>
+<dd>The cross-validation folds.</dd>
+<dt><strong><code>path</code></strong></dt>
+<dd>The path to the directory where the models will be saved.</dd>
+<dt><strong><code>verbose</code></strong></dt>
+<dd>The verbosity level.</dd>
+<dt><strong><code>print_models</code></strong></dt>
+<dd>Whether to print the models.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None.</p>
+<h2 id="example">Example</h2>
+<p>opt_all(estimator_list=estimators, names_estimator_list=names, spaces_list=spaces, x=x, y=y, cv=cv, path="models")</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def opt_all(
+    estimator_list,
+    names_estimator_list,
+    spaces_list,
+    x,
+    y,
+    cv,
+    path,
+    verbose=0,
+    print_models=False,
+):
+    &#34;&#34;&#34;
+    Optimizes all the estimators in the list and saves them.
+
+    Args:
+        estimator_list: The list of estimators to be optimized.
+        names_estimator_list: The list of names of the estimators.
+        spaces_list: The list of spaces of the estimators.
+        x: The training data.
+        y: The target values.
+        cv: The cross-validation folds.
+        path: The path to the directory where the models will be saved.
+        verbose: The verbosity level.
+        print_models: Whether to print the models.
+
+    Returns:
+        None.
+
+    Example:
+        opt_all(estimator_list=estimators, names_estimator_list=names, spaces_list=spaces, x=x, y=y, cv=cv, path=&#34;models&#34;)
+    &#34;&#34;&#34;
+    list_of_models = []
+    for j, k in enumerate(estimator_list):
+        neural = False
+        if verbose != 0:
+            print(f&#34;--- We&#39;re in the model {names_estimator_list[j]} ---&#34;)
+
+        if &#34;nn&#34; in names_estimator_list[j]:
+            neural = True
+
+        opt = gp_optimize(
+            k, x, y, spaces_list[j], cv=cv, neural=neural, verbose=verbose
+        )
+        best_model = att_model(k, spaces_list[j], opt.x, neural=neural)
+        copy_of_best_model = copy.deepcopy(
+            best_model
+        )  # To ensure that we&#39;re not changing the original estimator
+        trained_model = copy_of_best_model.fit(x, y)
+        list_of_models.append(trained_model)
+
+    stk_model = VotingRegressor(
+        [(a, b) for a, b in zip(names_estimator_list, list_of_models)]
+    )
+    copy_of_stk = copy.deepcopy(stk_model)
+    trained_stk = copy_of_stk.fit(x, y)  # The same as in line 152
+    list_of_models.append(trained_stk)
+
+    if print_models:
+        for i in list_of_models:
+            print(i)
+
+    save_models(path, list_of_models)</code></pre>
+</details>
+</dd>
+<dt id="src.utils.optimization.save_models"><code class="name flex">
+<span>def <span class="ident">save_models</span></span>(<span>path: str, model)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Saves a model to a file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong></dt>
+<dd>The path to the file where the model will be saved.</dd>
+<dt><strong><code>model</code></strong></dt>
+<dd>The model to be saved.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None.</p>
+<h2 id="example">Example</h2>
+<p>save_models(path="models/model.pkl", model=my_model)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_models(path: str, model):
+    &#34;&#34;&#34;
+    Saves a model to a file.
+
+    Args:
+        path: The path to the file where the model will be saved.
+        model: The model to be saved.
+
+    Returns:
+        None.
+
+    Example:
+        save_models(path=&#34;models/model.pkl&#34;, model=my_model)
+    &#34;&#34;&#34;
+    pickle.dump(model, open(path, &#34;wb&#34;))</code></pre>
+</details>
+</dd>
+<dt id="src.utils.optimization.stacked_nested_cv"><code class="name flex">
+<span>def <span class="ident">stacked_nested_cv</span></span>(<span>estimators, estimators_names, spaces, x, y, out_cv, inner_cv, scoring='neg_mean_absolute_percentage_error', neural=False, n_calls=150, n_random_starts=100, verbose=0, shuffle=True, random_state=0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Perform stacked nested cross-validation.</p>
+<p>The function will return the scores of each fold for the outer k-fold, the train scores for each fold of the inner k-fold, the test predictions for each element when it was in the test set, the test errors for each element when it was in the test set, and the cv score for each model.</p>
+<p>It is important to remember that the mean of the test error will not be equivalent to the cv score. This is because the grouping of test data is different from the simple sum and division by N of the mean of the test error.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>estimators</code></strong></dt>
+<dd>A list of estimators to be optimized.</dd>
+<dt><strong><code>estimators_names</code></strong></dt>
+<dd>A list of names of the estimators.</dd>
+<dt><strong><code>spaces</code></strong></dt>
+<dd>A list of spaces of the estimators.</dd>
+<dt><strong><code>x</code></strong></dt>
+<dd>The training data.</dd>
+<dt><strong><code>y</code></strong></dt>
+<dd>The target values.</dd>
+<dt><strong><code>out_cv</code></strong></dt>
+<dd>The number of folds for the outer k-fold.</dd>
+<dt><strong><code>inner_cv</code></strong></dt>
+<dd>The number of folds for the inner k-fold.</dd>
+<dt><strong><code>scoring</code></strong></dt>
+<dd>The scoring metric.</dd>
+<dt><strong><code>neural</code></strong></dt>
+<dd>Whether the estimators are neural networks.</dd>
+<dt><strong><code>n_calls</code></strong></dt>
+<dd>The number of function calls to the optimizer.</dd>
+<dt><strong><code>n_random_starts</code></strong></dt>
+<dd>The number of random restarts.</dd>
+<dt><strong><code>verbose</code></strong></dt>
+<dd>The verbosity level.</dd>
+<dt><strong><code>shuffle</code></strong></dt>
+<dd>Whether to shuffle the data.</dd>
+<dt><strong><code>random_state</code></strong></dt>
+<dd>The random seed.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict_test</code></dt>
+<dd>A dictionary with the test scores for each model.</dd>
+<dt><code>dict_train</code></dt>
+<dd>A dictionary with the train scores for each model.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stacked_nested_cv(
+    estimators,
+    estimators_names,
+    spaces,
+    x,
+    y,
+    out_cv,
+    inner_cv,
+    scoring=&#34;neg_mean_absolute_percentage_error&#34;,
+    neural=False,
+    n_calls=150,
+    n_random_starts=100,
+    verbose=0,
+    shuffle=True,
+    random_state=0,
+):
+    
+    &#34;&#34;&#34;
+    Perform stacked nested cross-validation.
+
+    The function will return the scores of each fold for the outer k-fold, the train scores for each fold of the inner k-fold, the test predictions for each element when it was in the test set, the test errors for each element when it was in the test set, and the cv score for each model.
+
+    It is important to remember that the mean of the test error will not be equivalent to the cv score. This is because the grouping of test data is different from the simple sum and division by N of the mean of the test error.
+
+    Args:
+        estimators: A list of estimators to be optimized.
+        estimators_names: A list of names of the estimators.
+        spaces: A list of spaces of the estimators.
+        x: The training data.
+        y: The target values.
+        out_cv: The number of folds for the outer k-fold.
+        inner_cv: The number of folds for the inner k-fold.
+        scoring: The scoring metric.
+        neural: Whether the estimators are neural networks.
+        n_calls: The number of function calls to the optimizer.
+        n_random_starts: The number of random restarts.
+        verbose: The verbosity level.
+        shuffle: Whether to shuffle the data.
+        random_state: The random seed.
+
+    Returns:
+        dict_test: A dictionary with the test scores for each model.
+        dict_train: A dictionary with the train scores for each model.
+
+    &#34;&#34;&#34;
+    dict_train = {}
+    dict_test = {}
+    dict_best_models = {}
+
+    for i, j in enumerate(estimators):
+        actual_dict_key = estimators_names[i]
+        print(f&#34;--- We&#39;re in {actual_dict_key} model ---&#34;)
+        dict_train[actual_dict_key] = []
+        dict_test[actual_dict_key] = []
+        dict_best_models[actual_dict_key] = []
+
+        neural = False
+
+        if &#34;nn&#34; in estimators_names[i].lower():
+            neural = True
+
+        out_test_scores, out_train_scores, best_models = nested_cv(
+            j,
+            spaces[i],
+            x,
+            y,
+            out_cv,
+            inner_cv,
+            scoring=scoring,
+            neural=neural,
+            n_calls=n_calls,
+            n_random_starts=n_random_starts,
+            verbose=verbose,
+            shuffle=shuffle,
+            random_state=random_state,
+        )
+
+        dict_train[actual_dict_key].extend(out_train_scores)
+        dict_test[actual_dict_key].extend(out_test_scores)
+        dict_best_models[actual_dict_key].extend(best_models)
+
+    # Stacking part
+    print(&#34;--- We&#39;re in stacked model ---&#34;)
+    counting = 0
+    kf_out = KFold(out_cv, shuffle=shuffle, random_state=random_state)
+    dict_train[&#34;stacked&#34;] = []
+    dict_test[&#34;stacked&#34;] = []
+    for train_index, test_index in kf_out.split(x):
+        print(f&#34;Out folder {counting + 1} of {out_cv}.&#34;)
+        x_train, x_test = x[list(train_index)], x[list(test_index)]
+        y_train, y_test = y[train_index], y[test_index]
+
+        list_of_estimators = []
+
+        for j in dict_best_models.keys():
+            list_of_estimators.append((j, dict_best_models[j][counting]))
+
+        stacked_estimator = VotingRegressor(list_of_estimators)
+
+        stacked_estimator.fit(x_train, y_train.ravel())
+
+        y_train_pred = stacked_estimator.predict(x_train)
+        y_test_pred = stacked_estimator.predict(x_test)
+
+        if scoring == &#34;neg_mean_absolute_percentage_error&#34;:
+            dict_test[&#34;stacked&#34;].append(
+                mean_absolute_percentage_error(y_test, y_test_pred)
+            )
+            dict_train[&#34;stacked&#34;].append(
+                mean_absolute_percentage_error(y_train, y_train_pred)
+            )
+        elif scoring == &#34;neg_root_mean_squared_error&#34;:
+            dict_test[&#34;stacked&#34;].append(
+                np.sqrt(mean_squared_error(y_test, y_test_pred))
+            )
+            dict_train[&#34;stacked&#34;].append(
+                np.sqrt(mean_squared_error(y_train, y_train_pred))
+            )
+
+        counting += 1
+
+    return dict_test, dict_train</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="src.utils" href="index.html">src.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="src.utils.optimization.att_model" href="#src.utils.optimization.att_model">att_model</a></code></li>
+<li><code><a title="src.utils.optimization.change_nn_params" href="#src.utils.optimization.change_nn_params">change_nn_params</a></code></li>
+<li><code><a title="src.utils.optimization.convert_to_space" href="#src.utils.optimization.convert_to_space">convert_to_space</a></code></li>
+<li><code><a title="src.utils.optimization.gp_optimize" href="#src.utils.optimization.gp_optimize">gp_optimize</a></code></li>
+<li><code><a title="src.utils.optimization.modify_scaling" href="#src.utils.optimization.modify_scaling">modify_scaling</a></code></li>
+<li><code><a title="src.utils.optimization.nested_cv" href="#src.utils.optimization.nested_cv">nested_cv</a></code></li>
+<li><code><a title="src.utils.optimization.opt_all" href="#src.utils.optimization.opt_all">opt_all</a></code></li>
+<li><code><a title="src.utils.optimization.save_models" href="#src.utils.optimization.save_models">save_models</a></code></li>
+<li><code><a title="src.utils.optimization.stacked_nested_cv" href="#src.utils.optimization.stacked_nested_cv">stacked_nested_cv</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
