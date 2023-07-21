@@ -114,8 +114,8 @@ If you want to change the name of the kernel created, you can just replace "pbe_
 # Documentation
 
 If you want to understand the main functions utilized in this project, you can acces the documentation:
-- [Functions Utilized in Optimization Process](https://github.com/Miguilo/Master-Degree-Research/blob/280edfd0018980643a01095167042785678a0635/docs/teste/src/utils/data.html)
-- [Functions Utilized in Evaluation Process]: https://github.com/Miguilo/Master-Degree-Research/docs/src/utils/evaluation.html "Evaluation"
+- [Functions Utilized in Optimization Process](https://github.com/Miguilo/Master-Degree-Research/docs/teste/src/utils/optimization.html)
+- [Functions Utilized in Evaluation Process](https://github.com/Miguilo/Master-Degree-Research/docs/src/utils/evaluation.html "Evaluation")
 - [Functions Related to Data Processing](docs/teste/src/utils/data.html)
 
 In case you want to see the source code of the functions
