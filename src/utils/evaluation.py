@@ -10,7 +10,7 @@ from sklearn.model_selection import KFold, cross_validate
 
 
 def display_scores(scores):
-     """
+    """
     Displays the scores of the cross-validation procedure.
 
     Args:
@@ -20,6 +20,8 @@ def display_scores(scores):
         None.
 
     """
+     
+    
 
     print("Test Scores:", scores)
     print(f"Mean Test Scores: {np.round(scores.mean(), 2)}")
@@ -31,6 +33,7 @@ def display_scores(scores):
 
 def get_cross_validation_scores(estimator, X, y, cv):
     """
+
     Get the cross-validation scores for a given estimator.
 
     Args:
@@ -104,7 +107,7 @@ def unity_norm(array):
 
 
 def FI_shap_values(estimator, x, y):
-     """
+    """
     Computes the feature importance using SHAP values.
 
     Args:
@@ -305,7 +308,7 @@ def create_graph_shap(
 
     Returns:
         None.
-
+    """
     scores = []
     feat_column = []
     models = []
