@@ -10,37 +10,52 @@
 ## Project structure
 ```bash
 .
-├── config                      
-│   ├── main.yaml                   # Main configuration file
-│   ├── model                       # Configurations for training model
-│   │   ├── model1.yaml             # First variation of parameters to train model
-│   │   └── model2.yaml             # Second variation of parameters to train model
-│   └── process                     # Configurations for processing data
-│       ├── process1.yaml           # First variation of parameters to process data
-│       └── process2.yaml           # Second variation of parameters to process data
-├── data            
-│   ├── final                       # data after training the model
-│   ├── processed                   # data after processing
-│   ├── raw                         # raw data
-│   └── raw.dvc                     # DVC file of data/raw
-├── docs                            # documentation for your project
-├── dvc.yaml                        # DVC pipeline
-├── .flake8                         # configuration for flake8 - a Python formatter tool
-├── .gitignore                      # ignore files that cannot commit to Git
-├── Makefile                        # store useful commands to set up the environment
-├── models                          # store models
-├── notebooks                       # store notebooks
-├── .pre-commit-config.yaml         # configurations for pre-commit
-├── pyproject.toml                  # dependencies for poetry
-├── README.md                       # describe your project
-├── src                             # store source code
-│   ├── __init__.py                 # make src a Python module 
-│   ├── process.py                  # process data before training model
-│   └── train_model.py              # train model
-└── tests                           # store tests
-    ├── __init__.py                 # make tests a Python module 
-    ├── test_process.py             # test functions for process.py
-    └── test_train_model.py         # test functions for train_model.py
+├── config
+│   ├── data                     # Configs related to the data paths
+│   ├── eval                     # Configs related to the algorith evaluation paths
+│   ├── feat_importance          # Configs related to path images of feature importance
+│   ├── main.yaml                # Main Configuration File
+│   ├── models                   # Configs related to optimized models path
+│   ├── opt                      # Configs related to features to optimize and hyperparameter search space of models
+│   └── process                  # Configs related to preprocessing the data
+├── data
+│   ├── final                    # Folder containing the molecules that have anisotropic polarizability
+│   ├── processed                # Folder containing all molecules, but processed
+│   └── raw                      # Raw data
+├── docs
+│   └── src
+├── executar_fila.sh             # File to execute in terminal all the files to get opt models and eval performances.
+├── general 
+│   ├── creating_data.py         # File to get the processed and final data.
+│   └── save_performances_img.py # File to save img of performances since the performances has been already calculated.
+├── LICENSE
+├── Makefile                     # Store useful commands to set up the environment
+├── models                       # Folder cointaining the optimized models for each dataset and feature settings.
+│   ├── apolar                          
+│   ├── polar                           
+│   └── polar_apolar                    
+├── notebooks
+│   └── Apolar Molecules         # Folder cointaining unstructured notebook with some random tests
+├── performances                 # Folder with the performances in csv files for each dataset
+│   ├── apolar                          
+│   ├── polar                          
+│   └── polar_apolar                    
+├── performances_imgs            # Folder with the performances in .png graphs for each dataset
+│   ├── apolar
+│   ├── polar
+│   └── polar_apolar
+├── poetry.lock                  # Poetry folder for versioning the project
+├── pyproject.toml               # Dependencies installed for this project.
+├── README.md
+├── src                          # Folder cointaining general utilized functions cointained in the documentation.
+│   ├── __init__.py
+│   ├── __pycache__
+│   └── utils
+├── src_apolar                   # Folder with the whole process including feature importance results with apolar molecules
+├── src_polar                    # Folder with the whole process including feature importance results with polar molecules
+├── src_polar_apolar             # Folder with the whole process including feature importance results with polar + apolar molecules
+├── transformers.py              # File to replace in skopt library
+└── txt_outputs                  # Folder with the principal outputs of .py files.
 ```
 
 ## Set up the environment

@@ -5,6 +5,7 @@ pasta_saida="txt_outputs"
 
 # Lista de arquivos a serem executados
 arquivos=(
+    "src_apolar/get_opt_models_apolar.py"
     "src_polar/get_opt_models_polar.py"
     "src_polar_apolar/get_opt_models_polar_apolar.py"
     "src_apolar/eval_apolar_models.py"
