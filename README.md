@@ -1,11 +1,35 @@
 # Positron Binding Energy for Molecules
 
+## Introduction
+This is the main code of my master's research, where I intended to analyze for 3 sets of data, what were the main characteristics and the relationship between them. The main physical insights were obtained by importance and selection of resources, where we could see that there is a great agreement with the literature and many possibilities for new experiments and theories with the insights obtained here.
+
+## The Reason
+Until today, we have not been able to analytically calculate in the literature the binding energy of the positron with other molecules, whether non-polar or polar. And a way of being able to calculate this binding energy based on properties of molecules has been tried by various empirical methods. Hence the idea of ​​performing regressions with Machine Learning models, in the hope of generating some hint or even accurate predictions.
+
+## Some Results
+Of course, the physical explanations with more care and analysis will be in my dissertation and papers to be published. But I'll give you a small sample of what I got:
+
+![Feature Importance for Apolar Molecules](src_apolar/feature_importance/all/all_molecules_FI.png)
+
+In the above image, Ei = Ionization Potential Energy, Alpha = Polarizability, Pi Bond = Number of Pi Bonds. We can see that the order of importance of features is Alpha > Pi Bond > Ei for apolar molecules, which completely agrees with what the literature expects about the relevance of each molecular property above.
+
+Let's compare the difference in performances for polar molecules when we include Anisotropic Polarizability.
+- Utilizing Isotropic Polarizability
+    ![Isotropic Polarizability for Polar Molecules](performances_imgs/polar/partial_iso_test_score.png)
+- Utilizing Anisotropic Polarizability
+    ![Anisotropic Polarizability por Polar Molecules](performances_imgs/polar/partial_aniso_test_score.png)
+
+For the best performance feature settings, which's all features together, the performance has improved in 8%! Which's a lot for this problem. This was just an example. Many insights are yet to come in the dissertation.
+
+## For the Machine Learning Process
+Since we are dealing with 3 small datasets, with the largest having 56 examples, I had to use techniques that avoided overfitting as much as possible, such as strong regularization. In this project I chose to use 4 famous estimators, the simplest being a [polynomial](https://scikit-learn.org/stable/modules/preprocessing.html#polynomial-features) regression done through [Ridge Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html), the [SVR](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html#sklearn.svm.SVR) estimator, [XGBoostRegressor](https://xgboost.readthedocs.io/en/stable/python/python_api.html), [MLPRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html) and finally, a [Stacked Voting Regressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.VotingRegressor.html). The optimization of models was done via [Scikit-Optimize](https://scikit-optimize.github.io/stable/) within a nested cross-validation process to get an estimate of performance of each of the models for each feature combnations within each dataset.
+
+
 ## Tools used in this project
 * [Poetry](https://towardsdatascience.com/how-to-effortlessly-publish-your-python-package-to-pypi-using-poetry-44b305362f9f): Dependency management - [article](https://towardsdatascience.com/how-to-effortlessly-publish-your-python-package-to-pypi-using-poetry-44b305362f9f)
 * [hydra](https://hydra.cc/): Manage configuration files - [article](https://towardsdatascience.com/introduction-to-hydra-cc-a-powerful-framework-to-configure-your-data-science-projects-ed65713a53c6)
 * [pre-commit plugins](https://pre-commit.com/): Automate code reviewing formatting  - [article](https://towardsdatascience.com/4-pre-commit-plugins-to-automate-code-reviewing-and-formatting-in-python-c80c6d2e9f5?sk=2388804fb174d667ee5b680be22b8b1f)
-* [DVC](https://dvc.org/): Data version control - [article](https://towardsdatascience.com/introduction-to-dvc-data-version-control-tool-for-machine-learning-projects-7cb49c229fe0)
-* [pdoc](https://github.com/pdoc3/pdoc): Automatically create an API documentation for your project
+* [pdoc](https://github.com/pdoc3/pdoc): Automatically create an API documentation for the project
 
 ## Project structure
 ```bash

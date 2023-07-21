@@ -326,8 +326,7 @@ def nested_cv(
     random_state=0,
     print_mode=False,
 ):
-
-   """
+    """
     Perform nested cross-validation.
 
     The function will return the scores of each fold for the outer k-fold, the train scores for each fold of the inner k-fold, the test predictions for each element when it was in the test set, the test errors for each element when it was in the test set, and the cv score.
@@ -355,13 +354,9 @@ def nested_cv(
         out_train_scores: The score of the outer folds in the train set.
         best_models: The best estimators founded in each run of outer fold's to be utilized in stacked cv.
     """
-
-    kf_out = KFold(
-        n_splits=out_cv, shuffle=shuffle, random_state=random_state
-    )  # Folders externo.
-    kf_in = KFold(
-        n_splits=inner_cv, shuffle=shuffle, random_state=random_state
-    )  # Folders internos.
+    
+    kf_out = KFold(n_splits=out_cv, shuffle=shuffle, random_state=random_state)  # Folders externo.
+    kf_in = KFold(n_splits=inner_cv, shuffle=shuffle, random_state=random_state)  # Folders internos.
 
     test_pred = np.zeros_like(y)
     test_error = np.zeros_like(y)
