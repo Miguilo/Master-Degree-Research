@@ -111,10 +111,10 @@ poetry run ipython kernel install --user --name=pbe_for_molecules
 ```
 If you want to change the name of the kernel created, you can just replace "pbe_for_molecules" by another name.
 
-# Auto-generate API documentation
+# Documentation
 
-To auto-generate API document for your project, run:
+If you want to understand the main functions utilized in this project, you can acces the documentation:
+- [Functions Utilized in Optimization Process](docs/src/utils/optimization.md)
+- [Functions Utilized in Evaluation Process](docs/src/utils/evaluation.md)
+- [Functions Related to Data Processing](docs/src/utils/data.md)
 
-```bash
-make docs
-```
