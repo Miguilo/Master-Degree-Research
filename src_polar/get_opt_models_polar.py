@@ -126,7 +126,7 @@ def main(cfg: DictConfig):
     list_of_spaces = [space_poly, space_svr, space_xgb, space_nn]
     list_of_models_names = ["poly", "svr", "xgb", "nn"]
     list_of_features = [
-        "All",
+        "Ei + Alpha + Dipole + Pi",
         "Ei + Alpha + Dipole",
         "Alpha + Dipole",
         "Alpha + Dipole + Pi",

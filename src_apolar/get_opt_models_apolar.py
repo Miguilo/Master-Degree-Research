@@ -130,7 +130,7 @@ def main(cfg: DictConfig):
     list_of_models = [ridge, svr, xgb, nn]
     list_of_spaces = [space_poly, space_svr, space_xgb, space_nn]
     list_of_models_names = ["poly", "svr", "xgb", "nn"]
-    list_of_features = ["All", "Ei + Alpha", " Pi + Alpha", "Pi + Ei"]
+    list_of_features = ["Ei + Alpha + Pi", "Ei + Alpha", " Pi + Alpha", "Pi + Ei"]
     list_of_paths = [
         get_absolute_path(cfg.models.apolar["all"]),
         get_absolute_path(cfg.models.apolar["ei_alpha"]),
