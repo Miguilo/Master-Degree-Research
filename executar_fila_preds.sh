@@ -3,17 +3,19 @@
 # Pasta de destino dos arquivos de saída
 pasta_saida="txt_outputs"
 
-# Lista de arquivos a serem executados
-arquivos=(
-    "./src_apolar/get_test_preds_apolar.py"
-    "./src_polar/get_test_preds_polar.py"
-    "./src_polar_apolar/get_test_preds_polar_apolar.py"
-)
-
-# Verifica se a pasta de saída existe, caso contrário, cria-a
 if [ ! -d "$pasta_saida" ]; then
     mkdir "$pasta_saida"
 fi
+
+# Lista de arquivos a serem executados
+arquivos=(
+    "/src_apolar/get_test_preds_apolar.py"
+    "/src_polar/get_test_preds_polar.py"
+    "/src_polar_apolar/get_test_preds_polar_apolar.py"
+)
+
+# Verifica se a pasta de saída existe, caso contrário, cria-a
+
 
 # Loop para processar cada arquivo da fila
 for arquivo in "${arquivos[@]}"; do
