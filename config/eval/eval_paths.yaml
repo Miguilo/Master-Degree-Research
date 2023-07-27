@@ -1,20 +1,20 @@
 all:
   apolar:
-    dir: ../performances/apolar
+    dir: ../results/performances/apolar
     train_score_path: ${eval.all.apolar.dir}/all_train_score.csv
     test_score_path: ${eval.all.apolar.dir}/all_test_score.csv
     train_std_path: ${eval.all.apolar.dir}/all_train_std.csv
     test_std_path: ${eval.all.apolar.dir}/all_test_std.csv
 
   polar:
-    dir: ../performances/polar
+    dir: ../results/performances/polar
     train_score_path: ${eval.all.polar.dir}/all_train_score.csv
     test_score_path: ${eval.all.polar.dir}/all_test_score.csv
     train_std_path: ${eval.all.polar.dir}/all_train_std.csv
     test_std_path: ${eval.all.polar.dir}/all_test_std.csv
 
   polar_apolar:
-    dir: ../performances/polar_apolar
+    dir: ../results/performances/polar_apolar
     train_score_path: ${eval.all.polar_apolar.dir}/all_train_score.csv
     test_score_path: ${eval.all.polar_apolar.dir}/all_test_score.csv
     train_std_path: ${eval.all.polar_apolar.dir}/all_train_std.csv
@@ -22,21 +22,21 @@ all:
 
 partial_iso:
   apolar:
-    dir: ../performances/apolar
+    dir: ../results/performances/apolar
     train_score_path: ${eval.partial_iso.apolar.dir}/partial_iso_train_score.csv
     test_score_path: ${eval.partial_iso.apolar.dir}/partial_iso_test_score.csv
     train_std_path: ${eval.partial_iso.apolar.dir}/partial_iso_train_std.csv
     test_std_path: ${eval.partial_iso.apolar.dir}/partial_iso_test_std.csv
 
   polar:
-    dir: ../performances/polar
+    dir: ../results/performances/polar
     train_score_path: ${eval.partial_iso.polar.dir}/partial_iso_train_score.csv
     test_score_path: ${eval.partial_iso.polar.dir}/partial_iso_test_score.csv
     train_std_path: ${eval.partial_iso.polar.dir}/partial_iso_train_std.csv
     test_std_path: ${eval.partial_iso.polar.dir}/partial_iso_test_std.csv
 
   polar_apolar:
-    dir: ../performances/polar_apolar
+    dir: ../results/performances/polar_apolar
     train_score_path: ${eval.partial_iso.polar_apolar.dir}/partial_iso_train_score.csv
     test_score_path: ${eval.partial_iso.polar_apolar.dir}/partial_iso_test_score.csv
     train_std_path: ${eval.partial_iso.polar_apolar.dir}/partial_iso_train_std.csv
@@ -44,28 +44,28 @@ partial_iso:
 
 partial_aniso:
   apolar:
-    dir: ../performances/apolar
+    dir: ../results/performances/apolar
     train_score_path: ${eval.partial_aniso.apolar.dir}/partial_aniso_train_score.csv
     test_score_path: ${eval.partial_aniso.apolar.dir}/partial_aniso_test_score.csv
     train_std_path: ${eval.partial_aniso.apolar.dir}/partial_aniso_train_std.csv
     test_std_path: ${eval.partial_aniso.apolar.dir}/partial_aniso_test_std.csv
 
   polar:
-    dir: ../performances/polar
+    dir: ../results/performances/polar
     train_score_path: ${eval.partial_aniso.polar.dir}/partial_aniso_train_score.csv
     test_score_path: ${eval.partial_aniso.polar.dir}/partial_aniso_test_score.csv
     train_std_path: ${eval.partial_aniso.polar.dir}/partial_aniso_train_std.csv
     test_std_path: ${eval.partial_aniso.polar.dir}/partial_aniso_test_std.csv
 
   polar_apolar:
-    dir: ../performances/polar_apolar
+    dir: ../results/performances/polar_apolar
     train_score_path: ${eval.partial_aniso.polar_apolar.dir}/partial_aniso_train_score.csv
     test_score_path: ${eval.partial_aniso.polar_apolar.dir}/partial_aniso_test_score.csv
     train_std_path: ${eval.partial_aniso.polar_apolar.dir}/partial_aniso_train_std.csv
     test_std_path: ${eval.partial_aniso.polar_apolar.dir}/partial_aniso_test_std.csv
 
 imgs:
-  dir: ../performances_imgs
+  dir: ../results/performances_imgs
   apolar: ${eval.imgs.dir}/apolar
   polar: ${eval.imgs.dir}/polar
   polar_apolar: ${eval.imgs.dir}/polar_apolar

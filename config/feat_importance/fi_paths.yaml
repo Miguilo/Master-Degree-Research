@@ -1,17 +1,20 @@
 apolar:
-  all: feature_importance/all/
-  ei_alpha: feature_importance/ei_alpha/
-  pi_alpha: feature_importance/pi_alpha/
-  pi_ei: feature_importance/pi_ei/
+  dir: ../results/features_importance/apolar/
+  all: ${feat_importance.apolar.dir}/all/
+  ei_alpha: ${feat_importance.apolar.dir}/ei_alpha/
+  pi_alpha: ${feat_importance.apolar.dir}/pi_alpha/
+  pi_ei: ${feat_importance.apolar.dir}/pi_ei/
   
 polar:
-  all: feature_importance/all/
-  alpha_dipole: feature_importance/alpha_dipole/
-  alpha_dipole_pi: feature_importance/alpha_dipole_pi/
-  ei_alpha_dipole: feature_importance/ei_alpha_dipole/
+  dir: ../results/features_importance/polar/
+  all: ${feat_importance.polar.dir}/all/
+  alpha_dipole: ${feat_importance.polar.dir}/alpha_dipole/
+  alpha_dipole_pi: ${feat_importance.polar.dir}/alpha_dipole_pi/
+  ei_alpha_dipole: ${feat_importance.polar.dir}/ei_alpha_dipole/
 
 polar_apolar:
-  all: feature_importance/all/
-  alpha_dipole: feature_importance/alpha_dipole/
-  alpha_dipole_pi: feature_importance/alpha_dipole_pi/
-  ei_alpha_dipole: feature_importance/ei_alpha_dipole/
+  dir: ../results/features_importance/polar_apolar/
+  all: ${feat_importance.polar_apolar.dir}/all/
+  alpha_dipole: ${feat_importance.polar_apolar.dir}/alpha_dipole/
+  alpha_dipole_pi: ${feat_importance.polar_apolar.dir}/alpha_dipole_pi/
+  ei_alpha_dipole: ${feat_importance.polar_apolar.dir}/ei_alpha_dipole/
