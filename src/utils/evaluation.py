@@ -136,6 +136,11 @@ def FI_shap_values(estimator, x, y):
     except IndexError:  # Isso foi necessário pois de alguma forma, em alguns feature importance é gerado só 1 linha na matriz.
         return list(unity_norm(feature_importance))
 
+def get_sub(x):
+    normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()"
+    sub_s = "ₐ₈CDₑբGₕᵢⱼₖₗₘₙₒₚQᵣₛₜᵤᵥwₓᵧZₐ♭꜀ᑯₑբ₉ₕᵢⱼₖₗₘₙₒₚ૧ᵣₛₜᵤᵥwₓᵧ₂₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎"
+    res = x.maketrans(''.join(normal), ''.join(sub_s))
+    return x.translate(res)
 
 def create_fast_graph(
     df,
@@ -171,6 +176,8 @@ def create_fast_graph(
 
     columns = list(df.columns)
     for i in range(len(columns)):
+        if "Ei" in columns[i]:
+            columns[i] = columns[i].replace("Ei", f"I{get_sub('p')}")
         if "Alpha" in columns[i]:
             if isotropy:
                 columns[i] = columns[i].replace("Alpha", "Isotropy")
