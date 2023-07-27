@@ -309,6 +309,83 @@ def opt_all(
 
     save_models(path, list_of_models)
 
+def test_pred_nested_cv(
+    estimator,
+    space,
+    x,
+    y,
+    out_cv,
+    inner_cv,
+    scoring="neg_mean_absolute_percentage_error",
+    neural=False,
+    n_calls=150,
+    n_random_starts=100,
+    verbose=0,
+    shuffle=True,
+    random_state=0
+):
+    """
+    Args:
+        estimator: The estimator to be optimized.
+        space: The space of hyperparameters.
+        x: The training data.
+        y: The target values.
+        out_cv: The number of folds for the outer k-fold.
+        inner_cv: The number of folds for the inner k-fold.
+        scoring: The scoring metric.
+        neural: Whether the estimator is a neural network.
+        n_calls: The number of function calls to the optimizer.
+        n_random_starts: The number of random restarts.
+        verbose: The verbosity level.
+        shuffle: Whether to shuffle the data.
+        random_state: The random seed.
+        print_mode: Whether to print the scores.
+
+    Returns:
+        test_pred: The values predicted in nested cross validation for each sample in test set.
+    """
+    
+    kf_out = KFold(n_splits=out_cv, shuffle=shuffle, random_state=random_state)  # Folders externo.
+    kf_in = KFold(n_splits=inner_cv, shuffle=shuffle, random_state=random_state)  # Folders internos.
+
+    test_pred = np.zeros_like(y)
+
+    count = 1
+
+    # Dividindo entre treino e teste na pasta de fora.
+    for train_index, test_index in kf_out.split(x):
+        print(f"Out folder {count} of {out_cv}.")
+        count += 1
+        x_train, x_test = x[list(train_index)], x[list(test_index)]
+        y_train, y_test = y[train_index], y[test_index]
+
+        # Otimizando o modelo pro x_train e y_train com validação cruzada interna.
+        opt_model = gp_optimize(
+            estimator,
+            x_train,
+            y_train,
+            space=space,
+            cv=kf_in,
+            n_calls=n_calls,
+            n_random_starts=n_random_starts,
+            neural=neural,
+            scoring=scoring,
+            verbose=verbose,
+        )
+
+        # Pegando o melhor modelo com os valores de otimização
+        att_model(estimator, space, opt_model.x, neural=neural)
+        best_model = clone(estimator)
+
+        # Fitando o melhor modelo
+        fitted_model = best_model.fit(x_train, y_train)
+
+        # Gerando o erro de teste índice a índice
+        for i, z in zip(test_index, x_test):
+            test_pred[i] = fitted_model.predict(z.reshape(1, -1))
+            
+    return test_pred 
+
 
 def nested_cv(
     estimator,
@@ -324,7 +401,7 @@ def nested_cv(
     verbose=0,
     shuffle=True,
     random_state=0,
-    print_mode=False,
+    print_mode=False
 ):
     """
     Perform nested cross-validation.
@@ -444,6 +521,7 @@ def stacked_nested_cv(
     verbose=0,
     shuffle=True,
     random_state=0,
+    show_individual_test_pred = False,
 ):
     
     """
@@ -477,6 +555,9 @@ def stacked_nested_cv(
     dict_train = {}
     dict_test = {}
     dict_best_models = {}
+
+    test_pred = np.zeros(x.shape[0])
+    test_error = np.zeros(x.shape[0])
 
     for i, j in enumerate(estimators):
         actual_dict_key = estimators_names[i]
@@ -548,6 +629,15 @@ def stacked_nested_cv(
                 np.sqrt(mean_squared_error(y_train, y_train_pred))
             )
 
+        for i, z in zip(test_index, x_test):
+            test_pred[i] = stacked_estimator.predict(z.reshape(1, -1))
+
+        
+
         counting += 1
+
+
+    if show_individual_test_pred:
+        return test_pred
 
     return dict_test, dict_train
