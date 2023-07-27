@@ -177,7 +177,7 @@ def create_fast_graph(
     columns = list(df.columns)
     for i in range(len(columns)):
         if "Ei" in columns[i]:
-            columns[i] = columns[i].replace("Ei", f"I{get_sub('p')}")
+            columns[i] = columns[i].replace("Ei", "Ip")
         if "Alpha" in columns[i]:
             if isotropy:
                 columns[i] = columns[i].replace("Alpha", "Isotropy")
