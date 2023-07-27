@@ -9,15 +9,15 @@ Until today, we have not been able to analytically calculate in the literature t
 ## Some Results
 Of course, the physical explanations with more care and analysis will be in my dissertation and papers to be published. But I'll give you a small sample of what I got:
 
-![Feature Importance for Apolar Molecules](src_apolar/feature_importance/all/all_molecules_FI.png)
+![Feature Importance for Apolar Molecules](results/features_importance/apolar/all/all_molecules_FI.png)
 
 In the above image, Ei = Ionization Potential Energy, Alpha = Polarizability, Pi Bond = Number of Pi Bonds. We can see that the order of importance of features is Alpha > Pi Bond > Ei for apolar molecules, which completely agrees with what the literature expects about the relevance of each molecular property above.
 
 Let's compare the difference in performances for polar molecules when we include Anisotropic Polarizability.
 - Utilizing Isotropic Polarizability
-    ![Isotropic Polarizability for Polar Molecules](performances_imgs/polar/partial_iso_test_score.png)
+    ![Isotropic Polarizability for Polar Molecules](results/performances_imgs/polar/partial_iso_test_score.png)
 - Utilizing Anisotropic Polarizability
-    ![Anisotropic Polarizability por Polar Molecules](performances_imgs/polar/partial_aniso_test_score.png)
+    ![Anisotropic Polarizability por Polar Molecules](results/performances_imgs/polar/partial_aniso_test_score.png)
 
 For the best performance feature settings, which's all features together, the performance has improved in 8%! Which's a lot for this problem. This was just an example. Many insights are yet to come in the dissertation.
 
