@@ -9,9 +9,9 @@ fi
 
 # Lista de arquivos a serem executados
 arquivos=(
-    "/src_apolar/get_test_preds_apolar.py"
-    "/src_polar/get_test_preds_polar.py"
-    "/src_polar_apolar/get_test_preds_polar_apolar.py"
+    "src_apolar/get_test_preds_apolar.py"
+    "src_polar/get_test_preds_polar.py"
+    "src_polar_apolar/get_test_preds_polar_apolar.py"
 )
 
 # Verifica se a pasta de saída existe, caso contrário, cria-a
