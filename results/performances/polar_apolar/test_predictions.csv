@@ -1,0 +1,47 @@
+Molecule,Formula,Expt,Stacked Pred's
+Butane,C4H10,35.0,36
+Pentane,C5H12,60.0,54
+Hexane,C6H14,80.0,59
+Heptane,C7H16,105.0,107
+Octane,C8H18,115.0,83
+Nonane,C9H20,145.0,128
+Ethylene,C2H4,20.0,12
+Cyclopropane,C3H6,10.0,29
+Cyclohexane,C6H12,80.0,89
+Benzene,C6H6,150.0,132
+Naphthalene,C10H8,300.0,110
+2-3-butanedione,C4H6O2,77.0,60
+IsoPentane,C5H12,60.0,63
+Propane,C3H8,10.0,10
+Tetrachloroethylene,C2Cl4,57.0,97
+1-2-trans-Dichloroethylene,C2H2Cl2,15.0,43
+Carbondisulfide,CS2,75.0,70
+Bromoform,CHBr3,130.0,79
+Cyclopentanone,C5H8O,230.0,100
+Ethyl Acetate(conformer1),C4H8O2,160.0,116
+1-Butanol,C4H10O,102.0,67
+Chloroform,CHCl3,50.0,68
+Butanal,C4H8O,142.0,88
+2-MethylPropionitrile,C4H7N,274.0,254
+Dimethylcarbonate,C3H6O3,102.0,69
+Ethyl Formate,C3H6O2,103.0,63
+Methyl Acetate,C3H6O2,122.0,94
+2-Propanol,C3H8O,87.0,81
+1-Propanol,C3H8O,70.0,47
+Acetone,C3H6O,173.0,70
+Propanal,C3H6O,118.0,75
+Propionitrile,C3H5N,245.0,91
+1-Fluoropropane,C3H7F,35.0,39
+1-2-Ethanediol,C2H6O2,70.0,67
+Bromomethane,CH3Br,40.0,37
+Methyl Formate,C2H4O2,65.0,67
+Ethanol,C2H6O,43.0,30
+Acetaldehyde,C2H4O,88.0,94
+Acetonitrile,C2H3N,180.0,99
+Chloromethane,CH3Cl,25.0,27
+Methanol,CH4O,20.0,10
+Dichloromethane,CH2Cl2,32.0,43
+cis-1-2-Dichloroethylene,C2H2Cl2,66.0,46
+Trichloroethylene,C2HCl3,50.0,98
+1-Chloropropane,C3H7Cl,98.0,106
+2-Chloropropane,C3H7Cl,113.0,71

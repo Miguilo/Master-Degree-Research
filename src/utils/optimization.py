@@ -639,5 +639,5 @@ def stacked_nested_cv(
 
     if show_individual_test_pred:
         return test_pred
-
-    return dict_test, dict_train
+    else:
+        return dict_test, dict_train
