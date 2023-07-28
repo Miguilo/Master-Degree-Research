@@ -14,7 +14,7 @@
             "args": ["hydra.job.chdir=False"], 
             "console": "integratedTerminal",
             "justMyCode": true,
-            "cwd": "${workspaceFolder}/Positron-Binding-Energy/src"
+            "cwd": "${workspaceFolder}/src_apolar"
         }
     ]
 }

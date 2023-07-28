@@ -1,0 +1,75 @@
+
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+inspect:  /home/miguel/Documentos/Master-Degree-Research/src_apolar
+inspect:  /home/miguel/Documentos/Master-Degree-Research/src_apolar
+=== Pi + Alpha Features ===
+Out folder 1 of 10.
+/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:297: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:297: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:297: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:297: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:297: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:297: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:297: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/sklearn/svm/_base.py:297: ConvergenceWarning: Solver terminated early (max_iter=10000).  Consider pre-processing your data with StandardScaler or MinMaxScaler.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/miguel/Documentos/Master-Degree-Research/src_apolar/get_test_preds_apolar.py", line 99, in <module>
+    main()
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+  File "/home/miguel/Documentos/Master-Degree-Research/src_apolar/get_test_preds_apolar.py", line 82, in main
+    predictions = test_pred_nested_cv(new_list_of_models[0], list_of_spaces[0],
+  File "/home/miguel/Documentos/Master-Degree-Research/src_apolar/../src/utils/optimization.py", line 363, in test_pred_nested_cv
+    opt_model = gp_optimize(
+  File "/home/miguel/Documentos/Master-Degree-Research/src_apolar/../src/utils/optimization.py", line 219, in gp_optimize
+    result = gp_minimize(
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/skopt/optimizer/gp.py", line 259, in gp_minimize
+    return base_minimize(
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/skopt/optimizer/base.py", line 300, in base_minimize
+    result = optimizer.tell(next_x, next_y)
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py", line 493, in tell
+    return self._tell(x, y, fit=fit)
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/skopt/optimizer/optimizer.py", line 552, in _tell
+    X = self.space.transform(self.space.rvs(
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/skopt/space/space.py", line 900, in rvs
+    columns.append(dim.rvs(n_samples=n_samples, random_state=rng))
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/skopt/space/space.py", line 698, in rvs
+    return self.inverse_transform(list(choices))
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/skopt/space/space.py", line 685, in inverse_transform
+    inv_transform = super(Categorical, self).inverse_transform(Xt)
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/skopt/space/space.py", line 168, in inverse_transform
+    return self.transformer.inverse_transform(Xt)
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/skopt/space/transformers.py", line 309, in inverse_transform
+    X = transformer.inverse_transform(X)
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/skopt/space/transformers.py", line 216, in inverse_transform
+    return [
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/skopt/space/transformers.py", line 217, in <listcomp>
+    self.inverse_mapping_[int(np.round(i))] for i in Xt
+  File "<__array_function__ internals>", line 200, in round_
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/numpy/core/fromnumeric.py", line 3763, in round_
+    return around(a, decimals=decimals, out=out)
+KeyboardInterrupt

@@ -1,17 +1,23 @@
 import sys
+from os import path
 
-sys.path.append("../src/")
+file_dir = path.dirname(__file__)
+
+sys.path.insert(1, path.join(file_dir, "../src/"))
 
 import pickle
 
 import hydra
 import pandas as pd
 from omegaconf import DictConfig
+
 from utils.data import get_absolute_path
 from utils.evaluation import create_graph_shap, show_metrics
 
 
-@hydra.main(config_path="../config", config_name="main.yaml")
+@hydra.main(
+    config_path=path.join(file_dir, "../config"), config_name="main.yaml"
+)
 def main(cfg: DictConfig):
 
     # For all polar_apolar Molecules

@@ -1,26 +1,32 @@
 import sys
-sys.path.append('../src/')
+from os import path
 
+file_dir = path.dirname(__file__)
+
+sys.path.insert(1, path.join(file_dir, "../src/"))
 from datetime import datetime
 
 import hydra
 import pandas as pd
 from omegaconf import DictConfig
-from sklearn.compose import TransformedTargetRegressor
 from sklearn import linear_model
+from sklearn.compose import TransformedTargetRegressor
 from sklearn.model_selection import KFold
 from sklearn.neural_network import MLPRegressor
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import (RobustScaler, PolynomialFeatures,
+from sklearn.preprocessing import (PolynomialFeatures, RobustScaler,
                                    StandardScaler)
 from sklearn.svm import SVR
-from utils.data import get_absolute_path
-from utils.evaluation import show_metrics
-from utils.optimization import convert_to_space, opt_all, modify_scaling
 from xgboost import XGBRegressor
 
+from utils.data import get_absolute_path
+from utils.evaluation import show_metrics
+from utils.optimization import convert_to_space, modify_scaling, opt_all
 
-@hydra.main(config_path="../config", config_name="main.yaml")
+
+@hydra.main(
+    config_path=path.join(file_dir, "../config"), config_name="main.yaml"
+)
 def main(cfg: DictConfig):
     call_reg_scaler = cfg.opt
     call_transformer_scaler = cfg.opt
@@ -143,7 +149,9 @@ def main(cfg: DictConfig):
     initial_t = datetime.now()
     for i, j in enumerate(list_of_x_all):
         print(f"=== {list_of_features[i]} Features ===")
-        new_list_of_models = modify_scaling(list_of_models, list_of_models_names, list_of_features[i])
+        new_list_of_models = modify_scaling(
+            list_of_models, list_of_models_names, list_of_features[i]
+        )
         opt_all(
             new_list_of_models,
             list_of_models_names,
@@ -206,7 +214,9 @@ def main(cfg: DictConfig):
 
     for i, j in enumerate(list_of_x_partial_iso):
         print(f"=== {list_of_features[i]} Features ===")
-        new_list_of_models = modify_scaling(list_of_models, list_of_models_names, list_of_features[i])
+        new_list_of_models = modify_scaling(
+            list_of_models, list_of_models_names, list_of_features[i]
+        )
         opt_all(
             new_list_of_models,
             list_of_models_names,
@@ -222,7 +232,9 @@ def main(cfg: DictConfig):
 
     for i, j in enumerate(list_of_x_partial_aniso):
         print(f"=== {list_of_features[i]} Features ===")
-        new_list_of_models = modify_scaling(list_of_models, list_of_models_names, list_of_features[i])
+        new_list_of_models = modify_scaling(
+            list_of_models, list_of_models_names, list_of_features[i]
+        )
         opt_all(
             new_list_of_models,
             list_of_models_names,

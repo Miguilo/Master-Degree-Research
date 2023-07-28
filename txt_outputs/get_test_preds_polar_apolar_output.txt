@@ -1,0 +1,23 @@
+
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "/home/miguel/Documentos/Master-Degree-Research/src_polar_apolar/get_test_preds_polar_apolar.py", line 119, in main
+    df_polar_apolar_partial = pd.read_csv(
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/home/miguel/Documentos/data/final/final_polar_apolar.csv'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.

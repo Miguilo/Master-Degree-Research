@@ -1,28 +1,36 @@
 import sys
-sys.path.append('../src/')
+from os import path
+
+file_dir = path.dirname(__file__)
+
+sys.path.insert(1, path.join(file_dir, "../src/"))
 
 from copy import deepcopy
 from datetime import datetime
 
-import numpy as np
 import hydra
+import numpy as np
 import pandas as pd
 from omegaconf import DictConfig
-from sklearn.compose import TransformedTargetRegressor
 from sklearn import linear_model
+from sklearn.compose import ColumnTransformer, TransformedTargetRegressor
 from sklearn.model_selection import KFold
 from sklearn.neural_network import MLPRegressor
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import (RobustScaler, PolynomialFeatures,
+from sklearn.preprocessing import (PolynomialFeatures, RobustScaler,
                                    StandardScaler)
 from sklearn.svm import SVR
-from utils.data import get_absolute_path, create_df
-from utils.optimization import convert_to_space, opt_all, modify_scaling, stacked_nested_cv
-from utils.evaluation import show_metrics
 from xgboost import XGBRegressor
-from sklearn.compose import ColumnTransformer
 
-@hydra.main(config_path="../config", config_name="main.yaml")
+from utils.data import create_df, get_absolute_path
+from utils.evaluation import show_metrics
+from utils.optimization import (convert_to_space, modify_scaling, opt_all,
+                                stacked_nested_cv)
+
+
+@hydra.main(
+    config_path=path.join(file_dir, "../config"), config_name="main.yaml"
+)
 def main(cfg: DictConfig):
     call_reg_scaler = cfg.opt
     call_transformer_scaler = cfg.opt
@@ -116,7 +124,9 @@ def main(cfg: DictConfig):
         get_absolute_path(cfg.data.polar_apolar.final.path)
     )
     print(df_polar_apolar_partial)
-    x0_all = df_polar_apolar_partial[cfg.opt.features.partial.polar_apolar.feat1_aniso].values
+    x0_all = df_polar_apolar_partial[
+        cfg.opt.features.partial.polar_apolar.feat1_aniso
+    ].values
 
     y_all = df_polar_apolar_partial[["Expt"]].values
 
@@ -124,36 +134,41 @@ def main(cfg: DictConfig):
     list_of_models = [ridge, svr, xgb, nn]
     list_of_spaces = [space_poly, space_svr, space_xgb, space_nn]
     list_of_models_names = ["poly", "svr", "xgb", "nn"]
-    list_of_features = [
-        "Ei + Alpha + Dipole + Pi"
-    ]
-
+    list_of_features = ["Ei + Alpha + Dipole + Pi"]
 
     initial_t = datetime.now()
-    
-    pred_df = df_polar_apolar_partial[['Molecule', 'Formula', 'Expt']].copy()
-    
+
+    pred_df = df_polar_apolar_partial[["Molecule", "Formula", "Expt"]].copy()
+
     pred_path = get_absolute_path(cfg.eval.all.polar_apolar.dir)
 
     for i, j in enumerate(list_of_x_all):
         print(f"=== {list_of_features[i]} Features ===")
-        new_list_of_models = modify_scaling(list_of_models, list_of_models_names, list_of_features[i])
-        
-        predictions = stacked_nested_cv(new_list_of_models, list_of_models_names,list_of_spaces,
-                                                  j, y_all, 3, 2, show_individual_test_pred = True)
+        new_list_of_models = modify_scaling(
+            list_of_models, list_of_models_names, list_of_features[i]
+        )
 
-           
+        predictions = stacked_nested_cv(
+            new_list_of_models,
+            list_of_models_names,
+            list_of_spaces,
+            j,
+            y_all,
+            10,
+            5,
+            show_individual_test_pred=True,
+        )
+
         pred_df["Stacked Pred's"] = np.int32(np.round(predictions))
 
         pred_df.to_csv(f"{pred_path}/test_predictions.csv", index=False)
-
-
 
     final_t = datetime.now()
     execution_t = final_t - initial_t
     print("Date of execution: ", initial_t)
     print("Date of finalization: ", final_t)
     print("Time elapsed: ", execution_t)
+
 
 if __name__ == "__main__":
     main()

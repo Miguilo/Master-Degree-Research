@@ -1,28 +1,36 @@
 import sys
-sys.path.append('../src/')
+from os import path
+
+file_dir = path.dirname(__file__)
+
+sys.path.insert(1, path.join(file_dir, "../src/"))
 
 from copy import deepcopy
 from datetime import datetime
 
-import numpy as np
 import hydra
+import numpy as np
 import pandas as pd
 from omegaconf import DictConfig
-from sklearn.compose import TransformedTargetRegressor
 from sklearn import linear_model
+from sklearn.compose import ColumnTransformer, TransformedTargetRegressor
 from sklearn.model_selection import KFold
 from sklearn.neural_network import MLPRegressor
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import (RobustScaler, PolynomialFeatures,
+from sklearn.preprocessing import (PolynomialFeatures, RobustScaler,
                                    StandardScaler)
 from sklearn.svm import SVR
-from utils.data import get_absolute_path, create_df
-from utils.optimization import convert_to_space, opt_all, modify_scaling, stacked_nested_cv, nested_cv
-from utils.evaluation import show_metrics
 from xgboost import XGBRegressor
-from sklearn.compose import ColumnTransformer
 
-@hydra.main(config_path="../config", config_name="main.yaml")
+from utils.data import create_df, get_absolute_path
+from utils.evaluation import show_metrics
+from utils.optimization import (convert_to_space, modify_scaling, nested_cv,
+                                opt_all, stacked_nested_cv)
+
+
+@hydra.main(
+    config_path=path.join(file_dir, "../config"), config_name="main.yaml"
+)
 def main(cfg: DictConfig):
     call_reg_scaler = cfg.opt
     call_transformer_scaler = cfg.opt
@@ -125,32 +133,51 @@ def main(cfg: DictConfig):
 
     list_of_x_all = [x0_all, x1_all, x2_all, x3_all]
     list_of_models = [svr, ridge, xgb, nn]
-    list_of_spaces = [space_svr, space_poly, space_xgb,space_nn  ]
-    list_of_models_names = ["svr", "poly", "xgb","nn" ]
-    list_of_features = ["Ei + Alpha + Pi", "Ei + Alpha", "Pi + Ei", "Pi + Alpha"]
-    
+    list_of_spaces = [space_svr, space_poly, space_xgb, space_nn]
+    list_of_models_names = ["svr", "poly", "xgb", "nn"]
+    list_of_features = [
+        "Ei + Alpha + Pi",
+        "Ei + Alpha",
+        "Pi + Ei",
+        "Pi + Alpha",
+    ]
+
     initial_t = datetime.now()
     rows = list_of_models_names.copy()
-    rows.append('stacked')
+    rows.append("stacked")
 
     all_train_score_df = create_df(list_of_features, rows)
     all_test_score_df = create_df(list_of_features, rows)
     all_train_std_df = create_df(list_of_features, rows)
     all_test_std_df = create_df(list_of_features, rows)
 
-    all_train_score_df_path = get_absolute_path(cfg.eval.all.apolar.train_score_path)
-    all_test_score_df_path = get_absolute_path(cfg.eval.all.apolar.test_score_path)
-    all_train_std_df_path = get_absolute_path(cfg.eval.all.apolar.train_std_path)
+    all_train_score_df_path = get_absolute_path(
+        cfg.eval.all.apolar.train_score_path
+    )
+    all_test_score_df_path = get_absolute_path(
+        cfg.eval.all.apolar.test_score_path
+    )
+    all_train_std_df_path = get_absolute_path(
+        cfg.eval.all.apolar.train_std_path
+    )
     all_test_std_df_path = get_absolute_path(cfg.eval.all.apolar.test_std_path)
 
     for i, j in enumerate(list_of_x_all):
         print(f"=== {list_of_features[i]} Features ===")
-        new_list_of_models = modify_scaling(list_of_models, list_of_models_names, list_of_features[i])
-        
-        dict_test, dict_train = stacked_nested_cv(new_list_of_models, list_of_models_names, list_of_spaces,
-                                                  j, y_all, 10, 5)
+        new_list_of_models = modify_scaling(
+            list_of_models, list_of_models_names, list_of_features[i]
+        )
 
-           
+        dict_test, dict_train = stacked_nested_cv(
+            new_list_of_models,
+            list_of_models_names,
+            list_of_spaces,
+            j,
+            y_all,
+            10,
+            5,
+        )
+
         for k in dict_test.keys():
             all_train_score_df[list_of_features[i]][k] = np.mean(dict_train[k])
             all_test_score_df[list_of_features[i]][k] = np.mean(dict_test[k])
@@ -158,8 +185,8 @@ def main(cfg: DictConfig):
             all_test_std_df[list_of_features[i]][k] = np.std(dict_test[k])
 
         all_train_score_df.to_csv(all_train_score_df_path, index_label=False)
-        all_test_score_df.to_csv(all_test_score_df_path, index_label=False)  
-        all_train_std_df.to_csv(all_train_std_df_path, index_label=False)  
+        all_test_score_df.to_csv(all_test_score_df_path, index_label=False)
+        all_train_std_df.to_csv(all_train_std_df_path, index_label=False)
         all_train_std_df.to_csv(all_test_std_df_path, index_label=False)
 
     # For partial molecules
@@ -206,35 +233,68 @@ def main(cfg: DictConfig):
         x1_partial_aniso,
         x2_partial_aniso,
         x3_partial_aniso,
-    ]          
+    ]
 
     partial_iso_train_score_df = create_df(list_of_features, rows)
     partial_iso_test_score_df = create_df(list_of_features, rows)
     partial_iso_train_std_df = create_df(list_of_features, rows)
     partial_iso_test_std_df = create_df(list_of_features, rows)
 
-    partial_iso_train_score_df_path = get_absolute_path(cfg.eval.partial_iso.apolar.train_score_path)
-    partial_iso_test_score_df_path = get_absolute_path(cfg.eval.partial_iso.apolar.test_score_path)
-    partial_iso_train_std_df_path = get_absolute_path(cfg.eval.partial_iso.apolar.train_std_path)
-    partial_iso_test_std_df_path = get_absolute_path(cfg.eval.partial_iso.apolar.test_std_path)
+    partial_iso_train_score_df_path = get_absolute_path(
+        cfg.eval.partial_iso.apolar.train_score_path
+    )
+    partial_iso_test_score_df_path = get_absolute_path(
+        cfg.eval.partial_iso.apolar.test_score_path
+    )
+    partial_iso_train_std_df_path = get_absolute_path(
+        cfg.eval.partial_iso.apolar.train_std_path
+    )
+    partial_iso_test_std_df_path = get_absolute_path(
+        cfg.eval.partial_iso.apolar.test_std_path
+    )
 
     for i, j in enumerate(list_of_x_partial_iso):
         print(f"=== {list_of_features[i]} Features ===")
-        new_list_of_models = modify_scaling(list_of_models, list_of_models_names, list_of_features[i])
-        
-        dict_test, dict_train = stacked_nested_cv(new_list_of_models, list_of_models_names, list_of_spaces,
-                                                  j, y_partial, 10, 5)
-        
-        for k in dict_test.keys():
-            partial_iso_train_score_df[list_of_features[i]][k] = np.mean(dict_train[k])
-            partial_iso_test_score_df[list_of_features[i]][k] = np.mean(dict_test[k])
-            partial_iso_train_std_df[list_of_features[i]][k] = np.std(dict_train[k])
-            partial_iso_test_std_df[list_of_features[i]][k] = np.std(dict_test[k])
+        new_list_of_models = modify_scaling(
+            list_of_models, list_of_models_names, list_of_features[i]
+        )
 
-        partial_iso_train_score_df.to_csv(partial_iso_train_score_df_path, index_label=False)
-        partial_iso_test_score_df.to_csv(partial_iso_test_score_df_path, index_label=False)  
-        partial_iso_train_std_df.to_csv(partial_iso_train_std_df_path, index_label=False)  
-        partial_iso_train_std_df.to_csv(partial_iso_test_std_df_path, index_label=False)
+        dict_test, dict_train = stacked_nested_cv(
+            new_list_of_models,
+            list_of_models_names,
+            list_of_spaces,
+            j,
+            y_partial,
+            10,
+            5,
+        )
+
+        for k in dict_test.keys():
+            partial_iso_train_score_df[list_of_features[i]][k] = np.mean(
+                dict_train[k]
+            )
+            partial_iso_test_score_df[list_of_features[i]][k] = np.mean(
+                dict_test[k]
+            )
+            partial_iso_train_std_df[list_of_features[i]][k] = np.std(
+                dict_train[k]
+            )
+            partial_iso_test_std_df[list_of_features[i]][k] = np.std(
+                dict_test[k]
+            )
+
+        partial_iso_train_score_df.to_csv(
+            partial_iso_train_score_df_path, index_label=False
+        )
+        partial_iso_test_score_df.to_csv(
+            partial_iso_test_score_df_path, index_label=False
+        )
+        partial_iso_train_std_df.to_csv(
+            partial_iso_train_std_df_path, index_label=False
+        )
+        partial_iso_train_std_df.to_csv(
+            partial_iso_test_std_df_path, index_label=False
+        )
 
     # For partial aniso
 
@@ -243,28 +303,61 @@ def main(cfg: DictConfig):
     partial_aniso_train_std_df = create_df(list_of_features, rows)
     partial_aniso_test_std_df = create_df(list_of_features, rows)
 
-    partial_aniso_train_score_df_path = get_absolute_path(cfg.eval.partial_aniso.apolar.train_score_path)
-    partial_aniso_test_score_df_path = get_absolute_path(cfg.eval.partial_aniso.apolar.test_score_path)
-    partial_aniso_train_std_df_path = get_absolute_path(cfg.eval.partial_aniso.apolar.train_std_path)
-    partial_aniso_test_std_df_path = get_absolute_path(cfg.eval.partial_aniso.apolar.test_std_path)
+    partial_aniso_train_score_df_path = get_absolute_path(
+        cfg.eval.partial_aniso.apolar.train_score_path
+    )
+    partial_aniso_test_score_df_path = get_absolute_path(
+        cfg.eval.partial_aniso.apolar.test_score_path
+    )
+    partial_aniso_train_std_df_path = get_absolute_path(
+        cfg.eval.partial_aniso.apolar.train_std_path
+    )
+    partial_aniso_test_std_df_path = get_absolute_path(
+        cfg.eval.partial_aniso.apolar.test_std_path
+    )
 
     for i, j in enumerate(list_of_x_partial_aniso):
         print(f"=== {list_of_features[i]} Features ===")
-        new_list_of_models = modify_scaling(list_of_models, list_of_models_names, list_of_features[i])
-        
-        dict_test, dict_train = stacked_nested_cv(new_list_of_models, list_of_models_names, list_of_spaces,
-                                                  j, y_partial, 10, 5)
-        
-        for k in dict_test.keys():
-            partial_aniso_train_score_df[list_of_features[i]][k] = np.mean(dict_train[k])
-            partial_aniso_test_score_df[list_of_features[i]][k] = np.mean(dict_test[k])
-            partial_aniso_train_std_df[list_of_features[i]][k] = np.std(dict_train[k])
-            partial_aniso_test_std_df[list_of_features[i]][k] = np.std(dict_test[k])
+        new_list_of_models = modify_scaling(
+            list_of_models, list_of_models_names, list_of_features[i]
+        )
 
-        partial_aniso_train_score_df.to_csv(partial_aniso_train_score_df_path, index_label=False)
-        partial_aniso_test_score_df.to_csv(partial_aniso_test_score_df_path, index_label=False)  
-        partial_aniso_train_std_df.to_csv(partial_aniso_train_std_df_path, index_label=False)  
-        partial_aniso_train_std_df.to_csv(partial_aniso_test_std_df_path, index_label=False)
+        dict_test, dict_train = stacked_nested_cv(
+            new_list_of_models,
+            list_of_models_names,
+            list_of_spaces,
+            j,
+            y_partial,
+            10,
+            5,
+        )
+
+        for k in dict_test.keys():
+            partial_aniso_train_score_df[list_of_features[i]][k] = np.mean(
+                dict_train[k]
+            )
+            partial_aniso_test_score_df[list_of_features[i]][k] = np.mean(
+                dict_test[k]
+            )
+            partial_aniso_train_std_df[list_of_features[i]][k] = np.std(
+                dict_train[k]
+            )
+            partial_aniso_test_std_df[list_of_features[i]][k] = np.std(
+                dict_test[k]
+            )
+
+        partial_aniso_train_score_df.to_csv(
+            partial_aniso_train_score_df_path, index_label=False
+        )
+        partial_aniso_test_score_df.to_csv(
+            partial_aniso_test_score_df_path, index_label=False
+        )
+        partial_aniso_train_std_df.to_csv(
+            partial_aniso_train_std_df_path, index_label=False
+        )
+        partial_aniso_train_std_df.to_csv(
+            partial_aniso_test_std_df_path, index_label=False
+        )
 
     final_t = datetime.now()
     execution_t = final_t - initial_t
@@ -272,6 +365,6 @@ def main(cfg: DictConfig):
     print("Date of finalization: ", final_t)
     print("Time elapsed: ", execution_t)
 
-        
+
 if __name__ == "__main__":
     main()

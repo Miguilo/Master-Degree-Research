@@ -1,3 +1,4 @@
+import inspect
 import os
 
 import datasist as ds
@@ -23,8 +24,12 @@ def log_transform_dataframe(dataframe, column_name):
 
 
 def get_absolute_path(file_path):
+    """
+    Get absolute path relative from CALLER
+    """
+    var = os.path.dirname(inspect.stack()[1].filename)
     abs_path = os.path.abspath(
-        os.path.join(hydra.utils.get_original_cwd(), file_path)
+        os.path.join(os.path.dirname(inspect.stack()[1].filename), file_path)
     )
     return abs_path
 
