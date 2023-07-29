@@ -1,23 +1,108 @@
+                      Molecule  Formula     Ei  ...    azz  pi_bond  Dipole
+0                       Butane    C4H10  10.60  ...   7.24        0    0.00
+1                      Pentane    C5H12  10.40  ...   8.74        0    0.00
+2                       Hexane    C6H14  10.20  ...  10.23        0    0.00
+3                      Heptane    C7H16   9.90  ...  11.72        0    0.00
+4                       Octane    C8H18  10.00  ...  13.19        0    0.00
+5                       Nonane    C9H20  10.00  ...  14.01        0    0.00
+6                     Ethylene     C2H4  10.50  ...   3.35        1    0.00
+7                 Cyclopropane     C3H6   9.90  ...   5.04        0    0.00
+8                  Cyclohexane    C6H12   9.90  ...   9.78        0    0.00
+9                      Benzene     C6H6   9.30  ...   6.67        3    0.00
+10                 Naphthalene    C10H8   8.20  ...   9.83        5    0.00
+11             2-3-butanedione   C4H6O2   9.30  ...   6.12        2    0.00
+12                  IsoPentane    C5H12  10.30  ...   8.86        0    0.00
+13                     Propane     C3H8  11.10  ...   5.73        0    0.00
+14         Tetrachloroethylene    C2Cl4   9.30  ...   7.81        1    0.00
+15  1-2-trans-Dichloroethylene  C2H2Cl2   9.60  ...   5.56        1    0.00
+16             Carbondisulfide      CS2  10.10  ...   5.23        2    0.00
+17                   Bromoform    CHBr3  10.48  ...   8.61        0    0.91
+18              Cyclopentanone    C5H8O   9.26  ...   7.57        1    3.31
+19   Ethyl Acetate(conformer1)   C4H8O2  10.01  ...   7.07        1    2.13
+20                   1-Butanol   C4H10O   9.99  ...   7.66        0    1.59
+21                  Chloroform    CHCl3  11.37  ...   6.48        0    1.13
+22                     Butanal    C4H8O   9.84  ...   6.66        1    2.77
+23       2-MethylPropionitrile    C4H7N  11.30  ...   6.83        2    4.24
+24           Dimethylcarbonate   C3H6O3  10.30  ...   6.66        1    0.46
+25               Ethyl Formate   C3H6O2  10.61  ...   5.53        1    2.24
+26              Methyl Acetate   C3H6O2  10.25  ...   5.52        1    1.96
+27                  2-Propanol    C3H8O  10.17  ...   6.37        0    1.64
+28                  1-Propanol    C3H8O  10.18  ...   6.15        0    1.69
+29                     Acetone    C3H6O   9.70  ...   5.12        1    3.15
+30                    Propanal    C3H6O   9.96  ...   5.13        1    2.84
+31               Propionitrile    C3H5N  11.84  ...   5.17        2    4.21
+32             1-Fluoropropane    C3H7F  11.30  ...   5.65        0    2.07
+33              1-2-Ethanediol   C2H6O2  10.16  ...   5.05        0    2.48
+34                Bromomethane    CH3Br  10.54  ...   4.64        0    1.99
+35              Methyl Formate   C2H4O2  10.84  ...   3.93        1    1.97
+36                     Ethanol    C2H6O  10.43  ...   4.63        0    1.72
+37                Acetaldehyde    C2H4O  10.23  ...   3.58        1    2.95
+38                Acetonitrile    C2H3N  12.20  ...   3.62        2    4.10
+39               Chloromethane    CH3Cl  11.22  ...   3.80        0    2.06
+40                    Methanol     CH4O  10.85  ...   3.00        0    1.67
+41             Dichloromethane   CH2Cl2  11.32  ...   5.07        0    2.01
+42    cis-1-2-Dichloroethylene  C2H2Cl2   9.66  ...   5.57        1    2.30
+43           Trichloroethylene   C2HCl3   9.46  ...   6.70        1    1.10
+44             1-Chloropropane   C3H7Cl  10.81  ...   6.92        0    2.54
+45             2-Chloropropane   C3H7Cl  10.79  ...   7.06        0    2.57
 
-The version_base parameter is not specified.
-Please specify a compatability version level, or None.
-Will assume defaults for version 1.1
-Future Hydra versions will no longer change working directory at job runtime by default.
-See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
-Error executing job with overrides: []
-Traceback (most recent call last):
-  File "/home/miguel/Documentos/Master-Degree-Research/src_polar_apolar/get_test_preds_polar_apolar.py", line 119, in main
-    df_polar_apolar_partial = pd.read_csv(
-  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
-    return _read(filepath_or_buffer, kwds)
-  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 577, in _read
-    parser = TextFileReader(filepath_or_buffer, **kwds)
-  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
-    self._engine = self._make_engine(f, self.engine)
-  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
-    self.handles = get_handle(
-  File "/home/miguel/.cache/pypoetry/virtualenvs/pbe_for_molecules-ZmQt5YtA-py3.9/lib/python3.9/site-packages/pandas/io/common.py", line 859, in get_handle
-    handle = open(
-FileNotFoundError: [Errno 2] No such file or directory: '/home/miguel/Documentos/data/final/final_polar_apolar.csv'
-
-Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+[46 rows x 10 columns]
+=== Ei + Alpha + Dipole + Pi Features ===
+--- We're in poly model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in svr model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in xgb model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in nn model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+--- We're in stacked model ---
+Out folder 1 of 10.
+Out folder 2 of 10.
+Out folder 3 of 10.
+Out folder 4 of 10.
+Out folder 5 of 10.
+Out folder 6 of 10.
+Out folder 7 of 10.
+Out folder 8 of 10.
+Out folder 9 of 10.
+Out folder 10 of 10.
+Date of execution:  2023-07-28 18:41:26.527570
+Date of finalization:  2023-07-28 21:47:07.220772
+Time elapsed:  3:05:40.693202

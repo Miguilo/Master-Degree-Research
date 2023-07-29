@@ -1,30 +1,30 @@
 Molecule,Formula,Expt,Stacked Pred's
-Bromoform,CHBr3,130.0,77
-Cyclopentanone,C5H8O,230.0,154
-Ethyl Acetate(conformer1),C4H8O2,160.0,146
-1-Butanol,C4H10O,102.0,95
-Chloroform,CHCl3,50.0,71
-Butanal,C4H8O,142.0,169
-2-MethylPropionitrile,C4H7N,274.0,224
-Dimethylcarbonate,C3H6O3,102.0,94
-Ethyl Formate,C3H6O2,103.0,115
-Methyl Acetate,C3H6O2,122.0,95
-2-Propanol,C3H8O,87.0,71
-1-Propanol,C3H8O,70.0,75
-Acetone,C3H6O,173.0,151
-Propanal,C3H6O,118.0,151
-Propionitrile,C3H5N,245.0,220
-1-Fluoropropane,C3H7F,35.0,76
-1-2-Ethanediol,C2H6O2,70.0,61
-Bromomethane,CH3Br,40.0,39
-Methyl Formate,C2H4O2,65.0,69
-Ethanol,C2H6O,43.0,47
-Acetaldehyde,C2H4O,88.0,126
-Acetonitrile,C2H3N,180.0,195
-Chloromethane,CH3Cl,25.0,23
-Methanol,CH4O,20.0,20
-Dichloromethane,CH2Cl2,32.0,56
-cis-1-2-Dichloroethylene,C2H2Cl2,66.0,122
-Trichloroethylene,C2HCl3,50.0,126
-1-Chloropropane,C3H7Cl,98.0,98
-2-Chloropropane,C3H7Cl,113.0,102
+Bromoform,CHBr3,130.0,102
+Cyclopentanone,C5H8O,230.0,188
+Ethyl Acetate(conformer1),C4H8O2,160.0,124
+1-Butanol,C4H10O,102.0,102
+Chloroform,CHCl3,50.0,64
+Butanal,C4H8O,142.0,154
+2-MethylPropionitrile,C4H7N,274.0,280
+Dimethylcarbonate,C3H6O3,102.0,85
+Ethyl Formate,C3H6O2,103.0,106
+Methyl Acetate,C3H6O2,122.0,89
+2-Propanol,C3H8O,87.0,78
+1-Propanol,C3H8O,70.0,73
+Acetone,C3H6O,173.0,133
+Propanal,C3H6O,118.0,134
+Propionitrile,C3H5N,245.0,209
+1-Fluoropropane,C3H7F,35.0,66
+1-2-Ethanediol,C2H6O2,70.0,63
+Bromomethane,CH3Br,40.0,42
+Methyl Formate,C2H4O2,65.0,54
+Ethanol,C2H6O,43.0,40
+Acetaldehyde,C2H4O,88.0,96
+Acetonitrile,C2H3N,180.0,185
+Chloromethane,CH3Cl,25.0,22
+Methanol,CH4O,20.0,18
+Dichloromethane,CH2Cl2,32.0,29
+cis-1-2-Dichloroethylene,C2H2Cl2,66.0,116
+Trichloroethylene,C2HCl3,50.0,97
+1-Chloropropane,C3H7Cl,98.0,90
+2-Chloropropane,C3H7Cl,113.0,106
