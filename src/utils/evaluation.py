@@ -20,8 +20,6 @@ def display_scores(scores):
         None.
 
     """
-     
-    
 
     print("Test Scores:", scores)
     print(f"Mean Test Scores: {np.round(scores.mean(), 2)}")
@@ -136,11 +134,17 @@ def FI_shap_values(estimator, x, y):
     except IndexError:  # Isso foi necessário pois de alguma forma, em alguns feature importance é gerado só 1 linha na matriz.
         return list(unity_norm(feature_importance))
 
+
 def get_sub(x):
-    normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()"
-    sub_s = "ₐ₈CDₑբGₕᵢⱼₖₗₘₙₒₚQᵣₛₜᵤᵥwₓᵧZₐ♭꜀ᑯₑբ₉ₕᵢⱼₖₗₘₙₒₚ૧ᵣₛₜᵤᵥwₓᵧ₂₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎"
-    res = x.maketrans(''.join(normal), ''.join(sub_s))
+    normal = (
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()"
+    )
+    sub_s = (
+        "ₐ₈CDₑբGₕᵢⱼₖₗₘₙₒₚQᵣₛₜᵤᵥwₓᵧZₐ♭꜀ᑯₑբ₉ₕᵢⱼₖₗₘₙₒₚ૧ᵣₛₜᵤᵥwₓᵧ₂₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎"
+    )
+    res = x.maketrans("".join(normal), "".join(sub_s))
     return x.translate(res)
+
 
 def create_fast_graph(
     df,
@@ -332,6 +336,9 @@ def create_graph_shap(
         "Models": models,
         "Feature": feat_column,
     }
+
+    plot_df = pd.DataFrame(plot_dict)
+
     if show_mean_error:
         final_df = create_mean_results(
             plot_dict, feature_names, "Feature Importance"
@@ -355,3 +362,5 @@ def create_graph_shap(
         os.mkdir(path_to_save)
 
     plt.savefig(f"{path_to_save}/{img_name}")
+    img_to_csv = img_name.replace("png", "csv")
+    plot_df.to_csv(f"{path_to_save}/{img_to_csv}", index_label=False)

@@ -1,0 +1,11 @@
+Feature Importance,Models,Feature
+0,0.24803284749504045,poly,Alpha
+1,0.7519671525049595,poly,Pi Bond
+2,0.49818083998551294,svr,Alpha
+3,0.501819160014487,svr,Pi Bond
+4,0.9254851102067984,xgb,Alpha
+5,0.07451488979320167,xgb,Pi Bond
+6,,nn,Alpha
+7,,nn,Pi Bond
+8,0.390023637677907,stk,Alpha
+9,0.609976362322093,stk,Pi Bond
