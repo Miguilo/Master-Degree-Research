@@ -151,12 +151,13 @@ def create_fast_graph(
     img_name,
     isotropy=True,
     img_path=None,
-    y="Relative Error",
+    y="Erro Percentual Absoluto Médio",
     palette="hls",
     title="Title",
     show_values=True,
     show_mean=True,
     figsize=(16, 9),
+    partial=False,
 ):
     """
     Create a barplot for the error of different models.
@@ -181,12 +182,23 @@ def create_fast_graph(
     columns = list(df.columns)
     for i in range(len(columns)):
         if "Ei" in columns[i]:
-            columns[i] = columns[i].replace("Ei", "Ip")
+            columns[i] = columns[i].replace("Ei", r"$I_{P}$")
+
         if "Alpha" in columns[i]:
-            if isotropy:
-                columns[i] = columns[i].replace("Alpha", "Isotropy")
+            if isotropy and not partial:
+                columns[i] = columns[i].replace("Alpha", r"$\alpha$")
+            elif isotropy and partial:
+                columns[i] = columns[i].replace("Alpha", r"$\bar\alpha$")
             else:
-                columns[i] = columns[i].replace("Alpha", "Anisotropy")
+                columns[i] = columns[i].replace(
+                    "Alpha", r"$\alpha_{(xx, yy, zz)}$"
+                )
+
+        if "Pi" in columns[i]:
+            columns[i] = columns[i].replace("Pi", r"$\pi$")
+
+        if "Dipole" in columns[i]:
+            columns[i] = columns[i].replace("Dipole", r"$\mu$")
 
     hue = columns
     models_name = list(df.index)
@@ -222,12 +234,25 @@ def create_fast_graph(
         "Feat_Comparison": hue_list,
     }
 
+    dict_for_map = {
+        "svr": "SVR",
+        "nn": "RNA",
+        "xgb": "XGBoost",
+        "poly": "Regressão Polinomial",
+        "stacked": "Modelo Ensemble",
+        "Mean Error": "Erro Médio",
+    }
+
+    for i, j in enumerate(dict_sns["Model"]):
+        if j in dict_for_map.keys():
+            dict_sns["Model"][i] = dict_for_map[j]
+
     plt.figure(figsize=figsize)
     ax = sns.barplot(
         data=dict_sns, x="Model", y=y, hue="Feat_Comparison", palette=palette
     )
 
-    ax.set_xlabel("Models")
+    ax.set_xlabel("Modelos")
     ax.set_ylabel(f"{y}")
     ax.set_title("")
 
@@ -258,15 +283,24 @@ def create_fast_graph(
         plt.savefig(f"{img_path}/{img_name}")
 
 
-def plot_all_fast_graphs(list_of_df, img_path, img_names):
+def plot_all_fast_graphs(list_of_df, img_path, img_names, partial=False):
 
     for i, j in enumerate(list_of_df):
+        if "partial" in img_names[i]:
+            partial = True
+
         if "aniso" in img_names[i]:
             create_fast_graph(
-                j, isotropy=False, img_path=img_path, img_name=img_names[i]
+                j,
+                isotropy=False,
+                img_path=img_path,
+                img_name=img_names[i],
+                partial=partial,
             )
         else:
-            create_fast_graph(j, img_path=img_path, img_name=img_names[i])
+            create_fast_graph(
+                j, img_path=img_path, img_name=img_names[i], partial=partial
+            )
 
 
 def create_mean_results(dict, features, error_column):
