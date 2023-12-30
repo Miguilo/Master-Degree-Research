@@ -1,39 +1,39 @@
 # Final here is referred to data without molecules that haven't anisotropic
 # polarizability, and processed is the full data with all molecules.
 apolar:
-  raw: ../../data/raw/expd_apolar_molecules.CSV
+  raw: ../data/raw/expd_apolar_molecules.CSV
 
   processed:
-    dir: ../../data/processed
+    dir: ../data/processed
     name: processed_apolar.csv
     path: ${data.apolar.processed.dir}/${data.apolar.processed.name}
 
   final:
-    dir: ../../data/final
+    dir: ../data/final
     name: final_apolar.csv
     path: ${data.apolar.final.dir}/${data.apolar.final.name}
 
 
 polar:
-  raw: ../../data/raw/polar_molecules.CSV
+  raw: ../data/raw/polar_molecules.CSV
 
   processed:
-    dir: ../../data/processed
+    dir: ../data/processed
     name: processed_polar.csv
     path: ${data.polar.processed.dir}/${data.polar.processed.name}
 
   final:
-    dir: ../../data/final
+    dir: ../data/final
     name: final_polar.csv
     path: ${data.polar.final.dir}/${data.polar.final.name}
 
 polar_apolar:
   processed:
-    dir: ../../data/processed
+    dir: ../data/processed
     name: processed_polar_apolar.csv
     path: ${data.polar_apolar.processed.dir}/${data.polar_apolar.processed.name}
 
   final:
-    dir: ../../data/final
+    dir: ../data/final
     name: final_polar_apolar.csv
     path: ${data.polar_apolar.final.dir}/${data.polar_apolar.final.name}

@@ -309,14 +309,16 @@ def create_mean_results(dict, features, error_column):
     feature = []
     model = []
     for i in features:
-        error = t_df.loc[t_df["Feature"] == i][error_column].mean()
+        error = t_df.loc[t_df["Propriedade Molecular"] == i][
+            error_column
+        ].mean()
         mean_errors.append(error)
         feature.append(i)
-        model.append("Mean Error")
+        model.append("Erro Médio")
     new_dict = {
         "Feature Importance": mean_errors,
         "Models": model,
-        "Feature": feature,
+        "Propriedade Molecular": feature,
     }
     new_df = pd.DataFrame(new_dict)
     final_df = pd.concat([t_df, new_df], ignore_index=True)
@@ -331,9 +333,15 @@ def create_graph_shap(
     feature_names,
     path_to_save,
     img_name,
-    models_names=["poly", "svr", "xgb", "nn", "stk"],
+    models_names=[
+        "Regressão Polinomial",
+        "SVR",
+        "XGBoost",
+        "RNA",
+        "Modelo Ensemble",
+    ],
     figsize=(16, 9),
-    title="SHAP Feature Importance",
+    title="Importância de Propriedades via SHAP",
     show_mean_error=True,
 ):
     """
@@ -368,10 +376,8 @@ def create_graph_shap(
     plot_dict = {
         "Feature Importance": scores,
         "Models": models,
-        "Feature": feat_column,
+        "Propriedade Molecular": feat_column,
     }
-
-    plot_df = pd.DataFrame(plot_dict)
 
     if show_mean_error:
         final_df = create_mean_results(
@@ -380,17 +386,57 @@ def create_graph_shap(
     else:
         final_df = plot_dict
 
+    #  for i in range(len(columns)):
+    #         if "Ei" in columns[i]:
+    #             columns[i] = columns[i].replace("Ei", r"$I_{P}$")
+
+    #         if "Alpha" in columns[i]:
+    #             if isotropy and not partial:
+    #                 columns[i] = columns[i].replace("Alpha", r"$\alpha$")
+    #             elif isotropy and partial:
+    #                 columns[i] = columns[i].replace("Alpha", r"$\bar\alpha$")
+    #             else:
+    #                 columns[i] = columns[i].replace(
+    #                     "Alpha", r"$\alpha_{(xx, yy, zz)}$"
+    #                 )
+
+    #         if "Pi" in columns[i]:
+    #             columns[i] = columns[i].replace("Pi", r"$\pi$")
+
+    #         if "Dipole" in columns[i]:
+    #             columns[i] = columns[i].replace("Dipole", r"$\mu$")
+
+    dict_for_map = {
+        "Ei": r"$I_{P}$",
+        "Pi Bond": r"Ligações $\pi$",
+        "Dipole": r"$\mu$",
+        "axx": r"$\alpha_{xx}$",
+        "ayy": r"$\alpha_{yy}$",
+        "azz": r"$\alpha_{zz}$",
+    }
+
+    if "partial" in img_name:
+        dict_for_map["Alpha"] = r"$\bar\alpha$"
+    else:
+        dict_for_map["Alpha"] = r"$\alpha$"
+
+    for i, j in enumerate(final_df["Propriedade Molecular"]):
+        if j in dict_for_map.keys():
+            final_df["Propriedade Molecular"][i] = dict_for_map[j]
+
+    plot_df = pd.DataFrame(plot_dict)
+
     plt.figure(figsize=figsize)
     ax = sns.barplot(
         final_df,
         x="Models",
         y="Feature Importance",
-        hue="Feature",
+        hue="Propriedade Molecular",
         palette="hls",
     )
     ax.set_title(title)
-    ax.set_xlabel("Models")
-    ax.set_ylabel("Feature Importance")
+    ax.set_xlabel("Modelos")
+    ax.set_ylabel("Importância Percentual Relativa de Propriedades")
 
     if not os.path.exists(path_to_save):
         os.mkdir(path_to_save)
