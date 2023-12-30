@@ -314,7 +314,7 @@ def create_mean_results(dict, features, error_column):
         ].mean()
         mean_errors.append(error)
         feature.append(i)
-        model.append("Erro Médio")
+        model.append("Importância Relativa Média")
     new_dict = {
         "Feature Importance": mean_errors,
         "Models": model,
