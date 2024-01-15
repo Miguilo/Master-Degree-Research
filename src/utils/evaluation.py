@@ -123,9 +123,10 @@ def FI_shap_values(estimator, x, y):
     explainer = shap.KernelExplainer(model.predict, data=x)
 
     shap_values = explainer.shap_values(x)
+    print(shap_values)
     feature_importance = np.abs(shap_values).mean(axis=0)
     feature_importance = np.array(feature_importance)
-    # print(feature_importance.shape)
+    print(feature_importance)
 
     try:
         for i in range(feature_importance.shape[1]):
