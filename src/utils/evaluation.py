@@ -154,7 +154,6 @@ def create_fast_graph(
     img_path=None,
     y="Erro Percentual Absoluto Médio",
     palette="hls",
-    title="Title",
     show_values=True,
     show_mean=True,
     figsize=(16, 9),
@@ -249,10 +248,12 @@ def create_fast_graph(
             dict_sns["Model"][i] = dict_for_map[j]
 
     plt.figure(figsize=figsize)
+
     ax = sns.barplot(
         data=dict_sns, x="Model", y=y, hue="Feat_Comparison", palette=palette
     )
 
+    plt.legend(prop={"size": 24})
     ax.set_xlabel("Modelos")
     ax.set_ylabel(f"{y}")
     ax.set_title("")
