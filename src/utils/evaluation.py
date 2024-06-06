@@ -158,6 +158,10 @@ def create_fast_graph(
     show_mean=True,
     figsize=(16, 9),
     partial=False,
+    tick_fontsize=13,
+    label_fontsize=16,
+    annotate_fontsize=13,
+    legend_fontsize=16,
 ):
     """
     Create a barplot for the error of different models.
@@ -253,10 +257,11 @@ def create_fast_graph(
         data=dict_sns, x="Model", y=y, hue="Feat_Comparison", palette=palette
     )
 
-    plt.legend(prop={"size": 24})
-    ax.set_xlabel("Modelos")
-    ax.set_ylabel(f"{y}")
+    ax.set_xlabel("Modelos", fontsize=label_fontsize)
+    ax.set_ylabel(f"{y}", fontsize=label_fontsize)
     ax.set_title("")
+
+    ax.tick_params(axis="both", labelsize=tick_fontsize)
 
     if show_values:
         for p in ax.patches:
@@ -265,11 +270,12 @@ def create_fast_graph(
                 (p.get_x() + p.get_width() / 2.0, p.get_height()),
                 ha="center",
                 va="center",
-                fontsize=11,
+                fontsize=annotate_fontsize,
                 color="gray",
                 xytext=(0, 10),
                 textcoords="offset points",
             )
+
     sns.move_legend(
         ax,
         "lower center",
@@ -277,6 +283,7 @@ def create_fast_graph(
         ncol=len(hue),
         title=None,
         frameon=False,
+        fontsize=legend_fontsize,
     )
     if img_path != None:
         if not os.path.exists(img_path):
