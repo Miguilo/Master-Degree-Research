@@ -17,3 +17,6 @@ docs_view:
 docs:
 	@echo Save documentation to docs... 
 	pdoc src -o docs --html
+
+generate_images:
+	
