@@ -352,6 +352,9 @@ def create_graph_shap(
     figsize=(16, 9),
     title="Importância de Propriedades via SHAP",
     show_mean_error=True,
+    tick_fontsize=13,
+    label_fontsize=16,
+    legend_fontsize=16,
 ):
     """
     Create a barplot for the SHAP feature importance of different models.
@@ -444,8 +447,15 @@ def create_graph_shap(
         palette="hls",
     )
     ax.set_title(title)
-    ax.set_xlabel("Modelos")
-    ax.set_ylabel("Importância Percentual Relativa de Propriedades")
+    ax.set_xlabel("Modelos", fontsize=label_fontsize)
+    ax.set_ylabel(
+        "Importância Percentual Relativa de Propriedades",
+        fontsize=label_fontsize,
+    )
+
+    ax.tick_params(axis="both", labelsize=tick_fontsize)
+
+    sns.move_legend(ax, fontsize=legend_fontsize)
 
     if not os.path.exists(path_to_save):
         os.mkdir(path_to_save)
