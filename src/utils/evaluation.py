@@ -8,6 +8,13 @@ import shap
 from sklearn.base import clone
 from sklearn.model_selection import KFold, cross_validate
 
+legend_fontsize = 20
+tick_fontsize = 17
+label_fontsize = 20
+annotate_fontsize = 13
+
+title_size = 22
+
 
 def display_scores(scores):
     """
@@ -158,10 +165,10 @@ def create_fast_graph(
     show_mean=True,
     figsize=(16, 9),
     partial=False,
-    tick_fontsize=13,
-    label_fontsize=16,
-    annotate_fontsize=13,
-    legend_fontsize=16,
+    tick_fontsize=tick_fontsize,
+    label_fontsize=label_fontsize,
+    annotate_fontsize=annotate_fontsize,
+    legend_fontsize=legend_fontsize,
 ):
     """
     Create a barplot for the error of different models.
@@ -323,7 +330,7 @@ def create_mean_results(dict, features, error_column):
         ].mean()
         mean_errors.append(error)
         feature.append(i)
-        model.append("Importância Relativa Média")
+        model.append("Média")
     new_dict = {
         "Feature Importance": mean_errors,
         "Models": model,
@@ -352,10 +359,10 @@ def create_graph_shap(
     figsize=(16, 9),
     title="Importância de Propriedades via SHAP",
     show_mean_error=True,
-    tick_fontsize=13,
-    label_fontsize=16,
-    legend_fontsize=16,
-    title_size=18,
+    tick_fontsize=tick_fontsize,
+    label_fontsize=label_fontsize,
+    legend_fontsize=legend_fontsize,
+    title_size=title_size,
 ):
     """
     Create a barplot for the SHAP feature importance of different models.
@@ -398,26 +405,6 @@ def create_graph_shap(
         )
     else:
         final_df = plot_dict
-
-    #  for i in range(len(columns)):
-    #         if "Ei" in columns[i]:
-    #             columns[i] = columns[i].replace("Ei", r"$I_{P}$")
-
-    #         if "Alpha" in columns[i]:
-    #             if isotropy and not partial:
-    #                 columns[i] = columns[i].replace("Alpha", r"$\alpha$")
-    #             elif isotropy and partial:
-    #                 columns[i] = columns[i].replace("Alpha", r"$\bar\alpha$")
-    #             else:
-    #                 columns[i] = columns[i].replace(
-    #                     "Alpha", r"$\alpha_{(xx, yy, zz)}$"
-    #                 )
-
-    #         if "Pi" in columns[i]:
-    #             columns[i] = columns[i].replace("Pi", r"$\pi$")
-
-    #         if "Dipole" in columns[i]:
-    #             columns[i] = columns[i].replace("Dipole", r"$\mu$")
 
     dict_for_map = {
         "Ei": r"$I_{P}$",
