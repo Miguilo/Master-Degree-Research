@@ -54,16 +54,7 @@ def make_processed_data(raw_path, processed_path, columns_to_drop):
 
     # Dropping the columns with missing values
     # (It'll be the ones without Anisotropic Polarizability)
-    try:
-        indexes_to_drop = df.query(
-            "Molecule == '2-2-Difluoropropane' or Molecule == '1-1-Dichloroethylene'"
-        ).index
-        df.drop(indexes_to_drop, inplace=True).reset_index(
-            drop=True, inplace=True
-        )
-    except:
-        pass
-        # Dropping the columns that we don't wanna to analyse here
+    # Dropping the columns that we don't wanna to analyse here
     df.drop(
         columns_to_drop,
         axis=1,
