@@ -17,3 +17,13 @@ docs_view:
 docs:
 	@echo Save documentation to docs... 
 	pdoc src -o docs --html
+
+generate_performance_images:
+	@(cd ./general/ && poetry run python save_performances_img.py)
+
+generate_FI_images:
+	@(cd ./src_apolar/ && poetry run python feature_importance_apolar.py)
+	@(cd ./src_polar/ && poetry run python feature_importance_polar.py)
+	@(cd ./src_polar_apolar/ && poetry run python feature_importance_polar_apolar.py)
+
+

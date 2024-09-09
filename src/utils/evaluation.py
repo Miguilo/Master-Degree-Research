@@ -8,6 +8,13 @@ import shap
 from sklearn.base import clone
 from sklearn.model_selection import KFold, cross_validate
 
+legend_fontsize = 20
+tick_fontsize = 17
+label_fontsize = 20
+annotate_fontsize = 13
+
+title_size = 22
+
 
 def display_scores(scores):
     """
@@ -20,8 +27,6 @@ def display_scores(scores):
         None.
 
     """
-     
-    
 
     print("Test Scores:", scores)
     print(f"Mean Test Scores: {np.round(scores.mean(), 2)}")
@@ -125,9 +130,10 @@ def FI_shap_values(estimator, x, y):
     explainer = shap.KernelExplainer(model.predict, data=x)
 
     shap_values = explainer.shap_values(x)
+    print(shap_values)
     feature_importance = np.abs(shap_values).mean(axis=0)
     feature_importance = np.array(feature_importance)
-    # print(feature_importance.shape)
+    print(feature_importance)
 
     try:
         for i in range(feature_importance.shape[1]):
@@ -136,23 +142,33 @@ def FI_shap_values(estimator, x, y):
     except IndexError:  # Isso foi necessário pois de alguma forma, em alguns feature importance é gerado só 1 linha na matriz.
         return list(unity_norm(feature_importance))
 
+
 def get_sub(x):
-    normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()"
-    sub_s = "ₐ₈CDₑբGₕᵢⱼₖₗₘₙₒₚQᵣₛₜᵤᵥwₓᵧZₐ♭꜀ᑯₑբ₉ₕᵢⱼₖₗₘₙₒₚ૧ᵣₛₜᵤᵥwₓᵧ₂₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎"
-    res = x.maketrans(''.join(normal), ''.join(sub_s))
+    normal = (
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-=()"
+    )
+    sub_s = (
+        "ₐ₈CDₑբGₕᵢⱼₖₗₘₙₒₚQᵣₛₜᵤᵥwₓᵧZₐ♭꜀ᑯₑբ₉ₕᵢⱼₖₗₘₙₒₚ૧ᵣₛₜᵤᵥwₓᵧ₂₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎"
+    )
+    res = x.maketrans("".join(normal), "".join(sub_s))
     return x.translate(res)
+
 
 def create_fast_graph(
     df,
     img_name,
     isotropy=True,
     img_path=None,
-    y="Relative Error",
+    y="Erro Percentual Absoluto Médio",
     palette="hls",
-    title="Title",
     show_values=True,
     show_mean=True,
     figsize=(16, 9),
+    partial=False,
+    tick_fontsize=tick_fontsize,
+    label_fontsize=label_fontsize,
+    annotate_fontsize=annotate_fontsize,
+    legend_fontsize=legend_fontsize,
 ):
     """
     Create a barplot for the error of different models.
@@ -177,12 +193,23 @@ def create_fast_graph(
     columns = list(df.columns)
     for i in range(len(columns)):
         if "Ei" in columns[i]:
-            columns[i] = columns[i].replace("Ei", "Ip")
+            columns[i] = columns[i].replace("Ei", r"$I_{P}$")
+
         if "Alpha" in columns[i]:
-            if isotropy:
-                columns[i] = columns[i].replace("Alpha", "Isotropy")
+            if isotropy and not partial:
+                columns[i] = columns[i].replace("Alpha", r"$\alpha$")
+            elif isotropy and partial:
+                columns[i] = columns[i].replace("Alpha", r"$\bar\alpha$")
             else:
-                columns[i] = columns[i].replace("Alpha", "Anisotropy")
+                columns[i] = columns[i].replace(
+                    "Alpha", r"$\alpha_{(xx, yy, zz)}$"
+                )
+
+        if "Pi" in columns[i]:
+            columns[i] = columns[i].replace("Pi", r"$\pi$")
+
+        if "Dipole" in columns[i]:
+            columns[i] = columns[i].replace("Dipole", r"$\mu$")
 
     hue = columns
     models_name = list(df.index)
@@ -218,14 +245,30 @@ def create_fast_graph(
         "Feat_Comparison": hue_list,
     }
 
+    dict_for_map = {
+        "svr": "SVR",
+        "nn": "RNA",
+        "xgb": "XGBoost",
+        "poly": "Regressão Polinomial",
+        "stacked": "Modelo Ensemble",
+        "Mean Error": "Erro Médio",
+    }
+
+    for i, j in enumerate(dict_sns["Model"]):
+        if j in dict_for_map.keys():
+            dict_sns["Model"][i] = dict_for_map[j]
+
     plt.figure(figsize=figsize)
+
     ax = sns.barplot(
         data=dict_sns, x="Model", y=y, hue="Feat_Comparison", palette=palette
     )
 
-    ax.set_xlabel("Models")
-    ax.set_ylabel(f"{y}")
+    ax.set_xlabel("Modelos", fontsize=label_fontsize)
+    ax.set_ylabel(f"{y}", fontsize=label_fontsize)
     ax.set_title("")
+
+    ax.tick_params(axis="both", labelsize=tick_fontsize)
 
     if show_values:
         for p in ax.patches:
@@ -234,11 +277,12 @@ def create_fast_graph(
                 (p.get_x() + p.get_width() / 2.0, p.get_height()),
                 ha="center",
                 va="center",
-                fontsize=11,
+                fontsize=annotate_fontsize,
                 color="gray",
                 xytext=(0, 10),
                 textcoords="offset points",
             )
+
     sns.move_legend(
         ax,
         "lower center",
@@ -246,6 +290,7 @@ def create_fast_graph(
         ncol=len(hue),
         title=None,
         frameon=False,
+        fontsize=legend_fontsize,
     )
     if img_path != None:
         if not os.path.exists(img_path):
@@ -254,15 +299,24 @@ def create_fast_graph(
         plt.savefig(f"{img_path}/{img_name}")
 
 
-def plot_all_fast_graphs(list_of_df, img_path, img_names):
+def plot_all_fast_graphs(list_of_df, img_path, img_names, partial=False):
 
     for i, j in enumerate(list_of_df):
+        if "partial" in img_names[i]:
+            partial = True
+
         if "aniso" in img_names[i]:
             create_fast_graph(
-                j, isotropy=False, img_path=img_path, img_name=img_names[i]
+                j,
+                isotropy=False,
+                img_path=img_path,
+                img_name=img_names[i],
+                partial=partial,
             )
         else:
-            create_fast_graph(j, img_path=img_path, img_name=img_names[i])
+            create_fast_graph(
+                j, img_path=img_path, img_name=img_names[i], partial=partial
+            )
 
 
 def create_mean_results(dict, features, error_column):
@@ -271,14 +325,16 @@ def create_mean_results(dict, features, error_column):
     feature = []
     model = []
     for i in features:
-        error = t_df.loc[t_df["Feature"] == i][error_column].mean()
+        error = t_df.loc[t_df["Propriedade Molecular"] == i][
+            error_column
+        ].mean()
         mean_errors.append(error)
         feature.append(i)
-        model.append("Mean Error")
+        model.append("Média")
     new_dict = {
         "Feature Importance": mean_errors,
         "Models": model,
-        "Feature": feature,
+        "Propriedade Molecular": feature,
     }
     new_df = pd.DataFrame(new_dict)
     final_df = pd.concat([t_df, new_df], ignore_index=True)
@@ -293,10 +349,20 @@ def create_graph_shap(
     feature_names,
     path_to_save,
     img_name,
-    models_names=["poly", "svr", "xgb", "nn", "stk"],
+    models_names=[
+        "Regressão Polinomial",
+        "SVR",
+        "XGBoost",
+        "RNA",
+        "Modelo Ensemble",
+    ],
     figsize=(16, 9),
-    title="SHAP Feature Importance",
+    title="Importância de Propriedades via SHAP",
     show_mean_error=True,
+    tick_fontsize=tick_fontsize,
+    label_fontsize=label_fontsize,
+    legend_fontsize=legend_fontsize,
+    title_size=title_size,
 ):
     """
     Create a barplot for the SHAP feature importance of different models.
@@ -330,8 +396,9 @@ def create_graph_shap(
     plot_dict = {
         "Feature Importance": scores,
         "Models": models,
-        "Feature": feat_column,
+        "Propriedade Molecular": feat_column,
     }
+
     if show_mean_error:
         final_df = create_mean_results(
             plot_dict, feature_names, "Feature Importance"
@@ -339,19 +406,47 @@ def create_graph_shap(
     else:
         final_df = plot_dict
 
+    dict_for_map = {
+        "Ei": r"$I_{P}$",
+        "Pi Bond": r"Ligações $\pi$",
+        "Dipole": r"$\mu$",
+        "axx": r"$\alpha_{xx}$",
+        "ayy": r"$\alpha_{yy}$",
+        "azz": r"$\alpha_{zz}$",
+    }
+
+    if "partial" in img_name:
+        dict_for_map["Alpha"] = r"$\bar\alpha$"
+    else:
+        dict_for_map["Alpha"] = r"$\alpha$"
+
+    for i, j in enumerate(final_df["Propriedade Molecular"]):
+        if j in dict_for_map.keys():
+            final_df["Propriedade Molecular"][i] = dict_for_map[j]
+
+    plot_df = pd.DataFrame(plot_dict)
+
     plt.figure(figsize=figsize)
     ax = sns.barplot(
         final_df,
         x="Models",
         y="Feature Importance",
-        hue="Feature",
+        hue="Propriedade Molecular",
         palette="hls",
     )
-    ax.set_title(title)
-    ax.set_xlabel("Models")
-    ax.set_ylabel("Feature Importance")
+    ax.set_title(title, fontsize=title_size)
+    ax.set_xlabel("Modelos", fontsize=label_fontsize)
+    ax.set_ylabel(
+        "Importância Percentual Relativa de Propriedades",
+        fontsize=label_fontsize,
+    )
+
+    ax.tick_params(axis="both", labelsize=tick_fontsize)
+    ax.legend(fontsize=legend_fontsize)
 
     if not os.path.exists(path_to_save):
         os.mkdir(path_to_save)
 
     plt.savefig(f"{path_to_save}/{img_name}")
+    img_to_csv = img_name.replace("png", "csv")
+    plot_df.to_csv(f"{path_to_save}/{img_to_csv}", index_label=False)

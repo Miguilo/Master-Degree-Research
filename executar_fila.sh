@@ -13,7 +13,7 @@ arquivos=(
     "src_polar_apolar/eval_polar_apolar_models.py"
 )
 
-# Verifica se a pasta de saída existe, caso contrário, cria-a
+# Verifica se a pasta de saída existe, caso contrário, cria
 nome_arquivos=(
     "get_opt_models_apolar.py"
     "get_opt_models_polar.py"

@@ -1,0 +1,11 @@
+Feature Importance,Models,Propriedade Molecular
+0,0.3836600157283491,Regressão Polinomial,Alpha
+1,0.6163399842716508,Regressão Polinomial,Dipole
+2,0.33148627193681335,SVR,Alpha
+3,0.6685137280631867,SVR,Dipole
+4,0.3827444940165978,XGBoost,Alpha
+5,0.6172555059834022,XGBoost,Dipole
+6,0.3620426175999571,RNA,Alpha
+7,0.6379573824000428,RNA,Dipole
+8,0.3535481820884838,Modelo Ensemble,Alpha
+9,0.6464518179115162,Modelo Ensemble,Dipole

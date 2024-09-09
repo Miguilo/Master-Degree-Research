@@ -1,0 +1,11 @@
+Feature Importance,Models,Propriedade Molecular
+0,0.24803284749504045,Regressão Polinomial,Alpha
+1,0.7519671525049595,Regressão Polinomial,Pi Bond
+2,0.49818083998551294,SVR,Alpha
+3,0.501819160014487,SVR,Pi Bond
+4,0.9254851102067984,XGBoost,Alpha
+5,0.07451488979320167,XGBoost,Pi Bond
+6,,RNA,Alpha
+7,,RNA,Pi Bond
+8,0.390023637677907,Modelo Ensemble,Alpha
+9,0.609976362322093,Modelo Ensemble,Pi Bond
