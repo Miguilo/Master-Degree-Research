@@ -139,9 +139,9 @@ def main(cfg: DictConfig):
     y_all = df_polar_apolar_all[["Expt"]].values
 
     list_of_x_all = [x0_all, x1_all, x2_all, x3_all]
-    list_of_models = [ridge, svr, xgb, nn]
-    list_of_spaces = [space_poly, space_svr, space_xgb, space_nn]
-    list_of_models_names = ["poly", "svr", "xgb", "nn"]
+    list_of_models = [ridge, svr]
+    list_of_spaces = [space_poly, space_svr]
+    list_of_models_names = ["poly", "svr"]
     list_of_features = [
         "Ei + Alpha + Dipole + Pi",
         "Ei + Alpha + Dipole",
