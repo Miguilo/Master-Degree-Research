@@ -25,7 +25,7 @@ from xgboost import XGBRegressor
 from utils.data import create_df, get_absolute_path
 from utils.evaluation import show_metrics
 from utils.optimization import (convert_to_space, modify_scaling, opt_all,
-                                stacked_nested_cv)
+                                stacked_nested_cv, test_pred_nested_cv)
 
 
 @hydra.main(
@@ -131,9 +131,12 @@ def main(cfg: DictConfig):
     y_all = df_polar_partial[["Expt"]].values
 
     list_of_x_all = [x0_all]
-    list_of_models = [ridge, svr, xgb, nn]
-    list_of_spaces = [space_poly, space_svr, space_xgb, space_nn]
-    list_of_models_names = ["poly", "svr", "xgb", "nn"]
+    # list_of_models = [ridge, svr, xgb, nn]
+    list_of_models = [ridge, svr]
+    # list_of_spaces = [space_poly, space_svr, space_xgb, space_nn]
+    list_of_spaces = [space_poly, space_svr]
+    # list_of_models_names = ["poly", "svr", "xgb", "nn"]
+    list_of_models_names = ["poly", "svr"]
     list_of_features = ["Ei + Alpha + Dipole + Pi"]
 
     initial_t = datetime.now()
@@ -158,8 +161,16 @@ def main(cfg: DictConfig):
             5,
             show_individual_test_pred=True,
         )
+        predictions_svr = test_pred_nested_cv(
+            new_list_of_models[0], list_of_spaces[0], j, y_all, 10, 5
+        )
+        predictions_poly = test_pred_nested_cv(
+            new_list_of_models[1], list_of_spaces[1], j, y_all, 10, 5
+        )
 
         pred_df["Stacked Pred's"] = np.int32(np.round(predictions))
+        pred_df["SVR Pred's"] = np.int32(np.round(predictions_svr))
+        pred_df["Poly Pred's"] = np.int32(np.round(predictions_poly))
 
         pred_df.to_csv(f"{pred_path}/test_predictions.csv", index=False)
 

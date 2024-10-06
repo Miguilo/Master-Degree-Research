@@ -1,83 +1,76 @@
 Molecule,Formula,Expt,Dipole,Alpha,pi_bond,Ei
-"1,2-trans-dicloroetileno ",C2H2Cl2,14.0,0.0,8.2,1.0,9.6
-"1,4-Ciclohexadieno ",C6H8,116.0,0.0,11.0,2.0,8.8
-"2,3-Butanediona ",C4H6O2,77.0,0.0,8.2,2.0,9.3
-"2,3-Dimethilbutano",C6H14,93.0,0.0,11.8,0.0,10.0
-Benzeno ,C6H6,132.0,0.0,10.0,3.0,9.24
-Butano ,C4H10,37.0,0.0,8.14,0.0,10.53
-Carbondisulfide,CS2,75.0,0.0,8.7,2.0,10.1
-Cicloheptano ,C7H14,104.0,0.0,12.8,0.0,9.97
-Ciclooctano ,C8H16,128.0,0.0,14.5,0.0,9.75
-Ciclopentano ,C5H10,47.0,0.0,9.1,0.0,10.3
-Ciclopropano ,C3H6,16.0,0.0,5.7,0.0,9.9
-Cyclooctatetraene ,C8H8O,225.0,0.0,13.76,4.0,8.43
-Dodecano ,C12H26,225.0,0.0,22.8,0.0,9.8
-Etileno ,C2H4,20.0,0.0,4.2,1.0,10.5
-Heptano ,C7H16,118.0,0.0,13.7,0.0,9.9
-Hexadecano ,C16H34,295.0,0.0,30.3,0.0,9.6
-Hexano ,C6H14,93.0,0.0,11.8,0.0,10.1
-Isopentano ,C5H12,65.0,0.0,10.0,0.0,10.3
-Naftaleno ,C10H8,300.0,0.0,16.6,5.0,8.2
-Nonano ,C9H20,178.0,0.0,17.4,0.0,9.7
-Octano ,C8H18,147.0,0.0,15.5,0.0,10.0
-Pentano ,C5H12,67.0,0.0,10.0,0.0,10.3
-Propano ,C3H8,16.0,0.0,6.3,0.0,11.1
-Tetrabrometo de carbono,CBr4,125.0,0.0,15.3,0.0,10.31
+"1,2-trans-dicloroetileno",C2H2Cl2,14.0,0.0,8.2,1.0,9.6
+Ciclopropano,C3H6,16.0,0.0,5.7,0.0,9.9
+Propano,C3H8,16.0,0.0,6.3,0.0,11.1
+Etileno,C2H4,20.0,0.0,4.2,1.0,10.5
+Butano,C4H10,37.0,0.0,8.14,0.0,10.53
+Ciclopentano,C5H10,47.0,0.0,9.1,0.0,10.3
 Tetracloreto de carbono,CCl4,55.0,0.0,10.5,0.0,11.47
-Tetracloroetileno ,C2Cl4,57.0,0.0,12.0,1.0,9.3
-Tetradecano ,C14H30,265.0,0.0,26.6,0.0,9.9
-"1,1-dicloroetileno/Vinilideno",C2H2Cl2,30.0,1.3,8.1,1.0,9.8
-"1,2-cis-dicloroetileno ",C2H2Cl2,66.0,1.9,8.0,1.0,9.7
-"1,2-Ethanediol ",C2H6O2,70.0,1.69,3.08,0.0,10.2
-"1,3-Ciclohexadieno ",C6H8,132.0,0.44,10.6,2.0,8.3
-"1,3-Dichloropropane",C3H6Cl2,85.0,2.08,10.08,0.0,10.89
-1-Butanol ,C4H10O,102.0,1.66,8.77,0.0,10.0
-1-cl.hexano ,C6H13Cl,175.0,2.0,13.6,0.0,10.3
-1-fl-butano ,C4H9F,70.0,2.2,7.8,0.0,10.2
-1-fl-hexano ,C6H13F,80.0,2.2,11.5,0.0,9.8
-1-fl-nonano ,C9H19F,145.0,2.2,17.0,0.0,9.6
-1-fl-propano ,C3H7F,35.0,2.0,6.0,0.0,11.3
-1-Propanol ,C3H8O,65.0,1.57,6.7,0.0,10.18
-"2,2-difl.propano ",C3H6F2,25.0,2.4,5.9,0.0,11.4
-2-Butanona ,C4H8O,205.0,2.78,8.21,1.0,9.52
-2-Metilpropionitrila ,C4H7N,274.0,4.3,8.1,2.0,11.3
-2-Propanol ,C3H8O,85.0,1.58,6.7,0.0,10.17
-Acetaldeído ,C2H4O,88.0,2.8,4.6,1.0,10.2
-Acetona ,C3H6O,170.0,2.88,6.41,1.0,9.7
-Acetonitrila ,C2H3N,180.0,3.9,4.4,2.0,12.2
-Acetophenone ,C8H8O,288.0,3.02,14.4,4.0,9.28
-Aniline ,C6H5NH2,233.0,1.53,12.1,3.0,7.72
-Benzaldehyde ,C7H6O,220.0,3.14,12.8,4.0,9.5
-Benzonitrile ,C7H5N,298.0,4.52,12.5,5.0,9.73
+Tetracloroetileno,C2Cl4,57.0,0.0,12.0,1.0,9.3
+Isopentano,C5H12,65.0,0.0,10.0,0.0,10.3
+Pentano,C5H12,67.0,0.0,10.0,0.0,10.3
+Carbondisulfide,CS2,75.0,0.0,8.7,2.0,10.1
+"2,3-Butanediona",C4H6O2,77.0,0.0,8.2,2.0,9.3
+"2,3-Dimethilbutano",C6H14,93.0,0.0,11.8,0.0,10.0
+Hexano,C6H14,93.0,0.0,11.8,0.0,10.1
+Cicloheptano,C7H14,104.0,0.0,12.8,0.0,9.97
+"1,4-Ciclohexadieno",C6H8,116.0,0.0,11.0,2.0,8.8
+Heptano,C7H16,118.0,0.0,13.7,0.0,9.9
+Tetrabrometo de carbono,CBr4,125.0,0.0,15.3,0.0,10.31
+Ciclooctano,C8H16,128.0,0.0,14.5,0.0,9.75
+Benzeno,C6H6,132.0,0.0,10.0,3.0,9.24
+Octano,C8H18,147.0,0.0,15.5,0.0,10.0
+Nonano,C9H20,178.0,0.0,17.4,0.0,9.7
+Cyclooctatetraene,C8H8O,225.0,0.0,13.76,4.0,8.43
+Dodecano,C12H26,225.0,0.0,22.8,0.0,9.8
+Tetradecano,C14H30,265.0,0.0,26.6,0.0,9.9
+Hexadecano,C16H34,295.0,0.0,30.3,0.0,9.6
+Naftaleno,C10H8,300.0,0.0,16.6,5.0,8.2
+Isobutane,C4H10,41.0,0.132,8.14,0.0,10.57
+Ciclopenteno,C5H8,70.0,0.2,8.9,1.0,9.0
+Ciclohexano,C6H12,82.0,0.33,11.0,1.0,9.9
+Ciclohexeno,C6H10,105.0,0.33,10.7,1.0,9.0
+Tolueno,C6H5CH3,173.0,0.38,11.86,3.0,8.83
+Furan,C4H4O,52.0,0.66,7.23,2.0,8.88
+Phenylacetylene,C8H6,230.0,0.66,13.8,5.0,8.82
+Dimetoximethano,C3H8O2,78.0,0.7,7.7,0.0,9.7
 Bromofórmio,CHBr3,130.0,0.9,11.3,0.0,10.5
-Butanal ,C4H8O,150.0,2.72,8.28,1.0,9.84
-Ciclohexano ,C6H12,82.0,0.33,11.0,1.0,9.9
-Ciclohexeno ,C6H10,105.0,0.33,10.7,1.0,9.0
-Ciclopentanona ,C5H8O,230.0,3.3,9.0,1.0,9.3
-Ciclopenteno ,C5H8,70.0,0.2,8.9,1.0,9.0
-Clorofórmio ,CH3Cl3,37.0,1.0,8.4,0.0,11.4
-Cycloheptatriene ,C7H8,190.0,0.25,12.6,3.0,8.29
-Diclorometano ,CH2Cl2,32.0,1.6,6.5,0.0,11.3
-Dimetilcarbonato ,C3H6O3,102.0,0.3,7.7,1.0,10.3
-Dimetoximethano ,C3H8O2,78.0,0.7,7.7,0.0,9.7
-Etanol ,C2H6O,43.0,1.44,5.11,5.0,4.6
-Etilacetato ,C4H8O2,190.0,2.13,8.8,1.0,10.01
-Etilformato ,C3H6O2,95.0,1.93,7.02,1.0,10.61
-Furan ,C4H4O,52.0,0.66,7.23,2.0,8.88
-Isobutane ,C4H10,41.0,0.132,8.14,0.0,10.57
-Isopropylcloride,C3H7Cl,113.0,2.17,8.36,0.0,10.79
-Metanol ,CH4O,20.0,1.69,3.08,0.0,10.8
-Metilacetato ,C3H6O2,120.0,2.0,6.96,1.0,10.25
-MetilBromo ,CH3Br,40.0,1.8,5.6,0.0,10.5
-Methyl Chloride,CH3Cl,25.0,1.9,5.4,0.0,11.2
+Clorofórmio,CH3Cl3,37.0,1.0,8.4,0.0,11.4
+Aniline,C6H5NH2,233.0,1.53,12.1,3.0,7.72
+1-Propanol,C3H8O,65.0,1.57,6.7,0.0,10.18
+1-fl-butano,C4H9F,70.0,2.2,7.8,0.0,10.2
+2-Propanol,C3H8O,85.0,1.58,6.7,0.0,10.17
+Diclorometano,CH2Cl2,32.0,1.6,6.5,0.0,11.3
+1-Butanol,C4H10O,102.0,1.66,8.77,0.0,10.0
+"1,3-Dichloropropane",C3H6Cl2,85.0,2.08,10.08,0.0,10.89
+Metanol,CH4O,20.0,1.69,3.08,0.0,10.8
+"1,2-Ethanediol",C2H6O2,70.0,1.69,3.08,0.0,10.2
+Pyrrole,C4H5N,165.0,1.77,7.9,2.0,8.2
+MetilBromo,CH3Br,40.0,1.8,5.6,0.0,10.5
 Metyl Formate,C2H4O2,65.0,1.8,5.1,1.0,10.8
+Methyl Chloride,CH3Cl,25.0,1.9,5.4,0.0,11.2
+Etilformato,C3H6O2,95.0,1.93,7.02,1.0,10.61
+1-fl-propano,C3H7F,35.0,2.0,6.0,0.0,11.3
+Metilacetato,C3H6O2,120.0,2.0,6.96,1.0,10.25
+Propilformato,C4H8O2,130.0,2.4,8.85,1.0,10.52
+"1,3-Ciclohexadieno",C6H8,132.0,0.44,10.6,2.0,8.3
+1-fl-nonano,C9H19F,145.0,2.2,17.0,0.0,9.6
 n-Propylchloride/1-chloropropane,C3H7Cl,97.0,2.05,8.24,0.0,10.81
-Phenylacetylene ,C8H6,230.0,0.66,13.8,5.0,8.82
-Propanal ,C3H6O,115.0,2.8,6.2,1.0,10.0
-Propilformato ,C4H8O2,130.0,2.4,8.85,1.0,10.52
-Propionitrila ,C3H5N,245.0,4.1,6.3,2.0,11.8
-Pyridazine ,C4H4N2,330.0,4.22,9.27,3.0,8.74
-Pyridine ,C5H5N,186.0,2.19,9.5,3.0,9.26
-Pyrrole ,C4H5N,165.0,1.77,7.9,2.0,8.2
-Tolueno ,C6H5CH3,173.0,0.38,11.86,3.0,8.83
-Tricloroetileno ,C2HCl3,50.0,0.8,10.0,1.0,9.5
+Etilacetato,C4H8O2,190.0,2.13,8.8,1.0,10.01
+Isopropylcloride,C3H7Cl,113.0,2.17,8.36,0.0,10.79
+Pyridine,C5H5N,186.0,2.19,9.5,3.0,9.26
+1-cl.hexano,C6H13Cl,175.0,2.0,13.6,0.0,10.3
+Butanal,C4H8O,150.0,2.72,8.28,1.0,9.84
+2-Butanona,C4H8O,205.0,2.78,8.21,1.0,9.52
+Cycloheptatriene,C7H8,190.0,0.25,12.6,3.0,8.29
+Acetaldeído,C2H4O,88.0,2.8,4.6,1.0,10.2
+Propanal,C3H6O,115.0,2.8,6.2,1.0,10.0
+Acetona,C3H6O,170.0,2.88,6.41,1.0,9.7
+Acetophenone,C8H8O,288.0,3.02,14.4,4.0,9.28
+Benzaldehyde,C7H6O,220.0,3.14,12.8,4.0,9.5
+Ciclopentanona,C5H8O,230.0,3.3,9.0,1.0,9.3
+Acetonitrila,C2H3N,180.0,3.9,4.4,2.0,12.2
+Propionitrila,C3H5N,245.0,4.1,6.3,2.0,11.8
+Pyridazine,C4H4N2,330.0,4.22,9.27,3.0,8.74
+2-Metilpropionitrila,C4H7N,274.0,4.3,8.1,2.0,11.3
+Benzonitrile,C7H5N,298.0,4.52,12.5,5.0,9.73

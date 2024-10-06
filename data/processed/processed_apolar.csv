@@ -1,28 +1,28 @@
 Molecule,Formula,Expt,Dipole,Alpha,pi_bond,Ei
-"1,2-trans-dicloroetileno ",C2H2Cl2,14.0,0.0,8.2,1.0,9.6
-"1,4-Ciclohexadieno ",C6H8,116.0,0.0,11.0,2.0,8.8
-"2,3-Butanediona ",C4H6O2,77.0,0.0,8.2,2.0,9.3
-"2,3-Dimethilbutano",C6H14,93.0,0.0,11.8,0.0,10.0
-Benzeno ,C6H6,132.0,0.0,10.0,3.0,9.24
-Butano ,C4H10,37.0,0.0,8.14,0.0,10.53
-Carbondisulfide,CS2,75.0,0.0,8.7,2.0,10.1
-Cicloheptano ,C7H14,104.0,0.0,12.8,0.0,9.97
-Ciclooctano ,C8H16,128.0,0.0,14.5,0.0,9.75
-Ciclopentano ,C5H10,47.0,0.0,9.1,0.0,10.3
-Ciclopropano ,C3H6,16.0,0.0,5.7,0.0,9.9
-Cyclooctatetraene ,C8H8O,225.0,0.0,13.76,4.0,8.43
-Dodecano ,C12H26,225.0,0.0,22.8,0.0,9.8
-Etileno ,C2H4,20.0,0.0,4.2,1.0,10.5
-Heptano ,C7H16,118.0,0.0,13.7,0.0,9.9
-Hexadecano ,C16H34,295.0,0.0,30.3,0.0,9.6
-Hexano ,C6H14,93.0,0.0,11.8,0.0,10.1
-Isopentano ,C5H12,65.0,0.0,10.0,0.0,10.3
-Naftaleno ,C10H8,300.0,0.0,16.6,5.0,8.2
-Nonano ,C9H20,178.0,0.0,17.4,0.0,9.7
-Octano ,C8H18,147.0,0.0,15.5,0.0,10.0
-Pentano ,C5H12,67.0,0.0,10.0,0.0,10.3
-Propano ,C3H8,16.0,0.0,6.3,0.0,11.1
-Tetrabrometo de carbono,CBr4,125.0,0.0,15.3,0.0,10.31
+"1,2-trans-dicloroetileno",C2H2Cl2,14.0,0.0,8.2,1.0,9.6
+Ciclopropano,C3H6,16.0,0.0,5.7,0.0,9.9
+Propano,C3H8,16.0,0.0,6.3,0.0,11.1
+Etileno,C2H4,20.0,0.0,4.2,1.0,10.5
+Butano,C4H10,37.0,0.0,8.14,0.0,10.53
+Ciclopentano,C5H10,47.0,0.0,9.1,0.0,10.3
 Tetracloreto de carbono,CCl4,55.0,0.0,10.5,0.0,11.47
-Tetracloroetileno ,C2Cl4,57.0,0.0,12.0,1.0,9.3
-Tetradecano ,C14H30,265.0,0.0,26.6,0.0,9.9
+Tetracloroetileno,C2Cl4,57.0,0.0,12.0,1.0,9.3
+Isopentano,C5H12,65.0,0.0,10.0,0.0,10.3
+Pentano,C5H12,67.0,0.0,10.0,0.0,10.3
+Carbondisulfide,CS2,75.0,0.0,8.7,2.0,10.1
+"2,3-Butanediona",C4H6O2,77.0,0.0,8.2,2.0,9.3
+"2,3-Dimethilbutano",C6H14,93.0,0.0,11.8,0.0,10.0
+Hexano,C6H14,93.0,0.0,11.8,0.0,10.1
+Cicloheptano,C7H14,104.0,0.0,12.8,0.0,9.97
+"1,4-Ciclohexadieno",C6H8,116.0,0.0,11.0,2.0,8.8
+Heptano,C7H16,118.0,0.0,13.7,0.0,9.9
+Tetrabrometo de carbono,CBr4,125.0,0.0,15.3,0.0,10.31
+Ciclooctano,C8H16,128.0,0.0,14.5,0.0,9.75
+Benzeno,C6H6,132.0,0.0,10.0,3.0,9.24
+Octano,C8H18,147.0,0.0,15.5,0.0,10.0
+Nonano,C9H20,178.0,0.0,17.4,0.0,9.7
+Cyclooctatetraene,C8H8O,225.0,0.0,13.76,4.0,8.43
+Dodecano,C12H26,225.0,0.0,22.8,0.0,9.8
+Tetradecano,C14H30,265.0,0.0,26.6,0.0,9.9
+Hexadecano,C16H34,295.0,0.0,30.3,0.0,9.6
+Naftaleno,C10H8,300.0,0.0,16.6,5.0,8.2

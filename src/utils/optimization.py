@@ -137,7 +137,7 @@ def att_model(estimator, space, values, neural=False):
         The built estimator.
 
     Note:
-        In the case of neural networks, the names of the parameters associated with 
+        In the case of neural networks, the names of the parameters associated with
         hidden layers must be `n_neurons_per_layer` and `n_hidden_layer`.
 
     Example:
@@ -165,8 +165,8 @@ def gp_optimize(
     n_random_starts=100,
     neural=False,
     scoring="neg_mean_absolute_percentage_error",
-    n_jobs_cv=4,
-    n_jobs_opt=4,
+    n_jobs_cv=2,
+    n_jobs_opt=2,
     verbose=0,
 ):
     """
@@ -192,6 +192,7 @@ def gp_optimize(
     Example:
         gp_optimize(estim=LinearRegression(), x=x, y=y, space=space, cv=cv)
     """
+
     @use_named_args(space)
     def objective(**params):
         if neural:
@@ -309,6 +310,7 @@ def opt_all(
 
     save_models(path, list_of_models)
 
+
 def test_pred_nested_cv(
     estimator,
     space,
@@ -322,7 +324,7 @@ def test_pred_nested_cv(
     n_random_starts=100,
     verbose=0,
     shuffle=True,
-    random_state=0
+    random_state=0,
 ):
     """
     Args:
@@ -344,9 +346,13 @@ def test_pred_nested_cv(
     Returns:
         test_pred: The values predicted in nested cross validation for each sample in test set.
     """
-    
-    kf_out = KFold(n_splits=out_cv, shuffle=shuffle, random_state=random_state)  # Folders externo.
-    kf_in = KFold(n_splits=inner_cv, shuffle=shuffle, random_state=random_state)  # Folders internos.
+
+    kf_out = KFold(
+        n_splits=out_cv, shuffle=shuffle, random_state=random_state
+    )  # Folders externo.
+    kf_in = KFold(
+        n_splits=inner_cv, shuffle=shuffle, random_state=random_state
+    )  # Folders internos.
 
     test_pred = np.zeros_like(y)
 
@@ -383,8 +389,8 @@ def test_pred_nested_cv(
         # Gerando o erro de teste índice a índice
         for i, z in zip(test_index, x_test):
             test_pred[i] = fitted_model.predict(z.reshape(1, -1))
-            
-    return test_pred 
+
+    return test_pred
 
 
 def nested_cv(
@@ -401,7 +407,7 @@ def nested_cv(
     verbose=0,
     shuffle=True,
     random_state=0,
-    print_mode=False
+    print_mode=False,
 ):
     """
     Perform nested cross-validation.
@@ -431,9 +437,13 @@ def nested_cv(
         out_train_scores: The score of the outer folds in the train set.
         best_models: The best estimators founded in each run of outer fold's to be utilized in stacked cv.
     """
-    
-    kf_out = KFold(n_splits=out_cv, shuffle=shuffle, random_state=random_state)  # Folders externo.
-    kf_in = KFold(n_splits=inner_cv, shuffle=shuffle, random_state=random_state)  # Folders internos.
+
+    kf_out = KFold(
+        n_splits=out_cv, shuffle=shuffle, random_state=random_state
+    )  # Folders externo.
+    kf_in = KFold(
+        n_splits=inner_cv, shuffle=shuffle, random_state=random_state
+    )  # Folders internos.
 
     test_pred = np.zeros_like(y)
     test_error = np.zeros_like(y)
@@ -521,9 +531,9 @@ def stacked_nested_cv(
     verbose=0,
     shuffle=True,
     random_state=0,
-    show_individual_test_pred = False,
+    show_individual_test_pred=False,
 ):
-    
+
     """
     Perform stacked nested cross-validation.
 
@@ -632,10 +642,7 @@ def stacked_nested_cv(
         for i, z in zip(test_index, x_test):
             test_pred[i] = stacked_estimator.predict(z.reshape(1, -1))
 
-        
-
         counting += 1
-
 
     if show_individual_test_pred:
         return test_pred

@@ -25,7 +25,7 @@ from xgboost import XGBRegressor
 from utils.data import create_df, get_absolute_path
 from utils.evaluation import show_metrics
 from utils.optimization import (convert_to_space, modify_scaling, opt_all,
-                                test_pred_nested_cv)
+                                stacked_nested_cv, test_pred_nested_cv)
 
 
 @hydra.main(
@@ -36,6 +36,7 @@ def main(cfg: DictConfig):
     call_transformer_scaler = cfg.opt
 
     call_svr = cfg.opt.svr
+    call_poly = cfg.opt.poly
 
     space_svr = [
         convert_to_space(call_svr, "kernel"),
@@ -47,6 +48,28 @@ def main(cfg: DictConfig):
         convert_to_space(call_reg_scaler, "scaling_regressor"),
         convert_to_space(call_transformer_scaler, "scaling_transformer"),
     ]
+
+    space_poly = [
+        convert_to_space(call_poly, "alpha"),
+        convert_to_space(call_poly, "fit_intercept"),
+        convert_to_space(call_poly, "copy_X"),
+        convert_to_space(call_poly, "degree"),
+        convert_to_space(call_poly, "interaction_only"),
+        convert_to_space(call_poly, "include_bias"),
+        convert_to_space(call_reg_scaler, "scaling_regressor"),
+        convert_to_space(call_transformer_scaler, "scaling_transformer"),
+    ]
+
+    pipe_elastic = Pipeline(
+        [
+            ("poli", PolynomialFeatures()),
+            ("scale", RobustScaler()),
+            ("reg", linear_model.Ridge(max_iter=30000, random_state=0)),
+        ]
+    )
+    ridge = TransformedTargetRegressor(
+        regressor=pipe_elastic, transformer=StandardScaler()
+    )
 
     pipe_svr = Pipeline(
         [("scale", RobustScaler()), ("reg", SVR(max_iter=10000))]
@@ -66,9 +89,9 @@ def main(cfg: DictConfig):
     y_all = df_apolar_all[["Expt"]].values
 
     list_of_x_all = [pi_alpha_x]
-    list_of_models = [svr]
-    list_of_spaces = [space_svr]
-    list_of_models_names = ["svr"]
+    list_of_models = [svr, ridge]
+    list_of_spaces = [space_svr, space_poly]
+    list_of_models_names = ["svr", "poly"]
     list_of_features = ["Pi + Alpha"]
 
     initial_t = datetime.now()
@@ -83,11 +106,28 @@ def main(cfg: DictConfig):
             list_of_models, list_of_models_names, list_of_features[i]
         )
 
-        predictions = test_pred_nested_cv(
+        predictions_svr = test_pred_nested_cv(
             new_list_of_models[0], list_of_spaces[0], j, y_all, 10, 5
         )
 
-        pred_df["SVR Pred's"] = np.int32(np.round(predictions))
+        predictions_poly = test_pred_nested_cv(
+            new_list_of_models[1], list_of_spaces[1], j, y_all, 10, 5
+        )
+
+        predictions = stacked_nested_cv(
+            new_list_of_models,
+            list_of_models_names,
+            list_of_spaces,
+            j,
+            y_all,
+            10,
+            5,
+            show_individual_test_pred=True,
+        )
+
+        pred_df["Stacked Pred's"] = np.int32(np.round(predictions))
+        pred_df["SVR Pred's"] = np.int32(np.round(predictions_svr))
+        pred_df["Poly Pred's"] = np.int32(np.round(predictions_poly))
 
         pred_df.to_csv(f"{pred_path}/test_predictions.csv", index=False)
 

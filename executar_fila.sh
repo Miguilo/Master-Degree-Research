@@ -5,22 +5,19 @@ pasta_saida="txt_outputs"
 
 # Lista de arquivos a serem executados
 arquivos=(
-    "src_apolar/get_opt_models_apolar.py"
     "src_polar/get_opt_models_polar.py"
-    "src_polar_apolar/get_opt_models_polar_apolar.py"
-    "src_apolar/eval_apolar_models.py"
+#    "src_apolar/eval_apolar_models.py"
     "src_polar/eval_polar_models.py"
-    "src_polar_apolar/eval_polar_apolar_models.py"
+#    "src_polar_apolar/eval_polar_apolar_models.py"
 )
 
 # Verifica se a pasta de saída existe, caso contrário, cria
+
 nome_arquivos=(
-    "get_opt_models_apolar.py"
+#    "get_opt_models_apolar.py"
     "get_opt_models_polar.py"
-    "get_opt_models_polar_apolar.py"
-    "eval_apolar_models.py"
+#    "eval_apolar_models.py"
     "eval_polar_models.py"
-    "eval_polar_apolar_models.py"
 )
 
 if [ ! -d "$pasta_saida" ]; then

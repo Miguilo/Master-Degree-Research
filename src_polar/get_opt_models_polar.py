@@ -4,6 +4,7 @@ from os import path
 file_dir = path.dirname(__file__)
 
 sys.path.insert(1, path.join(file_dir, "../src/"))
+import warnings
 from datetime import datetime
 
 import hydra
@@ -28,6 +29,7 @@ from utils.optimization import convert_to_space, modify_scaling, opt_all
     config_path=path.join(file_dir, "../config"), config_name="main.yaml"
 )
 def main(cfg: DictConfig):
+    warnings.filterwarnings("ignore")
     call_reg_scaler = cfg.opt
     call_transformer_scaler = cfg.opt
 

@@ -258,7 +258,7 @@ def create_fast_graph(
         if j in dict_for_map.keys():
             dict_sns["Model"][i] = dict_for_map[j]
 
-    plt.figure(figsize=figsize)
+    plt.figure(figsize=figsize, dpi=300)
 
     ax = sns.barplot(
         data=dict_sns, x="Model", y=y, hue="Feat_Comparison", palette=palette
@@ -426,7 +426,7 @@ def create_graph_shap(
 
     plot_df = pd.DataFrame(plot_dict)
 
-    plt.figure(figsize=figsize)
+    plt.figure(figsize=figsize, dpi=300)
     ax = sns.barplot(
         final_df,
         x="Models",
